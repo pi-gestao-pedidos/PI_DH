@@ -6,7 +6,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/perfil.css'>
-    <script src='js/main.js'></script>
 </head>
 <body>
     <nav>
@@ -42,7 +41,7 @@
                     <li><strong>Telefone: </strong><p id="pTelefone1">(00)00000-0000</p></li>
                     <li><strong>Telefone 2: </strong><p id="pTelefone2">(00)00000-0000</p></li>
                     <li><strong>CNPJ/CPF: </strong><p id="pCpfCnpj">000.000.000-00</p></li>
-                    <li><strong>Razão Social: </strong><p id="pRazaoSocial"> id="nome"Minha Empresa</p></li>
+                    <li><strong>Razão Social: </strong><p id="pRazaoSocial">Minha Empresa</p></li>
                     <li class="w100"><strong>Endereço: </strong><p id="pEndereco">Rua, nº, Bairro, Cidade - UF</p></li>
                 </ul>
             </div>
@@ -52,7 +51,7 @@
         </main>
     </div>
     <div id="perfilOverlay">
-        <form id="formPerfil" action="#" method="POST">
+        <form id="formPerfil" method="POST">
             <span class="close" onclick="overlayOff('perfilOverlay')">x</span>
             <div class="divPersonalPic">
                 <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
@@ -69,5 +68,7 @@
             <div class="btnForm"><input class="btn salvar" type="submit" value="salvar"/></div>
         </form>
     </div>
+    <script src='js/main.js'></script>
+    <script src='js/perfil.js'></script>
 </body>
 </html>
