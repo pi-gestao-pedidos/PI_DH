@@ -1,145 +1,136 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>PI - Digital House</title>
         <meta charset="utf-8">
-        <link href="estilos.css" rel="stylesheet">
+        <link href="css/inicial.css" rel="stylesheet">
     </head>
     <body>
         <header>
-            <img src=""/>
+            <img src="logo.png"/>
             <nav>
-                <ul>
+                <ul class="menuInicial">
                     <il>
-                        <a href="home.html">Home</a>
-                        <a href="sobre.html">Sobre</a>
-                        <a href="servicos.html">Serviços</a>
-                        <a href="home.html">Home</a>
-                        <a href="login.html">Login</a>
+                        <a class="itemMenu" href="home.html">Home</a>
+                        <a class="itemMenu" href="#sobre">Sobre</a>
+                        <a class="itemMenu" href="#servicos">Serviços</a>
+                        <a class="itemMenu" href="#equipe">Equipe</a>
                     </il>
                 </ul>
             </nav>
+            <buttom class="itemMenu" id="btnLogin" href="login.html">Login</buttom>
         </header>
-        <section>
-            <p>PI - Digital House</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing</p>
+        <section id="apresentacao">
+            <p id="nomeProjeto">PI - Digital House</p>
+            <p id="lemaProjeto">Insira aqui o lema do produto</p>
         </section>
-        <section>
-            <div>
-                <p>Quanto devo cobrar?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Doloremque reiciendis beatae quam deserunt assumenda 
-                    culpa voluptatem, amet excepturi consequuntur, 
-                    corporis hic nisi distinctio. Consectetur, laboriosam eaque. 
-                    Autem debitis sit unde!</p>
-            </div>
-            <div>
-                <img src=""/>
+        <section id="sobre">
+            <div id="quanto">
+                <p id="tituloQuanto">Quanto devo cobrar?</p>
+                <p>Sabemos que essa é uma dúvida bastante comum. O NOME DO APP 
+                    vai te ajudar a calcular o melhor preço para o seu produto,
+                incluindo seus gastos fixos, custos de material e mão-de-obra. 
+            Além disso, você terá maior controle de todas as áreas do seu negócio!  </p>
             </div>
         </section>
-        <section>
-            <p>PI vai ter ajudar a:</p>
-            <div>
-                <div>
-                    <div><img src="" /></div>
-                    <div>
-                        <p>Precificar seus produtos</p>
-                        <p>Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet. 
+        <section id="servicos">
+            <p class="tituloServicos">PI vai ter ajudar a:</p>
+            <div class="quadro">
+                <div class="itemServico"> 
+                    <div><img class="imgServicos" src="imgs/bluePriceTagIcon.png" /></div>
+                    <div class="texto">
+                        <p class="tituloTex">Precificar seus produtos</p>
+                        <p>Determine qual é o preço adequado a ser cobrado
+                            em seus produtos.
                         </p>
                     </div>
                 </div>
-                <div>
-                    <div><img src="" /></div>
-                    <div>
-                        <p>Gerenciar seus produtos</p>
-                        <p>Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet. 
+                <div class="itemServico">
+                    <div><img class="imgServicos" src="imgs/ordersIcon.png" /></div>
+                    <div class="texto">
+                        <p class="tituloTex">Gerenciar seus produtos</p>
+                        <p>Tenha controle dos seus produtos já criados
+                             ou em estoque. 
                         </p>
                     </div>
                 </div>
-                <div>
-                    <div><img src="" /></div>
-                    <div>
-                        <p>Gerenciar seus clientes</p>
-                        <p>Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet. 
+                <div class="itemServico">
+                    <div><img class="imgServicos" src="imgs/customersIcon.png" /></div>
+                    <div class="texto">
+                        <p class="tituloTex">Gerenciar seus clientes</p>
+                        <p>Tenha todo o histórico das pessoas que já
+                            compraram seus produtos. 
                         </p>
                     </div>
                 </div>
-                <div>
-                    <div><img src="" /></div>
-                    <div>
-                        <p>Gerenciar seus materiais</p>
-                        <p>Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet. 
+                <div class="itemServico">
+                    <div><img class="imgServicos" src="imgs/inputsIcon.png" /></div>
+                    <div class="texto">
+                        <p class="tituloTex">Gerenciar seus materiais</p>
+                        <p>Controle seu estoque e calcule o preço da sua matéria prima.
                         </p>
                     </div>
                 </div>
-                <div>
-                    <div><img src="" /></div>
-                    <div>
-                        <p>Gerenciar suas finanças</p>
-                        <p>Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet. 
+                <div class="itemServico">
+                    <div><img class="imgServicos" src="imgs/financeIcon.png" /></div>
+                    <div class="texto">
+                        <p class="tituloTex">Gerenciar suas finanças</p>
+                        <p>Tenha um panorama geral das suas entradas e saídas mensais.
                         </p>
                     </div>
                 </div>
-                <div>
-                    <div><img src="" /></div>
-                    <div>
-                        <p>Tomar decisões</p>
-                        <p>Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet. 
+                <div class="itemServico">
+                    <div><img class="imgServicos" src="imgs/dashboardIcon.png" /></div>
+                    <div class="texto">
+                        <p class="tituloTex">Gerenciar seus pedidos</p>
+                        <p>Saiba quais são as próximas entregas e quais os status dos 
+                            pedidos da sua loja.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-        <section>
-            <p>Equipe</p>
-            <div>
-                <div>
-                    <img src=""/>
+        <section id="equipe">
+            <p class="tituloServicos" id="eq">Equipe</p>
+            <div class="quadro">
+                <div class="itemServico">
+                    <div>
+                        <img src="imgs/avatar.png"/>
+                    </div>
+                    <div class="texto">
+                        <p class="tituloTex">Allen Xavier</p>
+                        <p>Lorem ipsum dolor sit amet.
+                            Lorem ipsum dolor sit amet.
+                            Lorem ipsum dolor sit amet.</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Allen Xavier</p>
-                    <p>Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet.</p>
+                <div class="itemServico">
+                    <div>
+                        <img src="imgs/avatar.png"/>
+                    </div>
+                    <div class="texto">
+                        <p class="tituloTex">Douglas Reis</p>
+                        <p>Lorem ipsum dolor sit amet.
+                            Lorem ipsum dolor sit amet.
+                            Lorem ipsum dolor sit amet.</p>
+                    </div>
                 </div>
-                <div>
-                    <img src=""/>
-                </div>
-                <div>
-                    <p>Douglas Reis</p>
-                    <p>Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div>
-                    <img src=""/>
-                </div>
-                <div>
-                    <p>Maína Alexandre</p>
-                    <p>Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet.</p>
+                <div class="itemServico">
+                    <div>
+                        <img src="imgs/avatar.png"/>
+                    </div>
+                    <div class="texto">
+                        <p class="tituloTex">Maína Alexandre</p>
+                        <p>Lorem ipsum dolor sit amet.
+                            Lorem ipsum dolor sit amet.
+                            Lorem ipsum dolor sit amet.</p>
+                    </div>
                 </div>
             </div>
         </section>
         <footer>
-            <div>
-                <img scr=""/>
-                <img scr=""/>
-                <img scr=""/>
-            </div>
-            <p>Copyright</p>
-        </footer>
+                <img scr="logo.png"/>
+                <img scr="imgs/santanderLogo.png"/>
+                <img scr="imgs/dhLogo.png">
+        <footer>
     </body>
