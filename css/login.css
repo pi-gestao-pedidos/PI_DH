@@ -9,6 +9,13 @@ main {
     color: #2B92F6;
     text-align: center;
     margin-right: 10%;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    top: -80%;
+    transform: translate(-50%, -50%);
 }
 
 .row {
@@ -136,3 +143,4 @@ input {
     cursor: pointer;
     background-color: #42B72A 
 }
+

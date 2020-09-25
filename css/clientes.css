@@ -1,8 +1,13 @@
 /* Login */
 
-main{
-    height: 75%;
+#mainUpper{
+    height: 95%;
     overflow-y: scroll;
+}
+#containerFooter{ 
+    height: 5%;
+    align-items: flex-end;
+    margin-top: 4%;
 }
 
 #tituloLogin{
@@ -80,7 +85,7 @@ main{
     background-color: #fff;
     border-radius: 2px;
     width: 27vw;
-    height: 56vh;
+    height: 80vh;
     padding: 1% 2%;
     display: flex;
     flex-wrap: wrap;
@@ -100,7 +105,7 @@ input {
 
 #containerMain{
     margin-bottom: 1%;
-    font-size: .7em;
+    font-size: .8em;
     border-radius: 30px;
     height: 35%;
     min-height:35%;
@@ -141,6 +146,3 @@ input {
     background-color: #42B72A 
 }
 
-#containerFooter{ 
-    height: 10%;
-}
