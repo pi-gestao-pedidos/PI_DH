@@ -30,7 +30,7 @@ main li {
     width: 45%;
 }
 
-#overlay {
+#perfilOverlay {
     background-color: #0008;
     position: fixed;
     width: 100vw;
