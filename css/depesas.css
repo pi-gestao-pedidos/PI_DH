@@ -1,0 +1,90 @@
+
+.despesas{
+    background-color: #FFF;
+    color: #8F959B;
+    padding: 3% 7.5%;
+    font-size: 1.25em;
+}
+
+#ppdespesa{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+ }
+
+.itemDespesa{
+    width: 95%;
+    height: 7vh;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    color: #8F959B;
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    justify-content: flex-start;
+}
+
+.nomeItenCost{
+    font-size: 1.8em;
+    color: #8F959B;
+    padding-top: 1.5%;  
+    margin-right: 69%
+}
+
+.precoDesp{
+    color: #8F959B;
+    padding-top: 1.5%;
+    margin-right: 2px;
+}
+
+#perfilOverlay {
+    background-color: #0008;
+    position: absolute;
+    margin-left: 30%;
+    width: 50vw;
+    height: 30vh;
+    display: none;
+    margin-top: 20%;
+}
+
+#formPerfil {
+    background-color: #fff;
+    width: 70vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 45%;
+    font-size: 1.25em;
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+    margin-left: 5%;
+}
+
+.fechar{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: relative;
+    margin-left: 90%;
+    margin-top: 2%;
+    text-align: justify;  
+}
+
+#fpNome{
+    margin-top: 5%;
+    margin-bottom: 10px;
+}
+
+
+.btnForm {
+    width: 100%;
+    text-align: center;
+    padding: 2% 0;
+    margin-top: 5%
+}
+
