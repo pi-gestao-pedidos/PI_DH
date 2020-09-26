@@ -1,0 +1,85 @@
+.itens{
+     height: 75%;
+     overflow: auto;
+ }
+
+.itemDespesa{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8F959B;
+    background-color: white;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.icon{
+    width: 5%;
+    margin: 2%;
+}
+
+.nomeItenCost{
+    font-size: 2em;
+    width: 50%;
+}
+
+.precoDesp{
+    font-size: 1.5em;
+    width: 15%;
+    text-align: end;
+}
+
+.precoDesp{
+    color: #8F959B;
+}
+
+#despesasOverlay {
+    background-color: #0008;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#formDespesas {
+    background-color: #fff;
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+input {
+    width: 45%;
+    font-size: 1.25em;
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+}
+
+.fechar{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: relative;
+    margin-left: 90%;
+    margin-top: 2%;
+    text-align: justify;  
+}
+
+.btnForm {
+    width: 100%;
+    text-align: center;
+    padding: 2% 0;
+    margin-top: 5%
+}
+
