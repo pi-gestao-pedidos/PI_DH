@@ -1,0 +1,25 @@
+.pppreco{
+    width: 77vw;
+    height: 61vh;
+    align-self: center;
+    background: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#vamos_p{
+    width: 70%;
+    height: 30%;
+    text-align: center;
+    margin-top: 5%
+}
+
+#explic_p{
+    color: #8F959B;
+    width: 90%;
+    text-align: justify;
+    margin-top: 5%
+}
