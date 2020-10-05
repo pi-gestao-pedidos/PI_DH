@@ -144,6 +144,11 @@ section {
     justify-content: center;
 }
 
+.contatos { 
+    text-decoration: none;
+    color: #2B92F6;
+}
+
 #equipe .container { height: 60% }
 
 #equipe .cards p { 
