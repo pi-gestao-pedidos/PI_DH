@@ -31,7 +31,7 @@
             <h2>Precificação</h2>
         </header>
         <main>
-            <div class="pppreco"> 
+            <div class="prec"> 
                <h3 id="vamos_p">Vamos precificar o seu produto?</h3>
                <p id="explic_p">Ao clicar no botão iniciar abaixo, você incluirá 
                    os detalhes do seu produto e ao final teremos uma sugestão de 
@@ -41,11 +41,37 @@
             </div>
             
             <div id="containerFooter">
-                <a class="btn editar" href="P1.html">iniciar</a>
+                <span class="btn editar" onclick="overlayOn('P1')">iniciar</span>
+            </div>
+            <div id="P1" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P1')">x</span>
+                    <h3>Qual o nome do produto?</h3>
+                    <input type="text" name="nome" placeholder="nome do produto:*" required/>
+                    <h3>Descreva o produto:</h3>
+                    <input type="text" name="valor" placeholder="descreva o produto:"/>
+                    <div class="btnForm">
+                        <input class="btn voltar" onclick="overlayOff('P1')" type="submit" value="voltar"/>
+                        <input class="btn salvar" onclick="overlayOn('P2')" type="submit" value="salvar"/>
+                    </div>
+                </form>
+            </div>
+            <div id="P2" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P1')">x</span>
+                    <h3>Qual </h3>
+                    <input type="text" name="nome" placeholder="nome do produto:*" required/>
+                    <h3>Descreva o produto:</h3>
+                    <input type="text" name="valor" placeholder="descreva o produto:"/>
+                    <div class="btnForm">
+                        <input class="btn voltar" onclick="overlayOff('P1')" type="submit" value="voltar"/>
+                        <input class="btn salvar" onclick="overlayOn('P2')" type="submit" value="salvar"/>
+                    </div>
+                </form>
             </div>
         </main>
     </div>
-    
+ 
     <script src='js/main.js'></script>
     <script src='js/perfil.js'></script>
 </body>

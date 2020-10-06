@@ -1,4 +1,4 @@
-.pppreco{
+.prec{
     width: 77vw;
     height: 61vh;
     align-self: center;
@@ -21,5 +21,50 @@
     color: #8F959B;
     width: 90%;
     text-align: justify;
+    margin-top: 5%
+}
+.contP{
+    position: absolute;
+    width: 77vw;
+    height: 80vh;
+    background: #FFFFFF;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.Ps{
+    background-color: #fff;
+    width: 77vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+input {
+    width: 45%;
+    font-size: 1.25em;
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+}
+
+.fechar{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: relative;
+    margin-left: 90%;
+    text-align: justify;  
+}
+
+.btnForm {
+    width: 100%;
+    text-align: center;
+    padding: 2% 0;
     margin-top: 5%
 }

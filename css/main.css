@@ -40,7 +40,18 @@ h3 { font-size: 2.25em; font-weight: normal; color: #2B92F6 }
     border: none;
     outline: none; 
 }
+
+.voltar{
+    background-color: #8F959B ;
+    color: #F3F3F7;
+    width: max-content;
+    border: none;
+    outline: none; 
+}
+
 .salvar:hover { background-color:#25801C }
+
+.voltar:hover { background-color:rgb(73, 77, 73) }
 
 .close{
     cursor: pointer;
