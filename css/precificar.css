@@ -80,7 +80,7 @@ input {
     align-items: center;
 }
 
-#overlaymat, #overlaycust{
+#overlaymat, #overlaycust, #overlaydesp{
     background-color: #0008;
     position: absolute;
     width: 80vw;
@@ -143,4 +143,21 @@ input {
 
 #qt{
     text-align: center;
+}
+#fimtopo{
+    display: flex;
+    flex-direction: row;
+}
+#prodfinal{
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+}
+#fimbaixo{
+    color:#8F959B;
+    font-weight: bold ;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
 }
