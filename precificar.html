@@ -47,28 +47,53 @@
                 <form class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P1')">x</span>
                     <h3>Qual o nome do produto?</h3>
-                    <input type="text" name="nome" placeholder="nome do produto:*" required/>
+                    <input type="text" name="nome" placeholder="nome:*" required/>
                     <h3>Descreva o produto:</h3>
-                    <input type="text" name="valor" placeholder="descreva o produto:"/>
+                    <input type="text" name="valor" placeholder="descrição..."/>
                     <div class="btnForm">
                         <input class="btn voltar" onclick="overlayOff('P1')" type="submit" value="voltar"/>
-                        <input class="btn salvar" onclick="overlayOn('P2')" type="submit" value="salvar"/>
+                        <input class="btn salvar" onclick="overlayOn('P2')" type="submit" value="avançar"/>
                     </div>
                 </form>
             </div>
             <div id="P2" class="contP">
                 <form class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P1')">x</span>
-                    <h3>Qual </h3>
-                    <input type="text" name="nome" placeholder="nome do produto:*" required/>
-                    <h3>Descreva o produto:</h3>
-                    <input type="text" name="valor" placeholder="descreva o produto:"/>
+                    <h3>Quais materiais serão utilizados? </h3>
+                    <span class="btn editar" onclick="overlayOn('overlaymat')">adicionar material</span>
+                    <div class="itemMaterial">
+                        <img class="icon" src="imgs/costIcon.png"/>
+                        <p class="nomeItenCost">material</p>
+                        <p class="precoDesp">R$ 0,00</p>
+                        <img class="icon" src="imgs/editIcon.png"/>
+                        <img class="icon" src="imgs/trashIcon.png"/>
+                    </div>
                     <div class="btnForm">
-                        <input class="btn voltar" onclick="overlayOff('P1')" type="submit" value="voltar"/>
-                        <input class="btn salvar" onclick="overlayOn('P2')" type="submit" value="salvar"/>
+                        <input class="btn voltar" onclick="overlayOff('P2')" type="submit" value="voltar"/>
+                        <input class="btn salvar" id="av" onclick="overlayOn('P3')" type="submit" value="avançar"/>
                     </div>
                 </form>
             </div>
+            <div id="overlaymat">
+                <form class="formMaterial" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('overlaymat')">x</span>
+                    <p class="textojanela">Precisa cadastrar um novo material?</p>
+                    <a class="btn editar" href="materiais.html">novo material</a>
+                    <div class="dropdown">
+                        <span class="textojanela">selecione um material</span>
+                        <div class = "dropcontent">
+                            <a>material1</a>
+                            <a>material2</a>
+                        </div>
+                    </div>
+                    <div id="qt">
+                        <p class="textojanela">quantidade:</p>
+                        <input type="text" name="quantidade" required/>
+                    </div>
+                    <input class="btn salvar" id="av" onclick="overlayOff('overlaymat')" type="submit" value="salvar"/>
+                </form>
+            </div>
+            
         </main>
     </div>
  
