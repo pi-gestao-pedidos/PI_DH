@@ -67,7 +67,9 @@ input {
     text-align: center;
     padding: 2% 0;
     margin-top: 5%;
+    display: flex;
 }
+
 
 .formMaterial {
     background-color: #fff;
