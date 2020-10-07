@@ -58,7 +58,7 @@
             </div>
             <div id="P2" class="contP">
                 <form class="Ps" action="#" method="POST">
-                    <span class="fechar" onclick="overlayOff('P1')">x</span>
+                    <span class="fechar" onclick="overlayOff('P2')">x</span>
                     <h3>Quais materiais serão utilizados? </h3>
                     <span class="btn editar" onclick="overlayOn('overlaymat')">adicionar material</span>
                     <div class="itemMaterial">
@@ -70,7 +70,25 @@
                     </div>
                     <div class="btnForm">
                         <input class="btn voltar" onclick="overlayOff('P2')" type="submit" value="voltar"/>
-                        <input class="btn salvar" id="av" onclick="overlayOn('P3')" type="submit" value="avançar"/>
+                        <input class="btn salvar" onclick="overlayOn('P3')" type="submit" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+            <div id="P3" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P3')">x</span>
+                    <h3>Você tem mais algum custo com o produto? </h3>
+                    <span class="btn editar" onclick="overlayOn('overlaycust')">adicionar custo</span>
+                    <div class="itemMaterial">
+                        <img class="icon" src="imgs/costIcon.png"/>
+                        <p class="nomeItenCost">custo variável</p>
+                        <p class="precoDesp">R$ 0,00</p>
+                        <img class="icon" src="imgs/editIcon.png"/>
+                        <img class="icon" src="imgs/trashIcon.png"/>
+                    </div>
+                    <div class="btnForm">
+                        <input class="btn voltar" onclick="overlayOff('P3')" type="submit" value="voltar"/>
+                        <input class="btn salvar" id="av" onclick="overlayOn('P4')" type="submit" value="avançar"/>
                     </div>
                 </form>
             </div>
@@ -91,6 +109,16 @@
                         <input type="text" name="quantidade" required/>
                     </div>
                     <input class="btn salvar" id="av" onclick="overlayOff('overlaymat')" type="submit" value="salvar"/>
+                </form>
+            </div>
+            <div id="overlaycust">
+                <form class="formMaterial" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('overlaycust')">x</span>
+                    <input type="text" name="nomecusto" placeholder="nome do custo:*" required/>        
+                    <input id="custo1" type="text" name="nomecusto" placeholder="valor R$:"/>
+                    <p id="ou">OU</p>
+                    <input id="custo2" type="text" name="nomecusto" placeholder="porcentagem %:"/>
+                    <input class="btn salvar" id="av" onclick="overlayOff('overlaycust')" type="submit" value="salvar"/>    
                 </form>
             </div>
             

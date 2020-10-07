@@ -80,7 +80,7 @@ input {
     align-items: center;
 }
 
-#overlaymat{
+#overlaymat, #overlaycust{
     background-color: #0008;
     position: absolute;
     width: 80vw;
@@ -88,6 +88,7 @@ input {
     display: none;
     justify-content: center;
     align-items: center;
+    color:#8F959B;
 }
 .itemMaterial{
     display: flex;
