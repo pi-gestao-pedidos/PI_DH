@@ -92,6 +92,38 @@
                     </div>
                 </form>
             </div>
+
+            <div id="P4" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P1')">x</span>
+                    <h3>Quantos minutos para produzir uma unidade?</h3>
+                    <input type="text" name="nome" placeholder="minutos"/>
+                    <h3>OU</h3>
+                    <h3>Quantas unidades são produzidas em um mês?</h3>
+                    <input type="text" name="valor" placeholder="unidades"/>
+                    <div class="btnForm">
+                        <input class="btn voltar" onclick="overlayOff('P4')" type="submit" value="voltar"/>
+                        <input class="btn salvar" onclick="overlayOn('P5')" type="submit" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+
+            <div id="P5" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P1')">x</span>
+                    <h3>Qual o custo mensal da sua mão-de-obra?</h3>
+                    <input type="text" name="nome" placeholder="custo mão de obra"/>
+                    <h3>Quantas horas mensais você dedica para a produção?</h3>
+                    <input type="text" name="valor" placeholder="horas mensais"/>
+                    <h3>Paga mais algum salário? Quanto?</h3>
+                    <input type="text" name="valor" placeholder="outro salário"/>
+                    <div class="btnForm">
+                        <input class="btn voltar" onclick="overlayOff('P5')" type="submit" value="voltar"/>
+                        <input class="btn salvar" onclick="overlayOn('P6')" type="submit" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+
             <div id="overlaymat">
                 <form class="formMaterial" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('overlaymat')">x</span>
