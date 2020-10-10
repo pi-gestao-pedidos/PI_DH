@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/login.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <main>
+            <div class="row">
+                <div class="column">
+                    <div id="tituloLogin" class="tituloLogin">
+                        <img id="logo" src="logo.png" alt="logo" />
+                        <h2>PI - Digital House</h2>
+                        <p>Pág ina de Cada stro de Usu ário - Pági na de Cada stro de Usu ário - Página de Cada stro de
+                            Usuário - Página de Cad astro de Usuário - Página de Cadastro de Usuário - Página de
+                            Cadastro de Usuário - </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <form id="formLogin" action="#" method="POST">
+                        <div id="containerMain" class="perfil">
+                            <input type="email" name="email" id="fpEmail" placeholder="email*" required />
+                            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required />
+                            <button class="btnEditar" type="submit" value="login">Login</button>
+                            <div class="naoConta">
+                                <p>Não em Conta?</p>
+                            </div>
+                            <button class="btnCadastrar" onclick="overlayOn()">Cadastre-se</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="overlay">
+        <form id="formPerfil" action="#" method="POST">
+            <span class="close" onclick="overlayOff()">x</span>
+            <input type="text" name="nome" id="fpNome" placeholder="nome*" required />
+            <input type="email" name="email" id="fpEmail" placeholder="email*" required />
+            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required />
+            <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required />
+            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar" /></div>
+        </form>
+    </div>
+    <script>
+        function overlayOn() {
+            document.getElementById("overlay").style.display = "flex";
+        }
+
+        function overlayOff() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

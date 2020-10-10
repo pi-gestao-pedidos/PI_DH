@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Precificação</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/precificar.css'>
+</head>
+<body>
+    <nav>
+        <div>
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
+            <span>Nome</span>
+        </div>
+        <ul>
+            <a href=home.html><li><img src="imgs/nav/homeIconNav.png"/>Home</li></a>
+            <a href=precificar.html><li class="active"><img src="imgs/nav/pricingIconNav.png"/>Precificar</li></a>
+            <a href=pedidos.html><li><img src="imgs/nav/orderIconNav.png"/>Pedidos</li></a>
+            <a href=produtos.html><li><img src="imgs/nav/productIconNav.png"/>Produtos</li></a>
+            <a href=materiais.html><li><img src="imgs/nav/inputIconNav.png"/>Materiais</li></a>
+            <a href=clientes.html><li><img src="imgs/nav/customersIconNav.png"/>Clientes</li></a>
+            <a href=salarios.html><li><img src="imgs/nav/salaryIconNav.png"/>Salários</li></a>
+            <a href=despesas.html><li><img src="imgs/nav/costIconNav.png"/>Despesas</li></a>
+            <a href=perfil.html><li><img src="imgs/nav/profileIconNav.png"/>Perfil</li></a>
+        </ul>
+    </nav>
+    <div id="container">
+        <header>
+            <img id="logo" src="logo.png" alt="logo" />
+            <h2>Precificação</h2>
+        </header>
+        <main>
+            <div class="prec"> 
+               <h3 id="vamos_p">Vamos precificar o seu produto?</h3>
+               <p id="explic_p">Ao clicar no botão iniciar abaixo, você incluirá 
+                   os detalhes do seu produto e ao final teremos uma sugestão de 
+                    preço para ele, considerando o custo da matéria prima, da mão-de-obra
+                    e custos fixos do negócio. Você terá também uma noção da projeção
+                    de lucro que será alcançada. </p>
+            </div>
+            
+            <div id="containerFooter">
+                <span class="btn editar" onclick="overlayOn('P1')">iniciar</span>
+            </div>
+            <div id="P1" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P1')">x</span>
+                    <h3>Qual o nome do produto?</h3>
+                    <input type="text" name="nome" placeholder="nome:*" required/>
+                    <h3>Descreva o produto:</h3>
+                    <input type="text" name="valor" placeholder="descrição..."/>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P1')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" onclick="overlayOn('P2')" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+            <div id="P2" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P2')">x</span>
+                    <h3>Quais materiais serão utilizados? </h3>
+                    <span class="btn editar" onclick="overlayOn('overlaymat')">adicionar material</span>
+                    <div class="itemMaterial">
+                        <img class="icon" src="imgs/costIcon.png"/>
+                        <p class="nomeItenCost">material</p>
+                        <p class="precoDesp">R$ 0,00</p>
+                        <img class="icon" src="imgs/editIcon.png"/>
+                        <img class="icon" src="imgs/trashIcon.png"/>
+                    </div>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P2')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" onclick="overlayOn('P3')" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+            <div id="P3" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P3')">x</span>
+                    <h3>Você tem mais algum custo com o produto? </h3>
+                    <span class="btn editar" onclick="overlayOn('overlaycust')">adicionar custo</span>
+                    <div class="itemMaterial">
+                        <img class="icon" src="imgs/costIcon.png"/>
+                        <p class="nomeItenCost">custo variável</p>
+                        <p class="precoDesp">R$ 0,00</p>
+                        <img class="icon" src="imgs/editIcon.png"/>
+                        <img class="icon" src="imgs/trashIcon.png"/>
+                    </div>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P3')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" onclick="overlayOn('P4')" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+
+            <div id="P4" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P4')">x</span>
+                    <h3>Quantos minutos para produzir uma unidade?</h3>
+                    <input type="text" name="nome" placeholder="minutos"/>
+                    <h3>OU</h3>
+                    <h3>Quantas unidades são produzidas em um mês?</h3>
+                    <input type="text" name="valor" placeholder="unidades"/>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P4')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" onclick="overlayOn('P5')" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+
+            <div id="P5" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P5')">x</span>
+                    <h3>Qual o custo mensal da sua mão-de-obra?</h3>
+                    <input type="text" name="nome" placeholder="custo mão de obra"/>
+                    <h3>Quantas horas mensais você dedica para a produção?</h3>
+                    <input type="text" name="valor" placeholder="horas mensais"/>
+                    <h3>Paga mais algum salário? Quanto?</h3>
+                    <input type="text" name="valor" placeholder="outro salário"/>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P5')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" onclick="overlayOn('P6')" value="avançar"/>
+                    </div>
+                </form>
+            </div>
+
+            <div id="P6" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P6')">x</span>
+                    <h3>Quais são as despesas fixas do seu negócio? </h3>
+                    <span class="btn editar" onclick="overlayOn('overlaydesp')">adicionar despesa</span>
+                    <div class="itemMaterial">
+                        <img class="icon" src="imgs/costIcon.png"/>
+                        <p class="nomeItenCost">Despesa</p>
+                        <p class="precoDesp">R$ 0,00</p>
+                        <img class="icon" src="imgs/editIcon.png"/>
+                        <img class="icon" src="imgs/trashIcon.png"/>
+                    </div>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P6')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" onclick="overlayOn('P7')" value="avançar"/>
+                </form>
+            </div>
+            <div id="P7" class="contP">
+                <form class="Ps" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('P7')">x</span>
+                    <h3>Qual o lucro desejado?</h3>
+                    <div id="fimtopo">
+                        <input type="text" name="lucro" placeholder="lucro"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <a class="btn editar" href="precificar.html">atualizar</a>
+                    </div>
+                    <div id="prodfinal">
+                        <h3>Produto</h3>
+                        <p></p>
+                        <p class="textojanela">Detalhamos abaixo para você os custos e lucro do produto, 
+                            e sugerimos um preço de venda. Lembre-se que esse preço é uma sugestão, sendo 
+                        indicado também procurar referência de valores de mercado na sua cidade/região para comparação.</p>
+                        <div id="fimbaixo">
+                            <div id="projecoes">
+                                <p>Projeção do custo do produto: R$ 0,00</p>
+                                <p>Projeção da margem de contribuição: R$ 0,00</p>
+                                <p>Projeção de lucro: R$ 0,00</p>
+                            </div>
+                            <div id="precosug">
+                                <h3>Preço sugerido: R$ 0,00</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btnForm">
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P7')"/>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input class="btn salvar" value="salvar"/>
+                    </div>
+                </form>
+            </div>
+
+            <div id="overlaymat">
+                <form class="formMaterial" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('overlaymat')">x</span>
+                    <p class="textojanela">Precisa cadastrar um novo material?</p>
+                    <a class="btn editar" href="materiais.html">novo material</a>
+                    <div class="dropdown">
+                        <span class="textojanela">selecione um material</span>
+                        <div class = "dropcontent">
+                            <a>material1</a>
+                            <a>material2</a>
+                        </div>
+                    </div>
+                    <div id="qt">
+                        <p class="textojanela">quantidade:</p>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <input type="text" name="quantidade" required/>
+                    </div>
+                    <input class="btn salvar" id="av" onclick="overlayOff('overlaymat')" type="submit" value="salvar"/>
+                </form>
+            </div>
+            <div id="overlaycust">
+                <form class="formMaterial" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('overlaycust')">x</span>
+                    <input type="text" name="nomecusto" placeholder="nome do custo:*" required/>        
+                    <input id="custo1" type="text" name="nomecusto" placeholder="valor R$:"/>
+                    <p id="ou">OU</p>
+                    <input id="custo2" type="text" name="nomecusto" placeholder="porcentagem %:"/>
+                    <input class="btn salvar" id="av" onclick="overlayOff('overlaycust')" type="submit" value="salvar"/>    
+                </form>
+            </div>
+
+            <div id="overlaydesp">
+                <form class="formMaterial" action="#" method="POST">
+                    <span class="fechar" onclick="overlayOff('overlaydesp')">x</span>
+                    <p class="textojanela">Precisa cadastrar uma nova despesa?</p>
+                    <a class="btn editar" href="despesas.html">nova despesa</a>
+                    <div class="dropdown">
+                        <span class="textojanela">selecione uma despesa</span>
+                        <div class = "dropcontent">
+                            <p><a>despesa1</a></p>
+                            <p><a>despesa2</a></p>
+                        </div>
+                    </div>
+                    <input class="btn salvar" id="av" onclick="overlayOff('overlaymat')" type="submit" value="salvar"/>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+ 
+    <script src='js/main.js'></script>
+    <script src='js/perfil.js'></script>
+</body>
+</html>
