@@ -7,7 +7,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/pedidos.css'>
-    <script src='js/main.js'></script>
 </head>
 
 <body>
@@ -56,11 +55,11 @@
 
                 <div class="row itemPedido">
                     <img class="column icon" src="imgs/orderIcon2.png" />
-                    <div class="column6" style="padding-left: 10px;">
+                    <div class="columnMaior" style="padding-left: 10px;">
                         <p class="row chamada">Cliente:</p>
-                        <p class="row dadosDB">Fula de Tal com Sobrenome</p>
+                        <p class="row dadosDB">Fulano de Tal com Sobrenome</p>
                     </div>
-                    <div class="column3">
+                    <div class="columnStatus">
                         <p class="row chamada">Status:</p>
                         <p class="row dadosDB">Pedente</p>
                     </div>
@@ -79,33 +78,11 @@
 
                 <div class="row itemPedido">
                     <img class="column icon" src="imgs/orderIcon2.png" />
-                    <div class="column6" style="padding-left: 10px;">
+                    <div class="columnMaior" style="padding-left: 10px;">
                         <p class="row chamada">Cliente:</p>
-                        <p class="row dadosDB">Fula de Tal com Sobrenome</p>
+                        <p class="row dadosDB">Fulano de Tal com Sobrenome</p>
                     </div>
-                    <div class="column3">
-                        <p class="row chamada">Status:</p>
-                        <p class="row dadosDB">Pedente</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Data:</p>
-                        <p class="row dadosDB">05/12/1998</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Valor:</p>
-                        <p class="row dadosDB">R$ 4.500,00</p>
-                    </div>
-                    <img class="column icon" src="imgs/editIcon.png" />
-                    <img class="column icon" src="imgs/trashIcon.png" />
-                </div>
-
-                <div class="row itemPedido">
-                    <img class="column icon" src="imgs/orderIcon2.png" />
-                    <div class="column6" style="padding-left: 10px;">
-                        <p class="row chamada">Cliente:</p>
-                        <p class="row dadosDB">Fula de Tal com Sobrenome</p>
-                    </div>
-                    <div class="column3">
+                    <div class="columnStatus">
                         <p class="row chamada">Status:</p>
                         <p class="row dadosDB">Pedente</p>
                     </div>
@@ -124,57 +101,11 @@
 
                 <div class="row itemPedido">
                     <img class="column icon" src="imgs/orderIcon2.png" />
-                    <div class="column6" style="padding-left: 10px;">
+                    <div class="columnMaior" style="padding-left: 10px;">
                         <p class="row chamada">Cliente:</p>
-                        <p class="row dadosDB">Fula de Tal com Sobrenome</p>
+                        <p class="row dadosDB">Fulano de Tal com Sobrenome</p>
                     </div>
-                    <div class="column3">
-                        <p class="row chamada">Status:</p>
-                        <p class="row dadosDB">Pedente</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Data:</p>
-                        <p class="row dadosDB">05/12/1998</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Valor:</p>
-                        <p class="row dadosDB">R$ 4.500,00</p>
-                    </div>
-                    <img class="column icon" src="imgs/editIcon.png" />
-                    <img class="column icon" src="imgs/trashIcon.png" />
-                </div>
-
-
-                <div class="row itemPedido">
-                    <img class="column icon" src="imgs/orderIcon2.png" />
-                    <div class="column6" style="padding-left: 10px;">
-                        <p class="row chamada">Cliente:</p>
-                        <p class="row dadosDB">Fula de Tal com Sobrenome</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Status:</p>
-                        <p class="row dadosDB">Pedente</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Data:</p>
-                        <p class="row dadosDB">05/12/1998</p>
-                    </div>
-                    <div class="column3">
-                        <p class="row chamada">Valor:</p>
-                        <p class="row dadosDB">R$ 4.500,00</p>
-                    </div>
-                    <img class="column icon" src="imgs/editIcon.png" />
-                    <img class="column icon" src="imgs/trashIcon.png" />
-                </div>
-
-
-                <div class="row itemPedido">
-                    <img class="column icon" src="imgs/orderIcon2.png" />
-                    <div class="column6" style="padding-left: 10px;">
-                        <p class="row chamada">Cliente:</p>
-                        <p class="row dadosDB">Fula de Tal com Sobrenome</p>
-                    </div>
-                    <div class="column3">
+                    <div class="columnStatus">
                         <p class="row chamada">Status:</p>
                         <p class="row dadosDB">Pedente</p>
                     </div>
@@ -193,10 +124,40 @@
 
             </div>
             <div id="containerFooter">
-                <span class="btn salvar" onclick="overlayOn('despesasOverlay')">Novo Pedido</span>
+                <span class="btn salvar" onclick="overlayOn('pedidosOverlay')">Novo Pedido</span>
             </div>
         </main>
     </div>
+
+    <div id="pedidosOverlay">
+        <form id="formPedido" action="#" method="POST">
+            <span class="fechar" onclick="overlayOff('pedidosOverlay')">x</span>
+            <div class="row" style="height: 10%;">
+                <img class="column icon" style="padding: 0%;" src="imgs/orderIcon2.png" />
+                <p class="column dadosDB">Pedido:</p>
+                <p class="column2 dadosDBoverlay">099388</p>
+                <p class="column5 dadosDBoverlay" style="margin-left: 3%;">Selecionar Status</p>
+            </div>
+            <div class="row" style="height: 10%; gap: 3%;">
+                <p class="column dadosDBoverlay">Selecionar Cliente</p>
+                <p class="column dadosDBoverlay">Data do Pedido: 23/07/1999</p>
+            </div>
+            <div class="row" style="height: 10%; gap: 3%;">
+                <div class="column dadosDBoverlay editar" style="cursor: pointer; margin-top: 0%; padding: 0%; height: 100%; color: white; background-color: #2B92F6;" type="submit" value="editar">adicionar produto</div>
+                <p class="column dadosDBoverlay">Entrega Prevista: 23/07/1999</p>
+            </div>
+
+
+
+
+            <input type="text" name="nome" id="fpNome" placeholder="nome da despesa:*" required />
+            <input type="text" name="valor" id="fpValor" placeholder="valor R$:*" required />
+            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar" /></div>
+        </form>
+    </div>
+    <script src='js/main.js'></script>
+    <script src='js/perfil.js'></script>
+
 </body>
 
 </html>
