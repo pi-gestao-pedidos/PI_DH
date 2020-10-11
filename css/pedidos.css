@@ -1,0 +1,67 @@
+.row{
+    /* margin-bottom: 0px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 100%; */
+    align-items: center;
+}
+  
+.column{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    justify-content: center;
+}
+
+.column3{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 3;
+    justify-content: center;
+}
+.column6{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 12;
+    justify-content: center;
+}
+  
+.itemPedido{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8F959B;
+    background-color: white;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.icon{
+    padding: 1%;
+    width: max-content;
+}
+
+
+.chamada{
+    font-size: 1em;
+    text-align: end;
+    color: #8F959B
+}
+
+.dadosDB{
+    font-size: 1.2em;
+    text-align: end;
+    color: #8F959B
+}
+
+.btn editar
