@@ -49,6 +49,8 @@
     text-align: center;
     color: #8F959B;
     width: 20%;
+    border-radius: 10px;
+    border: 2px solid #8F959B;
 }
 
 
