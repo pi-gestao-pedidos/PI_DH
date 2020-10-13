@@ -132,15 +132,62 @@
     <div id="pedidosOverlay">
         <form id="formPedido" action="#" method="POST" style="gap: 3%;">
             <span class="fechar" onclick="overlayOff('pedidosOverlay')">x</span>
-            <div class="row">
-                <img class="column icon" style="padding: 0%; margin: -2%; margin-right: 3%;"
+            <div class="row" style="height: 1%;">
+                <img class="icon column" style="padding: 0%; margin: -2%; margin-right: 3%;"
                     src="imgs/orderIcon2.png" />
                 <p class="column dadosDB">Pedido:</p>
                 <p class="column2 dadosDBoverlay">099388</p>
-                <p class="column5 dadosDBoverlay" style="margin-left: 3%;">Selecionar Status</p>
+                <div class="dropdown column5 " style="margin-left: 3%; justify-content: center; align-items: center;">
+                    <button onclick="myFunction()" class="dropbtn column5 dadosDBoverlay">Selecionar Status</button>
+                    <ul id="myDropdown" class="dropdown-content" style="padding-left: 2%;">
+                        <li href="#" class="row margem"
+                            style="width: 98%; padding: 1% 40%; margin-top: 1%; margin-bottom:  1%; color: gray;">
+                            FINALIZADO</li>
+                        <li href="#" class="row margem"
+                            style="width: 98%; padding: 1% 40%; margin-bottom: 1%; color: green;">
+                            DISPONIVEL</li>
+                        <li href="#" class="row margem"
+                            style="width: 98%; padding: 1% 38.5%; margin-bottom: 1%; color: blue;">EM
+                            PRODUÇÃO</li>
+                        <li href="#" class="row margem"
+                            style="width: 98%; padding: 1% 41%; margin-bottom: 1%;color: red;">
+                            PENDENTE</li>
+                    </ul>
+                </div>
             </div>
             <div class="row" style="gap: 3%;">
-                <p class="column dadosDBoverlay">Selecionar Cliente</p>
+                <!-- <p class="column dadosDBoverlay">Selecionar Cliente</p> -->
+                
+                
+                
+                <div class="dropdown column" style="justify-content: center; align-items: center;">
+                    <button onclick="myFunction()" class="dropbtn column dadosDBoverlay">Selecionar Cliente</button>
+                    <ul id="myDropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                        <li href="#carlos" class="row margem"
+                            style="width: 98%; padding: 1% 40%; margin-top: 1%; margin-bottom:  1%; color: gray;">
+                            CARLOS
+                        </li>
+                        <li href="#andre" class="row margem"
+                            style="width: 98%; padding: 1% 40%; margin-top: 1%; margin-bottom:  1%; color: gray;">
+                            ANDRE
+                        </li>
+                        <li href="#fernando" class="row margem"
+                            style="width: 98%; padding: 1% 40%; margin-top: 1%; margin-bottom:  1%; color: gray;">
+                            FERNANDO
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+
+
+                
                 <p class="column dadosDBoverlay">Data do Pedido: 23/07/1999</p>
             </div>
             <div class="row" style="gap: 3%;">
@@ -200,17 +247,18 @@
                 </div>
             </div>
             <div class="row" style="gap: 3%; align-content: center;">
-                <div class="column btnForm" style="margin-top: 0%;"><input
-                    class="btn editar" type="submit" value="editar valor" /></div>
-                    <p class="column" style="text-align: center; color: #8F959B;">Valor Total: R$ 232,00</p>
-                <div class="column btnForm" style="margin-top: 0%;"><input
-                        class="btn salvar" style="width: 100%;" type="submit" value="salvar" /></div>
+                <div class="column btnForm" style="margin-top: 0%;"><input class="btn editar" type="submit"
+                        value="editar valor" /></div>
+                <p class="column" style="text-align: center; color: #8F959B;">Valor Total: R$ 232,00</p>
+                <div class="column btnForm" style="margin-top: 0%;"><input class="btn salvar" style="width: 100%;"
+                        type="submit" value="salvar" /></div>
             </div>
 
         </form>
     </div>
     <script src='js/main.js'></script>
     <script src='js/perfil.js'></script>
+    <script src='js/pedidos.js'></script>
 
 </body>
 
