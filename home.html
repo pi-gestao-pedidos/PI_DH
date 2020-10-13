@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel="stylesheet" type='text/css' media='screen' href='css/home.css'>
+    <script src='js/main.js'></script>
+</head>
+<body>
+    <nav>
+        <div>
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
+            <span>Nome</span>
+        </div>
+        <ul>
+            <a href=home.html><li><img src="imgs/nav/homeIconNav.png"/>Home</li></a>
+            <a href=precificar.html><li><img src="imgs/nav/pricingIconNav.png"/>Precificar</li></a>
+            <a href=pedidos.html><li><img src="imgs/nav/orderIconNav.png"/>Pedidos</li></a>
+            <a href=produtos.html><li><img src="imgs/nav/productIconNav.png"/>Produtos</li></a>
+            <a href=materiais.html><li><img src="imgs/nav/inputIconNav.png"/>Materiais</li></a>
+            <a href=clientes.html><li><img src="imgs/nav/customersIconNav.png"/>Clientes</li></a>
+            <a href=salarios.html><li><img src="imgs/nav/salaryIconNav.png"/>Salários</li></a>
+            <a href=despesas.html><li><img src="imgs/nav/costIconNav.png"/>Despesas</li></a>
+            <a href=perfil.html><li><img src="imgs/nav/profileIconNav.png"/>Perfil</li></a>
+        </ul>
+    </nav>
+    <div id="container">
+        <header>
+            <img id="logo" src="logo.png" alt="logo" />
+            <h2>Home</h2>
+        </header>
+        <main class="main">
+            <div class="side">
+                <div id="precificar" class="card">
+                    <div id="containerImgPrecificar">
+                        <img src="imgs/PriceTagIcon.png" alt="Precificar">
+                    </div>
+                    <a class="btn red" href="precificar.html">precificar</a>
+                </div>
+                <div id="produtos" class="card">
+                    <img class="icon" src="imgs/nav/productIconNav.png" alt="Produtos">
+                    <div class="chartCard" onclick="overlayOn('chartProdutoOverlay')">
+                        <canvas id="canvasProdutos"></canvas>
+                    </div>
+                    <a class="btn editar" href="produtos.html">produtos</a>
+                </div>
+                <div id="materiais" class="card">
+                    <img class="icon" src="imgs/nav/inputIconNav.png" alt="Materiais">
+                    <div class="chartCard" onclick="overlayOn('chartMateriaisOverlay')">
+                        <canvas id="canvasMateriais"></canvas>
+                    </div>
+                    <a class="btn editar" href="materiais.html">materiais</a>
+                </div>
+            </div>
+            <div class="center">
+                <div id="fluxo" class="card">
+                    <img class="icon" src="imgs/financeIcon.png" alt="Fluxo">
+                    <div id="fluxoChartCard" onclick="overlayOn('chartFluxoOverlay')">
+                        <canvas id="canvasFluxo"></canvas>
+                    </div>
+                </div>
+                <div id="pedidos" class="card">
+                    <img class="icon" src="imgs/nav/orderIconNav.png" alt="Pedidos">
+                    <ul id="listaPedidos" class="listaItens">
+                        <li class="item">
+                            <img src="imgs/avatar.png" class="itemImg" alt="Foto de perfil">
+                            <ul>
+                                <li><strong>Cliente:</strong>nome</li>
+                                <li><strong>Pedido:</strong>0000</li>
+                                <li><strong>Valor:</strong>R$0,00</li>
+                            </ul>
+                            <p>Status</p>
+                        </li>
+                        <li class="item">
+                            <img src="imgs/avatar.png" class="itemImg" alt="Foto de perfil">
+                            <ul>
+                                <li><strong>Cliente:</strong>nome</li>
+                                <li><strong>Pedido:</strong>0000</li>
+                                <li><strong>Valor:</strong>R$0,00</li>
+                            </ul>
+                            <p>Status</p>
+                        </li>
+                        <li class="item">
+                            <img src="imgs/avatar.png" class="itemImg" alt="Foto de perfil">
+                            <ul>
+                                <li><strong>Cliente:</strong>nome</li>
+                                <li><strong>Pedido:</strong>0000</li>
+                                <li><strong>Valor:</strong>R$0,00</li>
+                            </ul>
+                            <p>Status</p>
+                        </li>
+                    </ul>
+                    <a class="btn editar" href="pedidos.html">pedidos</a>
+                </div>
+            </div>
+            <div class="side">
+                <div id="salario" class="card">
+                    <img class="icon" src="imgs/nav/profileIconNav.png" alt="Salários">
+                    <ul>
+                        <li><strong>Salário: </strong><p>R$0,00</p></li>
+                        <li><strong>Carga horária: </strong><p>0hr/dia</p></li>
+                        <li><strong>Valor da hora: </strong><p>R$0,00</p></li>
+                    </ul>
+                    <a class="btn red" href="salarios.html">salarios</a>
+                </div>
+                <div id="calendario" class="card">
+                    <iframe id="agenda"
+                        src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FSao_Paulo&amp;src=cHQuYnJhemlsaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%230B8043&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0"
+                        style="border-width:0" width="100%" height="100%" frameborder="0" scrolling="no">
+                    </iframe>
+                </div>
+                <div id="clientes" class="card">
+                    <img class="icon" src="imgs/nav/customersIconNav.png" alt="Produtos">
+                    <ul id="listaClientes" class="listaItens">
+                        <li class="item">
+                            <img src="imgs/avatar.png" class="itemImg" alt="Foto de perfil">
+                            <ul class="contatoCliente">
+                                <li id="nomeCliente">Nome</li>
+                                <li id="telCliente">(00)00000-0000</li>
+                            </ul>
+                        </li>
+                        <li class="item">
+                            <img src="imgs/avatar.png" class="itemImg" alt="Foto de perfil">
+                            <ul class="contatoCliente">
+                                <li id="nomeCliente">Nome</li>
+                                <li id="telCliente">(00)00000-0000</li>
+                            </ul>
+                        </li>
+                        <li class="item">
+                            <img src="imgs/avatar.png" class="itemImg" alt="Foto de perfil">
+                            <ul class="contatoCliente">
+                                <li id="nomeCliente">Nome</li>
+                                <li id="telCliente">(00)00000-0000</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class="btn editar" href="clientes.html">clientes</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="chartProdutoOverlay" class="overlay">
+        <div id="produtosChartContainer" class="chartContainer">
+            <img class="icon" src="imgs/nav/productIconNav.png" alt="Produtos">
+            <div class="chartMax">
+                <canvas id="produtosChartMax"></canvas>
+            </div>
+            <span class="closeOverlay" onclick="overlayOff('chartProdutoOverlay')">x</span>
+        </div>
+    </div>
+    <div id="chartMateriaisOverlay" class="overlay">
+        <div id="materiaisChartContainer" class="chartContainer">
+            <img class="icon" src="imgs/nav/inputIconNav.png" alt="Materiais">
+            <div class="chartMax">
+                <canvas id="materiaisChartMax"></canvas>
+            </div>
+            <span class="closeOverlay" onclick="overlayOff('chartMateriaisOverlay')">x</span>
+        </div>
+    </div>
+    <div id="chartFluxoOverlay" class="overlay">
+        <div id="fluxoChartContainer" class="chartContainer">
+            <img class="icon" src="imgs/financeIcon.png" alt="Fluxo">
+            <div class="chartMax">
+                <canvas id="fluxoChartMax"></canvas>
+            </div>
+            <span class="closeOverlay" onclick="overlayOff('chartFluxoOverlay')">x</span>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src='js/home.js'></script>
+</html>
