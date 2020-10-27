@@ -16,6 +16,7 @@ main {
     position: absolute;
     top: -80%;
     transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 .row {

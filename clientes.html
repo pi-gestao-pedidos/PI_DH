@@ -16,41 +16,28 @@
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil" />
             <span>Nome</span>
         </div>
+      
         <ul>
-            <a href=home.html>
-                <li><img src="imgs/nav/homeIconNav.png" />Home</li>
-            </a>
-            <a href=precificar.html>
-                <li><img src="imgs/nav/pricingIconNav.png" />Precificar</li>
-            </a>
-            <a href=pedidos.html>
-                <li><img src="imgs/nav/orderIconNav.png" />Pedidos</li>
-            </a>
-            <a href=produtos.html>
-                <li><img src="imgs/nav/productIconNav.png" />Produtos</li>
-            </a>
-            <a href=materiais.html>
-                <li><img src="imgs/nav/inputIconNav.png" />Materiais</li>
-            </a>
-            <a href=clientes.html>
-                <li class="active"><img src="imgs/nav/customersIconNav.png" />Clientes</li>
-            </a>
-            <a href=salarios.html>
-                <li><img src="imgs/nav/salaryIconNav.png" />Salários</li>
-            </a>
-            <a href=despesas.html>
-                <li><img src="imgs/nav/costIconNav.png" />Despesas</li>
-            </a>
-            <a href=perfil.html>
-                <li><img src="imgs/nav/profileIconNav.png" />Perfil</li>
-            </a>
+            <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
+            <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
+            <li><a href=pedidos.html><img src="imgs/nav/orderIconNav.png" alt="Pedidos" />Pedidos</a></li>
+            <li><a href=produtos.html><img src="imgs/nav/productIconNav.png" alt="Produtos" />Produtos</a></li>
+            <li><a href=materiais.html><img src="imgs/nav/inputIconNav.png" alt="Materiais" />Materiais</a></li>
+            <li><a href=clientes.html class="active"><img src="imgs/nav/customersIconNav.png" alt="Clientes" />Clientes</a></li>
+            <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
+            <li><a href=despesas.html><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
+            <li><a href=perfil.html><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a></li>
         </ul>
+
     </nav>
+  
     <div id="container">
         <header>
-            <img id="logo" src="logo.png" alt="logo" />
+            <img id="logo" src="imgs/logoBranco.svg" alt="logo" />
             <h2>Clientes</h2>
         </header>
+      
         <main>
             <div id="mainUpper" class="mainUpper">
                 <div id="containerMain" class="perfil">
@@ -286,9 +273,11 @@
                     </div>
                 </div>
             </div>
+          
             <div id="containerFooter">
-                <button class="btnCadastrar" onclick="overlayOn()">Cadastre-se</button>
+                <span class="btn editar" onclick="overlayOn()">novo cliente</span>
             </div>
+          
         </main>
 
     </div>
