@@ -1,83 +1,6 @@
-const cardProdutos = document.getElementById('canvasProdutos').getContext('2d');
-const cardMateriais = document.getElementById('canvasMateriais').getContext('2d');
 const cardFluxo = document.getElementById('canvasFluxo').getContext('2d');
 
-const produtosMax = document.getElementById('produtosChartMax').getContext('2d');
-const materiaisMax = document.getElementById('materiaisChartMax').getContext('2d');
-const fluxoMax = document.getElementById('fluxoChartMax').getContext('2d');
-
-produtosChart(cardProdutos);
-materiaisChart(cardMateriais);
 fluxoChart(cardFluxo);
-
-produtosChart(produtosMax);
-materiaisChart(materiaisMax);
-fluxoChart(fluxoMax);
-
-function produtosChart(canvas) {
-    new Chart(canvas, {
-        type: 'pie',
-        data: {
-            datasets: [
-                {
-                    data: [10, 20, 30, 4],
-                    backgroundColor: ['#FF0000', '#FFFF00', '#2580DB', '#FF0DEF'],
-                }],
-            labels: [
-                'Produto1',
-                'Produto2',
-                'Produto3',
-                'Produto4'
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            title: {
-                display: true,
-                text: 'Produtos'
-            }
-        }
-    });
-}
-
-function materiaisChart(canvas) {
-    new Chart(canvas, {
-        type: 'bar',
-        data: {
-            datasets: [
-                {
-                    label: 'Utilizado',
-                    data: [10, 90, 50],
-                    backgroundColor: '#FF0000',
-                },
-                {
-                    label: 'Disponível',
-                    data: [90, 10, 50],
-                    backgroundColor: '#42B72A',
-                }
-            ],
-            labels: ['material1', 'material1', 'material1']
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            title: {
-                display: true,
-                text: 'Materiais Disponíveis'
-            },
-            scales: {
-                xAxes: [{
-                    stacked: true
-                }],
-                yAxes: [{
-                    stacked: true
-                }]
-            }
-        }
-
-    });
-}
 
 function fluxoChart(canvas) {
     new Chart(canvas, {
@@ -95,14 +18,14 @@ function fluxoChart(canvas) {
                 {
                     label: 'Entradas',
                     data: [0, 0, 200, 1700, 2000, 1900],
-                    borderColor: '#42B72A',
-                    backgroundColor: '#42B72A',
+                    borderColor: '#74B5F7',
+                    backgroundColor: '#74B5F7',
                 },
                 {
                     label: 'Saídas',
                     data: [0, 0, -1000, -1500, -1000, -1450],
-                    borderColor: '#FF0000',
-                    backgroundColor: '#FF0000',
+                    borderColor: '#144575',
+                    backgroundColor: '#144575',
                 }],
             labels: ['Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out']
         },
@@ -112,7 +35,69 @@ function fluxoChart(canvas) {
             title: {
                 display: true,
                 text: 'Fluxo de caixa'
+            },
+            legend: {
+                display: true,
+                position: 'right' 
             }
         }
     });
 }
+
+
+
+
+
+const produtosDB = [
+    {
+        id_produto: 1,
+        nome: "nome do produto",
+        preco_venda: 0,
+        quantidade: 0,
+        total: 0
+    }
+]
+
+for (let index = 0; index < 10; index++) produtosDB.push(produtosDB[0])
+
+const pedidosDB = [
+    {
+        id_pedido: 0,
+        cliente: "Nome do Cliente",
+        total: 0,
+        entrega: "00/00/0000",
+        status: "Pendente"
+    }
+]
+
+for (let index = 0; index < 10; index++) pedidosDB.push(pedidosDB[0])
+
+const pedidosList = document.getElementById("pedidosData")
+
+pedidosDB.forEach(pedido => {
+    let tr = document.createElement("tr")
+    tr.setAttribute("onclick", "overlayOn('pedidoOverlay')")
+    //tr.onclick = overlayOn('pedidoOverlay')
+    tr.innerHTML = `   
+    <td>${pedido.id_pedido}</td>
+    <td>${pedido.cliente}</td>
+    <td>R$ ${(pedido.total/100).toFixed(2)}</td>
+    <td>${pedido.entrega}</td>
+    <td>${pedido.status}</td>
+    `
+    pedidosList.appendChild(tr)
+});
+
+const produtosList = document.getElementById("produtoData")
+
+produtosDB.forEach(produto => {
+    let tr = document.createElement("tr")
+    tr.innerHTML=`
+    <td>${produto.id_produto}</td>
+    <td>${produto.nome}</td>
+    <td>R$ ${(produto.preco_venda/100).toFixed(2)}</td>
+    <td>${produto.quantidade}</td>
+    <td>R$ ${(produto.total/100).toFixed(2)}</td>
+    `
+    produtosList.appendChild(tr)
+});
