@@ -10,7 +10,7 @@
 <body>
     <nav>
         <div>
-            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil" />
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
             <span>Nome</span>
         </div>
 
@@ -57,7 +57,7 @@
                     <div class="btnForm">
                         <input class="btn voltar" value="voltar" onclick="overlayOff('P1')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P2');overlayOff('P1')" value="avançar"/>
+                        <input class="btn salvar" onclick="overlayOn('P2')" value="avançar"/>
                     </div>
                 </form>
             </div>
@@ -74,13 +74,12 @@
                         <img class="icon" src="imgs/trashIcon.png"/>
                     </div>
                     <div class="btnForm">
-                        <input class="btn voltar" value="voltar" onclick="overlayOff('P2');overlayOn('P1')"/>
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P2')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P3');overlayOff('P2')" value="avançar"/>
+                        <input class="btn salvar" onclick="overlayOn('P3')" value="avançar"/>
                     </div>
                 </form>
             </div>
-
             <div id="P3" class="contP">
                 <form class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P3')">x</span>
@@ -94,9 +93,9 @@
                         <img class="icon" src="imgs/trashIcon.png"/>
                     </div>
                     <div class="btnForm">
-                        <input class="btn voltar" value="voltar" onclick="overlayOff('P3');overlayOn('P2')"/>
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P3')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P4');overlayOff('P3')" value="avançar"/>
+                        <input class="btn salvar" onclick="overlayOn('P4')" value="avançar"/>
                     </div>
                 </form>
             </div>
@@ -110,9 +109,9 @@
                     <h3>Quantas unidades são produzidas em um mês?</h3>
                     <input type="text" name="valor" placeholder="unidades"/>
                     <div class="btnForm">
-                        <input class="btn voltar" value="voltar" onclick="overlayOff('P4');overlayOn('P3')"/>
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P4')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P5');overlayOff('P4')" value="avançar"/>
+                        <input class="btn salvar" onclick="overlayOn('P5')" value="avançar"/>
                     </div>
                 </form>
             </div>
@@ -127,9 +126,9 @@
                     <h3>Paga mais algum salário? Quanto?</h3>
                     <input type="text" name="valor" placeholder="outro salário"/>
                     <div class="btnForm">
-                        <input class="btn voltar" value="voltar" onclick="overlayOff('P5');overlayOn('P4')"/>
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P5')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P6');overlayOff('P5')" value="avançar"/>
+                        <input class="btn salvar" onclick="overlayOn('P6')" value="avançar"/>
                     </div>
                 </form>
             </div>
@@ -138,7 +137,7 @@
                 <form class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P6')">x</span>
                     <h3>Quais são as despesas fixas do seu negócio? </h3>
-                    <span class="btn editar" onclick="overlayOn('despesasOverlay')">adicionar despesa</span>
+                    <span class="btn editar" onclick="overlayOn('overlaydesp')">adicionar despesa</span>
                     <div class="itemMaterial">
                         <img class="icon" src="imgs/costIcon.png"/>
                         <p class="nomeItenCost">Despesa</p>
@@ -147,22 +146,11 @@
                         <img class="icon" src="imgs/trashIcon.png"/>
                     </div>
                     <div class="btnForm">
-                        <input class="btn voltar" value="voltar" onclick="overlayOff('P6');overlayOn('P5')"/>
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P6')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P7');overlayOff('P6')" value="avançar"/>
-                    </div>
+                        <input class="btn salvar" onclick="overlayOn('P7')" value="avançar"/>
                 </form>
             </div>
-
-            <div id="despesasOverlay">
-                <form id="formDespesas" action="#" method="POST">
-                    <span class="fechar" onclick="overlayOff('despesasOverlay')">x</span>
-                    <input type="text" name="nome" id="fpNome" placeholder="nome da despesa:*" required/>
-                    <input type="text" name="valor" id="fpValor" placeholder="valor R$:*" required/>
-                    <input class="btn salvar" onclick="overlayOff('despesasOverlay')" type="submit" value="salvar"/>
-                </form>
-            </div>
-            
             <div id="P7" class="contP">
                 <form class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P7')">x</span>
@@ -190,7 +178,7 @@
                         </div>
                     </div>
                     <div class="btnForm">
-                        <input class="btn voltar" value="voltar" onclick="overlayOff('P7');overlayOn('P6')"/>
+                        <input class="btn voltar" value="voltar" onclick="overlayOff('P7')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <input class="btn salvar" value="salvar"/>
                     </div>
@@ -201,7 +189,7 @@
                 <form class="formMaterial" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('overlaymat')">x</span>
                     <p class="textojanela">Precisa cadastrar um novo material?</p>
-                    <input class="btn editar" onclick="overlayOn('materiaisOverlay')" type="submit" value="novo material"/>
+                    <a class="btn editar" href="materiais.html">novo material</a>
                     <div class="dropdown">
                         <span class="textojanela">selecione um material</span>
                         <div class = "dropcontent">
@@ -217,24 +205,6 @@
                     <input class="btn salvar" id="av" onclick="overlayOff('overlaymat')" type="submit" value="salvar"/>
                 </form>
             </div>
-
-            
-            <div id="materiaisOverlay">
-                <form id="formMateriais" action="#" method="POST" style="gap: 2%;">
-                    <span class="fechar" onclick="overlayOff('materiaisOverlay')">x</span>
-                    <p class="row dadosDBoverlay">nome do material</p>
-                    <p class="row dadosDBoverlay">quantidade</p>
-                    <p class="row dadosDBoverlay">unidade de medida</p>
-                    <p class="row dadosDBoverlay">fornecedor</p>
-                    <p class="row dadosDBoverlay">valor do material R$</p>
-                    <p class="row"></p>
-                    <span class="row btn salvar" style="justify-content: center;"
-                        onclick="overlayOff('materiaisOverlay')">salvar</span>
-                </form>
-            </div>
-            
-
-            
             <div id="overlaycust">
                 <form class="formMaterial" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('overlaycust')">x</span>
