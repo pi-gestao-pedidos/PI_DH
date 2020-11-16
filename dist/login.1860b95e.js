@@ -1909,7 +1909,8 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var submitInput = document.getElementById("submit-input");
-submitInput.addEventListener("click", function () {
+submitInput.addEventListener("click", function (e) {
+  e.preventDefault();
   var loginInput = document.getElementById("login-input");
   var passwordInput = document.getElementById("password-input");
   var data = {
@@ -1917,8 +1918,9 @@ submitInput.addEventListener("click", function () {
     senha: passwordInput.value
   };
 
-  _axios.default.post("http://localhost:8080/api/usuarios/auth", data).then(function (res) {
-    return alert(JSON.stringify(res));
+  _axios.default.post("http://localhost:8080/api/usuarios/auth", data) //.then(res => alert(JySON.stringif(res)))
+  .then(function (res) {
+    return localStorage.setItem("Bearer", res.data.token);
   }).catch(function (err) {
     return console.log(err);
   });
@@ -1951,7 +1953,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58927" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60294" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -22,13 +22,13 @@ const url = "http://localhost:8080"
  * @param {String} method 'POST', 'GET', 'PUT', 'DELETE'
  * @param {String} data Corpo da requisição
  */
-const fetchApi = (mapping, method, data) => {
-    return fetch(url + mapping, {
-        method: method,
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .catch(error => {
-            return console.log(error)
-        })
-}
+// const fetchApi = (mapping, method, data) => {
+//     return fetch(url + mapping, {
+//         method: method,
+//         body: JSON.stringify(data)
+//     })
+//         .then(response => response.json())
+//         .catch(error => {
+//             return console.log(error)
+//         })
+// }

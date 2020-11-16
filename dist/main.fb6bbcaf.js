@@ -142,17 +142,16 @@ var url = "http://localhost:8080";
  * @param {String} method 'POST', 'GET', 'PUT', 'DELETE'
  * @param {String} data Corpo da requisição
  */
-
-var fetchApi = function fetchApi(mapping, method, data) {
-  return fetch(url + mapping, {
-    method: method,
-    body: JSON.stringify(data)
-  }).then(function (response) {
-    return response.json();
-  }).catch(function (error) {
-    return console.log(error);
-  });
-};
+// const fetchApi = (mapping, method, data) => {
+//     return fetch(url + mapping, {
+//         method: method,
+//         body: JSON.stringify(data)
+//     })
+//         .then(response => response.json())
+//         .catch(error => {
+//             return console.log(error)
+//         })
+// }
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -181,7 +180,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58927" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60294" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

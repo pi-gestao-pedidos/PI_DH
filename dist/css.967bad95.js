@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../imgs/logoAzul.svg":[["logoAzul.8cddc567.svg","imgs/logoAzul.svg"],"imgs/logoAzul.svg"],"./../imgs/bgSection1.png":[["bgSection1.820d00fd.png","imgs/bgSection1.png"],"imgs/bgSection1.png"],"./../imgs/bgSection2.png":[["bgSection2.0d9368d2.png","imgs/bgSection2.png"],"imgs/bgSection2.png"],"./../imgs/bgSection4.png":[["bgSection4.555d0a59.png","imgs/bgSection4.png"],"imgs/bgSection4.png"],"./../imgs/footerIcon.png":[["footerIcon.7a43e37b.png","imgs/footerIcon.png"],"imgs/footerIcon.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./..\\imgs\\logoAzul.svg":[["logoAzul.8cddc567.svg","imgs/logoAzul.svg"],"imgs/logoAzul.svg"],"./..\\imgs\\bgSection1.png":[["bgSection1.820d00fd.png","imgs/bgSection1.png"],"imgs/bgSection1.png"],"./..\\imgs\\bgSection2.png":[["bgSection2.0d9368d2.png","imgs/bgSection2.png"],"imgs/bgSection2.png"],"./..\\imgs\\bgSection4.png":[["bgSection4.555d0a59.png","imgs/bgSection4.png"],"imgs/bgSection4.png"],"./..\\imgs\\footerIcon.png":[["footerIcon.7a43e37b.png","imgs/footerIcon.png"],"imgs/footerIcon.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58927" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60294" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
