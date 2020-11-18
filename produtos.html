@@ -7,10 +7,10 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/produtos.css'>
 </head>
-<body>
+<body onload="carregar()">
     <nav>
         <div>
-            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil" />
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
             <span>Nome</span>
         </div>
 
@@ -35,20 +35,7 @@
             <h2>Produtos</h2>
         </header>
         <main>
-            <div id="containerMain">
-                <div class="itemProduto">
-                    <img class="icon" src="imgs/productIcon.png" alt="Produto">
-                    <ul>
-                        <li><h4>Produto</h4></li>
-                        <li><p class="descricao">Descricão: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sequi quo saepe perspiciatis cum nam odit
-                            obcaecati, magnam alias quibusdam, asperiores praesentium quos sed aliquam dolores perferendis neque numquam
-                            ducimus.
-                        </p></li>
-                        <li><strong>Preço:</strong><p class="preco">R$ 0,00</p></li>
-                        <li><strong>Estoque:</strong><p class="estoque">0</p></li>
-                    </ul>
-                </div>
-            </div>
+            <div id="containerMain"></div>
             <div id="containerFooter">
                 <span class="btn editar" onclick="overlayOn('novoProdutoOverlay')">novo produto</span>
             </div>
@@ -69,7 +56,7 @@
             <input type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
             <p id="resultadoProduto" class="resultado">Preço Sugerido R$ 0,00</p>
             <input type="text" name="preco" id="fpPreco" placeholder="preço">
-            <input class="btnSalvar" type="submit" value="salvar"/>
+            <input id="submitProduto" class="btnSalvar" type="submit" value="salvar"/>
         </form>
     </div>
     <div id="materiaisOverlay" class="overlay">
@@ -140,5 +127,6 @@
         </form>
     </div>
     <script src='js/main.js'></script>
+    <script src='js/produtos.js'></script>
 </body>
 </html>

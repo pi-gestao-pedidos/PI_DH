@@ -10,13 +10,13 @@
     <script src='main.js'></script>
 </head>
 
-<body>
+<body onload="carregar()">
     <nav>
         <div>
-            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil" />
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
             <span>Nome</span>
         </div>
-      
+
         <ul>
             <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
             <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
@@ -31,13 +31,11 @@
         </ul>
 
     </nav>
-  
     <div id="container">
         <header>
             <img id="logo" src="imgs/logoBranco.svg" alt="logo" />
             <h2>Clientes</h2>
         </header>
-      
         <main>
             <div id="mainUpper" class="mainUpper">
                 <div id="containerMain" class="perfil">
@@ -273,11 +271,9 @@
                     </div>
                 </div>
             </div>
-          
             <div id="containerFooter">
                 <span class="btn editar" onclick="overlayOn()">novo cliente</span>
             </div>
-          
         </main>
 
     </div>
