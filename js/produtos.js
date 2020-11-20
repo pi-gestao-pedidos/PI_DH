@@ -127,7 +127,6 @@ async function postProduto() {
     const jsonProduto = await response.json();
     return json
 }
-
 async function postDespesaProduto() {
     const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
     const jsonDespesaProduto = await response.json()
