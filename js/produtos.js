@@ -43,13 +43,17 @@ fetchApi('/produtos', 'GET')
             let itens = document.createElement("div")
             itens.className = "itemProduto"
             itens.innerHTML = `
-            <img class="icon" src="imgs/productIcon.png" alt="Produto">
-            <ul>
-                <li><h4>${item.nome}</h4></li>
-                <li><p class="descricao">${item.descricao}</p></li>
-                <li><strong>Preço:&nbsp</strong><p class="preco">${item.precoVenda/*.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })*/}</p></li>
-            </ul>
-            `
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>${item.nome}</h4>
+                            <p class="descricao">${item.descricao}</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">${item.precoVenda/*.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })*/}</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                        `
             produtos.appendChild(itens)
         })
     })
@@ -67,7 +71,7 @@ const materiais = []
 async function postProduto() {
     const produto = convertFormToArray(produtoForm)
     const responseProduto = await fetchApi('/produtos', 'POST', produto)
-    const jsonProduto = await responseProduto.json()
+    const jsonProduto = responseProduto.json()
     custos.forEach(custo => custo['idProduto'] = jsonProduto.idProduto)
     const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
     const jsonDespesaProduto = responseDespesaProduto.json()

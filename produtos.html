@@ -9,7 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/produtos.css'>
 </head>
 
-<body>
+<body onload="carregar()">
     <nav>
         <div>
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
@@ -39,10 +39,9 @@
             <h2>Produtos</h2>
         </header>
         <main>
-            <div id="containerMain">
+            <div id="containerMain" style="gap: 1%;">
 
-                <div class="row" style="gap: 1%;">
-                    <div class="column itemProduto">
+                    <div class="itemProduto">
                         <img class="iconProduto" src="imgs/productIcon.png" />
                         <div style="padding-left: 15%; padding-right: 15%;">
                             <h4>Produto:</h4>
@@ -55,81 +54,7 @@
                         <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
                         <img class="iconLixeira" src="imgs/trashIcon.png" />
                     </div>
-                    <div class="column itemProduto">
-                        <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
-                            <h4>Produto:</h4>
-                            <p class="row descricao">Descricao do produto a ser adicionado para oferecer ao cliente um
-                                preço adequado ip jajskdajldlak sdasdkjahkjsd akjs dkjahsd kjhaksdhaksd kashd kahsd
-                                kasdk jahkds akjs dhkah dkjahksd haksd hakjsdakdkash dkja</p>
-                            <span class="row"
-                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
-                                    style="font-weight: normal;">R$ 6,00</span></span>
-                        </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
-                    </div>
-                </div>
-
-                <div class="row" style="gap: 1%;">
-                    <div class="column itemProduto">
-                        <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
-                            <h4>Produto:</h4>
-                            <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
-                                adequado</p>
-                            <span class="row"
-                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
-                                    style="font-weight: normal;">R$ 6,00</span></span>
-                        </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
-                    </div>
-                    <div class="column itemProduto">
-                        <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
-                            <h4>Produto:</h4>
-                            <p class="row descricao">Descricao do produto a ser adicionado para oferecer ao cliente um
-                                preço adequado ip jajskdajldlak sdasdkjahkjsd akjs dkjahsd kjhaksdhaksd kashd kahsd
-                                kasdk jahkds akjs dhkah dkjahksd haksd hakjsdakdkash dkja</p>
-                            <span class="row"
-                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
-                                    style="font-weight: normal;">R$ 6,00</span></span>
-                        </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
-                    </div>
-                </div>
-
-                <div class="row" style="gap: 1%;">
-                    <div class="column itemProduto">
-                        <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
-                            <h4>Produto:</h4>
-                            <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
-                                adequado</p>
-                            <span class="row"
-                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
-                                    style="font-weight: normal;">R$ 6,00</span></span>
-                        </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
-                    </div>
-                    <div class="column itemProduto">
-                        <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
-                            <h4>Produto:</h4>
-                            <p class="row descricao">Descricao do produto a ser adicionado para oferecer ao cliente um
-                                preço adequado ip jajskdajldlak sdasdkjahkjsd akjs dkjahsd kjhaksdhaksd kashd kahsd
-                                kasdk jahkds akjs dhkah dkjahksd haksd hakjsdakdkash dkja</p>
-                            <span class="row"
-                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
-                                    style="font-weight: normal;">R$ 6,00</span></span>
-                        </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
-                    </div>
-                </div>
+                    
 
             </div>
             <div id="containerFooter">

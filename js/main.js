@@ -12,17 +12,21 @@ function carregar(){
 
     // fetch("http://localhost:8080/", options)
         .then(response => {
+            alert(response.json())
             if(response.ok){
                 isTokenValid = true
+                alert("fez true")
             }
         })
         .then(()=>{
             if(!token || !isTokenValid){
+                alert("primeiro falso")
                 window.location.href = "/login.html"
             }
         })
         .catch(() => {
             isTokenValid=false
+            alert("segundo falso")
             window.location.href = "/login.html"
         })
 }
@@ -59,7 +63,7 @@ const fetchApi = (mapping, method, data) => {
         method: method,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': "Bearer "+token
+            'Authorization': "Bearer " + token
           },
         body: JSON.stringify(data)
     })
