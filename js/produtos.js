@@ -184,5 +184,3 @@ newMaterialForm.addEventListener('submit', (event) => {
     .then(response => response.json)
     .catch(err => console.log(err))
 })
-*/
-*/
