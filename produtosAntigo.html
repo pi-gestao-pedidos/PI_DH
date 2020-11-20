@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Produtos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/produtos.css'>
+</head>
+<body onload="carregar()">
+    <nav>
+        <div>
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
+            <span>Nome</span>
+        </div>
+
+        <ul>
+            <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
+            <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
+            <li><a href=pedidos.html><img src="imgs/nav/orderIconNav.png" alt="Pedidos" />Pedidos</a></li>
+            <li><a href=produtos.html class="active"><img src="imgs/nav/productIconNav.png" alt="Produtos" />Produtos</a></li>
+            <li><a href=materiais.html><img src="imgs/nav/inputIconNav.png" alt="Materiais" />Materiais</a></li>
+            <li><a href=clientes.html><img src="imgs/nav/customersIconNav.png" alt="Clientes" />Clientes</a></li>
+            <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
+            <li><a href=despesas.html><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
+            <li><a href=perfil.html><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a></li>
+        </ul>
+
+    </nav>
+
+    <div id="container">
+        <header>
+            <img id="logo" src="imgs/logoBranco.svg" alt="logo" />
+            <h2>Produtos</h2>
+        </header>
+        <main>
+            <div id="containerMain"></div>
+            <div id="containerFooter">
+                <span class="btn editar" onclick="overlayOn('novoProdutoOverlay')">novo produto</span>
+            </div>
+        </main>
+    </div>
+    <div id="novoProdutoOverlay" class="overlay">
+        <form id="formProduto" class="containerForm">
+            <span class="closeForm" onclick="overlayOff('novoProdutoOverlay')">x</span>
+            <input type="text" name="nome" id="fpNome" placeholder="nome*" />
+            <input type="text" name="descricao" id="fpDescricao" placeholder="descrição">
+            <input type="text" name="tempo" id="fptempo" placeholder="minutos para produzir uma unidade*" />
+            <input type="number" min="1" name="producao" id="fpProducao" placeholder="unidades produzidas mensalmente">
+            <div id="btns">
+                <span class="btn editar" onclick="overlayOn('materiaisOverlay')">materiais</span>
+                <span class="btn editar" onclick="overlayOn('custosOverlay')">custos</span>
+            </div>
+            <input type="number" min="1" name="estoque" id="fpEstoque" placeholder="estoque*" />
+            <input type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
+            <p id="resultadoProduto" class="resultado">Preço Sugerido R$ 0,00</p>
+            <input type="text" name="preco" id="fpPreco" placeholder="preço">
+            <input id="submitProduto" class="btnSalvar" type="submit" value="salvar"/>
+        </form>
+    </div>
+    <div id="materiaisOverlay" class="overlay">
+        <div id="listaMateriais" class="containerForm">
+            <span class="closeForm" onclick="overlayOff('materiaisOverlay')">x</span>
+            <span class="btn editar" onclick="overlayOn('addMateriaisOverlay')">adicionar materiais</span>
+            <div id="containerMateriais" class="containerItens">
+                <div id="itemMaterial" class="item">
+                    <p id="nomeMaterial">material</p>
+                    <p id="precoMaterial">R$ 0,00</p>
+                    <img id="excluirMaterial" class="imgItem" src="imgs/trashIcon.png" alt="excluir">
+                </div>
+            </div>
+            <p id="totalMateriais" class="resultado">Custo dos materiais R$ 0,00</p>
+            <span id="submitListaMateriais" class="btn salvar">salvar</span>
+        </div>
+    </div>
+    <div id="addMateriaisOverlay" class="overlay">
+        <form id="addMateriais" class="containerForm">
+            <span class="closeForm" onclick="overlayOff('addMateriaisOverlay')">x</span>
+            <p>Precisa cadastrar um novo material?</p>
+            <span class="btn editar" onclick="overlayOn('newMaterialOverlay')">novo material</span>
+            <select name="selectMateriais" id="selectMateriais" required>
+                <option value="">selecione um material</option>
+                <option value="material1">material1</option>
+                <option value="material2">material2</option>
+                <option value="material3">material3</option>
+                <option value="material4">material4</option>
+                <option value="material5">material5</option>
+            </select>
+            <input type="number" min="1" name="quantidade" id="quantidadeMaterial" placeholder="quantidade*" required/>
+            <input class="btnSalvar" type="submit" value="adicionar"/>
+        </form>
+    </div>
+    <div id="newMaterialOverlay" class="overlay">
+        <form id="novoMaterial" class="containerForm">
+            <span class="closeForm" onclick="overlayOff('newMaterialOverlay')">x</span>
+            <span id="errorMaterial"></span>
+            <input type="text" name="nome" id="fmNomeMaterial" placeholder="nome do material*" required min="3"/>
+            <input type="number" name="estoque" id="fmQtdDeMaterial" placeholder="quantidade*" required min="1"/>
+            <input type="text" name="unidadeMedida" id="fmUnidadeMaterial" placeholder="unidade de medida*" required/>
+            <input type="text" name="custo" id="fmCustoMaterial" placeholder="custo do material*" required min="0"/>
+            <input class="btnSalvar" type="submit" value="salvar"/>
+        </form>
+    </div>
+    <div id="custosOverlay" class="overlay">
+        <div id="listaCustos" class="containerForm">
+            <span class="closeForm" onclick="overlayOff('custosOverlay')">x</span>
+            <span class="btn editar" onclick="overlayOn('addCustosOverlay')">adicionar custo</span>
+            <div id="containerCustos" class="containerItens">
+                <div id="itemCustos" class="item">
+                    <p id="nomeCustos">Custo variável</p>
+                    <p id="precoCustos">R$ 0,00</p>
+                    <img id="editarCusto" class="imgItem" src="imgs/editIcon.png" alt="excluir">
+                    <img id="excluirCusto" class="imgItem" src="imgs/trashIcon.png" alt="excluir">
+                </div>
+            </div>
+            <span id="submitListaCV" class="btn salvar">salvar</span>
+        </div>
+    </div>
+    <div id="addCustosOverlay" class="overlay">
+        <form id="custoVariavel" class="containerForm">
+            <span class="closeForm" onclick="overlayOff('addCustosOverlay')">x</span>
+            <input type="text" name="nome" id="fcNomeCusto" placeholder="nome do custo*" required/>
+            <input type="text" name="valor" id="fcValorCusto" placeholder="valor do custo"/>
+            <p>Ou</p>
+            <input type="text" name="porcentagem" id="fcPorcentCusto" placeholder="Porcentagem %"/>
+            <input class="btnSalvar" type="submit" value="salvar">
+        </form>
+    </div>
+    <script src='js/main.js'></script>
+    <script src='js/produtos.js'></script>
+</body>
+</html>

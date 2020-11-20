@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <title>Produtos</title>
@@ -7,7 +8,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/produtos.css'>
 </head>
-<body onload="carregar()">
+
+<body>
     <nav>
         <div>
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
@@ -18,13 +20,15 @@
             <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
             <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
             <li><a href=pedidos.html><img src="imgs/nav/orderIconNav.png" alt="Pedidos" />Pedidos</a></li>
-            <li><a href=produtos.html class="active"><img src="imgs/nav/productIconNav.png" alt="Produtos" />Produtos</a></li>
+            <li><a href=produtos.html class="active"><img src="imgs/nav/productIconNav.png"
+                        alt="Produtos" />Produtos</a></li>
             <li><a href=materiais.html><img src="imgs/nav/inputIconNav.png" alt="Materiais" />Materiais</a></li>
             <li><a href=clientes.html><img src="imgs/nav/customersIconNav.png" alt="Clientes" />Clientes</a></li>
             <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
             <li><a href=despesas.html><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
             <li><a href=perfil.html><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
-            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a>
+            </li>
         </ul>
 
     </nav>
@@ -35,31 +39,223 @@
             <h2>Produtos</h2>
         </header>
         <main>
-            <div id="containerMain"></div>
+            <div id="containerMain">
+
+                <div class="row" style="gap: 1%;">
+                    <div class="column itemProduto">
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>Produto:</h4>
+                            <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
+                                adequado</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">R$ 6,00</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                    </div>
+                    <div class="column itemProduto">
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>Produto:</h4>
+                            <p class="row descricao">Descricao do produto a ser adicionado para oferecer ao cliente um
+                                preço adequado ip jajskdajldlak sdasdkjahkjsd akjs dkjahsd kjhaksdhaksd kashd kahsd
+                                kasdk jahkds akjs dhkah dkjahksd haksd hakjsdakdkash dkja</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">R$ 6,00</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                    </div>
+                </div>
+
+                <div class="row" style="gap: 1%;">
+                    <div class="column itemProduto">
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>Produto:</h4>
+                            <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
+                                adequado</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">R$ 6,00</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                    </div>
+                    <div class="column itemProduto">
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>Produto:</h4>
+                            <p class="row descricao">Descricao do produto a ser adicionado para oferecer ao cliente um
+                                preço adequado ip jajskdajldlak sdasdkjahkjsd akjs dkjahsd kjhaksdhaksd kashd kahsd
+                                kasdk jahkds akjs dhkah dkjahksd haksd hakjsdakdkash dkja</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">R$ 6,00</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                    </div>
+                </div>
+
+                <div class="row" style="gap: 1%;">
+                    <div class="column itemProduto">
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>Produto:</h4>
+                            <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
+                                adequado</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">R$ 6,00</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                    </div>
+                    <div class="column itemProduto">
+                        <img class="iconProduto" src="imgs/productIcon.png" />
+                        <div style="padding-left: 15%; padding-right: 15%;">
+                            <h4>Produto:</h4>
+                            <p class="row descricao">Descricao do produto a ser adicionado para oferecer ao cliente um
+                                preço adequado ip jajskdajldlak sdasdkjahkjsd akjs dkjahsd kjhaksdhaksd kashd kahsd
+                                kasdk jahkds akjs dhkah dkjahksd haksd hakjsdakdkash dkja</p>
+                            <span class="row"
+                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                    style="font-weight: normal;">R$ 6,00</span></span>
+                        </div>
+                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                    </div>
+                </div>
+
+            </div>
             <div id="containerFooter">
-                <span class="btn editar" onclick="overlayOn('novoProdutoOverlay')">novo produto</span>
+                <span class="btn salvar" onclick="overlayOn('novoProdutoOverlay')">Novo Produto</span>
             </div>
         </main>
     </div>
     <div id="novoProdutoOverlay" class="overlay">
-        <form id="formProduto" class="containerForm">
+        <form id="formProduto" class="containerForm" method="POST" style="gap: 3%;">
             <span class="closeForm" onclick="overlayOff('novoProdutoOverlay')">x</span>
-            <input type="text" name="nome" id="fpNome" placeholder="nome*" />
-            <input type="text" name="descricao" id="fpDescricao" placeholder="descrição">
-            <input type="text" name="tempo" id="fptempo" placeholder="minutos para produzir uma unidade*" />
-            <input type="number" min="1" name="producao" id="fpProducao" placeholder="unidades produzidas mensalmente">
-            <div id="btns">
-                <span class="btn editar" onclick="overlayOn('materiaisOverlay')">materiais</span>
-                <span class="btn editar" onclick="overlayOn('custosOverlay')">custos</span>
+            <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" placeholder="nome*" required />
+            <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" placeholder="descrição">
+            <div class="row" style="gap: 3%;">
+                <input class="column dadosDBoverlay" type="number" min="1" name="tempo" id="fptempo"
+                    placeholder="min p/ produzir 1 unid" required />
+                <input class="column dadosDBoverlay" type="number" min="1" name="producao" id="fpProducao"
+                    placeholder="unid prod mensal" required />
             </div>
-            <input type="number" min="1" name="estoque" id="fpEstoque" placeholder="estoque*" />
-            <input type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
-            <p id="resultadoProduto" class="resultado">Preço Sugerido R$ 0,00</p>
-            <input type="text" name="preco" id="fpPreco" placeholder="preço">
-            <input id="submitProduto" class="btnSalvar" type="submit" value="salvar"/>
+            <div class="row" style="gap: 0%;">
+                
+                    <div class="column5 dropdownFilter btnFilter dadosDBoverlay" style="margin-right: 3%; justify-content: center; align-items: center;">
+                        <span onclick="myFunctionFilter()" class="">Selecionar
+                            Material</span>
+                        <ul id="myDropdownFilter" class="dropdown-content-filter" style="padding-left: 2%;">
+                            <input type="text" placeholder="Procurar.." id="myInput" onkeyup="filterFunction()">
+                            <li href="#carlos" class="row margem"
+                                style="width: 98%; padding: 1%; margin-top: 1%; margin-bottom:  1%; color: gray;">
+                                CARLOS
+                            </li>
+                            <li href="#andre" class="row margem"
+                                style="width: 98%; padding: 1%; margin-top: 0%; margin-bottom:  1%; color: gray;">
+                                ANDRE
+                            </li>
+                            <li href="#fernando" class="row margem"
+                                style="width: 98%; padding: 1%; margin-top: 0%; margin-bottom:  1%; color: gray;">
+                                FERNANDO
+                            </li>
+                        </ul>
+                    </div>
+                <div class="column dadosDBoverlay editar"
+                    style="padding: 1% 2%; cursor: pointer;  color: white; background-color: #2B92F6;"
+                    type="submit" value="editar" onclick="overlayOn('newMaterialOverlay')">cadastrar
+                </div>
+                <div class="column7 dadosDBoverlay editar"
+                    style="padding: 1% 2%; cursor: pointer; margin-left: 3%; margin-top: 0%; color: white; background-color: #2B92F6;"
+                    type="submit" value="editar" onclick="overlayOn('addCustosOverlay')">adicionar custos
+                </div>
+            </div>
+
+            <div class="row" style="align-items: baseline; margin-top: 1%; gap: 3%;">
+                <div class="column tabela">
+                    <div class="row" style="text-align: center;">
+                        <p class="column5 tabelaCabecalho">material</p>
+                        <p class="column2 tabelaCabecalho">qtd.</p>
+                        <p class="column2 tabelaCabecalho">medida</p>
+                        <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
+                    </div>
+                    <div class="row6ConteudoTabela" style="margin-top: 0%;">
+                        <div class="rowTabela">
+                            <p class="column7">tecido</p>
+                            <p class="column2">10</p>
+                            <p class="column4">m2</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+                        <div class="rowTabela">
+                            <p class="column7">tecido</p>
+                            <p class="column2">10</p>
+                            <p class="column4">m2</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+                        <div class="rowTabela">
+                            <p class="column7">tecido</p>
+                            <p class="column2">10</p>
+                            <p class="column4">m2</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+                        <div class="rowTabela">
+                            <p class="column7">tecido</p>
+                            <p class="column2">10</p>
+                            <p class="column4">m2</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="column tabela">
+                    <div class="row" style="text-align: center;">
+                        <p class="column6 tabelaCabecalho">custo</p>
+                        <p class="column3 tabelaCabecalho">valor</p>
+                        <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
+                    </div>
+                    <div class="row6ConteudoTabela" style="margin-top: 0%;">
+                        <div class="rowTabela">
+                            <p class="column8">luz</p>
+                            <p class="column6">R$ 150,00</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+                        <div class="rowTabela">
+                            <p class="column8">luz</p>
+                            <p class="column6">R$ 150,00</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+                        <div class="rowTabela">
+                            <p class="column8">luz</p>
+                            <p class="column6">R$ 150,00</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div>
+                        
+                </div>
+            </div>
+        </div>
+            <input style="margin-top:1%;" class="row dadosDBoverlay" type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
+            <p id="resultadoProduto" class="row resultado">Preço Sugerido R$ 0,00</p>
+            <input  class="row dadosDBoverlay" type="text" name="preco" id="fpPreco" placeholder="preço de venda">
+            <input class="btnSalvar" type="submit" value="salvar" />
         </form>
     </div>
-    <div id="materiaisOverlay" class="overlay">
+    <!-- <div id="materiaisOverlay" class="overlay">
         <div id="listaMateriais" class="containerForm">
             <span class="closeForm" onclick="overlayOff('materiaisOverlay')">x</span>
             <span class="btn editar" onclick="overlayOn('addMateriaisOverlay')">adicionar materiais</span>
@@ -87,22 +283,23 @@
                 <option value="material4">material4</option>
                 <option value="material5">material5</option>
             </select>
-            <input type="number" min="1" name="quantidade" id="quantidadeMaterial" placeholder="quantidade*" required/>
-            <input class="btnSalvar" type="submit" value="adicionar"/>
+            <input type="number" min="1" name="quantidade" id="quantidadeMaterial" placeholder="quantidade*" required />
+            <input class="btnSalvar" type="submit" value="adicionar" />
         </form>
-    </div>
+    </div> -->
     <div id="newMaterialOverlay" class="overlay">
         <form id="novoMaterial" class="containerForm">
             <span class="closeForm" onclick="overlayOff('newMaterialOverlay')">x</span>
-            <span id="errorMaterial"></span>
-            <input type="text" name="nome" id="fmNomeMaterial" placeholder="nome do material*" required min="3"/>
-            <input type="number" name="estoque" id="fmQtdDeMaterial" placeholder="quantidade*" required min="1"/>
-            <input type="text" name="unidadeMedida" id="fmUnidadeMaterial" placeholder="unidade de medida*" required/>
-            <input type="text" name="custo" id="fmCustoMaterial" placeholder="custo do material*" required min="0"/>
-            <input class="btnSalvar" type="submit" value="salvar"/>
+            <input type="text" name="fmNomeMaterial" id="fmNomeMaterial" placeholder="nome do material*" required />
+            <input type="number" min="1" name="fmQtdDeMaterial" id="fmQtdDeMaterial" placeholder="quantidade*"
+                required />
+            <input type="text" name="fmUnidadeMaterial" id="fmUnidadeMaterial" placeholder="unidade de medida*"
+                required />
+            <input type="text" name="fmCustoMaterial" id="fmCustoMaterial" placeholder="custo do material*" required />
+            <input class="btnSalvar" type="submit" value="salvar" />
         </form>
     </div>
-    <div id="custosOverlay" class="overlay">
+    <!-- <div id="custosOverlay" class="overlay">
         <div id="listaCustos" class="containerForm">
             <span class="closeForm" onclick="overlayOff('custosOverlay')">x</span>
             <span class="btn editar" onclick="overlayOn('addCustosOverlay')">adicionar custo</span>
@@ -116,18 +313,19 @@
             </div>
             <span id="submitListaCV" class="btn salvar">salvar</span>
         </div>
-    </div>
+    </div> -->
     <div id="addCustosOverlay" class="overlay">
         <form id="custoVariavel" class="containerForm">
             <span class="closeForm" onclick="overlayOff('addCustosOverlay')">x</span>
-            <input type="text" name="nome" id="fcNomeCusto" placeholder="nome do custo*" required/>
-            <input type="text" name="valor" id="fcValorCusto" placeholder="valor do custo"/>
+            <input type="text" name="fcNomeCusto" id="fcNomeCusto" placeholder="nome do custo*" required />
+            <input type="text" name="fcValorCusto" id="fcValorCusto" placeholder="valor do custo" />
             <p>Ou</p>
-            <input type="text" name="porcentagem" id="fcPorcentCusto" placeholder="Porcentagem %"/>
+            <input type="text" name="fcPorcentCusto" id="fcPorcentCusto" placeholder="Porcentagem %" />
             <input class="btnSalvar" type="submit" value="salvar">
         </form>
     </div>
     <script src='js/main.js'></script>
     <script src='js/produtos.js'></script>
 </body>
+
 </html>
