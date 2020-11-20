@@ -194,3 +194,10 @@ p {
     height: 42vw;
     justify-content: space-between;
 }
+
+#errorMaterial {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #F54D42;
+}

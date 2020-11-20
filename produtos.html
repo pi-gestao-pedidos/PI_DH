@@ -42,17 +42,17 @@
         </main>
     </div>
     <div id="novoProdutoOverlay" class="overlay">
-        <form id="formProduto" class="containerForm" method="POST">
+        <form id="formProduto" class="containerForm">
             <span class="closeForm" onclick="overlayOff('novoProdutoOverlay')">x</span>
-            <input type="text" name="nome" id="fpNome" placeholder="nome*" required/>
+            <input type="text" name="nome" id="fpNome" placeholder="nome*" />
             <input type="text" name="descricao" id="fpDescricao" placeholder="descrição">
-            <input type="text" name="tempo" id="fptempo" placeholder="minutos para produzir uma unidade*" required/>
+            <input type="text" name="tempo" id="fptempo" placeholder="minutos para produzir uma unidade*" />
             <input type="number" min="1" name="producao" id="fpProducao" placeholder="unidades produzidas mensalmente">
             <div id="btns">
                 <span class="btn editar" onclick="overlayOn('materiaisOverlay')">materiais</span>
                 <span class="btn editar" onclick="overlayOn('custosOverlay')">custos</span>
             </div>
-            <input type="number" min="1" name="estoque" id="fpEstoque" placeholder="estoque*" required/>
+            <input type="number" min="1" name="estoque" id="fpEstoque" placeholder="estoque*" />
             <input type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
             <p id="resultadoProduto" class="resultado">Preço Sugerido R$ 0,00</p>
             <input type="text" name="preco" id="fpPreco" placeholder="preço">
@@ -94,10 +94,11 @@
     <div id="newMaterialOverlay" class="overlay">
         <form id="novoMaterial" class="containerForm">
             <span class="closeForm" onclick="overlayOff('newMaterialOverlay')">x</span>
-            <input type="text" name="fmNomeMaterial" id="fmNomeMaterial" placeholder="nome do material*" required/>
-            <input type="number" min="1" name="fmQtdDeMaterial" id="fmQtdDeMaterial" placeholder="quantidade*" required/>
-            <input type="text" name="fmUnidadeMaterial" id="fmUnidadeMaterial" placeholder="unidade de medida*" required/>
-            <input type="text" name="fmCustoMaterial" id="fmCustoMaterial" placeholder="custo do material*" required/>
+            <span id="errorMaterial"></span>
+            <input type="text" name="nome" id="fmNomeMaterial" placeholder="nome do material*" required min="3"/>
+            <input type="number" name="estoque" id="fmQtdDeMaterial" placeholder="quantidade*" required min="1"/>
+            <input type="text" name="unidadeMedida" id="fmUnidadeMaterial" placeholder="unidade de medida*" required/>
+            <input type="text" name="custo" id="fmCustoMaterial" placeholder="custo do material*" required min="0"/>
             <input class="btnSalvar" type="submit" value="salvar"/>
         </form>
     </div>
@@ -119,10 +120,10 @@
     <div id="addCustosOverlay" class="overlay">
         <form id="custoVariavel" class="containerForm">
             <span class="closeForm" onclick="overlayOff('addCustosOverlay')">x</span>
-            <input type="text" name="fcNomeCusto" id="fcNomeCusto" placeholder="nome do custo*" required/>
-            <input type="text" name="fcValorCusto" id="fcValorCusto" placeholder="valor do custo"/>
+            <input type="text" name="nome" id="fcNomeCusto" placeholder="nome do custo*" required/>
+            <input type="text" name="valor" id="fcValorCusto" placeholder="valor do custo"/>
             <p>Ou</p>
-            <input type="text" name="fcPorcentCusto" id="fcPorcentCusto" placeholder="Porcentagem %"/>
+            <input type="text" name="porcentagem" id="fcPorcentCusto" placeholder="Porcentagem %"/>
             <input class="btnSalvar" type="submit" value="salvar">
         </form>
     </div>

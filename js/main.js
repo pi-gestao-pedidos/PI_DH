@@ -11,8 +11,10 @@ function carregar(){
     // }
 
     // fetch("http://localhost:8080/", options)
-        .then(() => {
-            isTokenValid = true
+        .then(response => {
+            if(response.ok){
+                isTokenValid = true
+            }
         })
         .then(()=>{
             if(!token || !isTokenValid){
@@ -21,6 +23,7 @@ function carregar(){
         })
         .catch(() => {
             isTokenValid=false
+            window.location.href = "/login.html"
         })
 }
 
@@ -48,7 +51,7 @@ const url = 'http://localhost:8080'
  * Função que busca recursos da API e retorna uma "promise"
  * @param {String} mapping Valor que será mapeado
  * @param {String} method 'POST', 'GET', 'PUT', 'DELETE'
- * @param {String} data Corpo da requisição
+ * @param {Object} data Corpo da requisição
  */
 const fetchApi = (mapping, method, data) => {
     const token =  localStorage.getItem('token')
@@ -64,3 +67,15 @@ const fetchApi = (mapping, method, data) => {
         // .catch(error => { return console.log(error) })
 }
 
+/**
+ * Converte um formulário em um array
+ * @param {HTMLFormElement} form 
+ */
+function convertFormToArray(form) {
+    const formData = new FormData(form)
+    const data = Array.from(formData.entries()).reduce((memo, pair) => ({
+        ...memo,
+        [pair[0]]: pair[1],
+    }), {});
+    return data
+}
