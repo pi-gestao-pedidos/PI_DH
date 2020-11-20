@@ -33,7 +33,6 @@ function filterFunction() {
         }
     }
 }
-*/
 
 
 fetchApi('/produtos', 'GET')
