@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Perfil</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/perfil.css'>
+</head>
+<body onload="carregar()">
+    <nav>
+        <div>
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
+            <span>Nome</span>
+        </div>
+
+        <ul>
+            <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
+            <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
+            <li><a href=pedidos.html><img src="imgs/nav/orderIconNav.png" alt="Pedidos" />Pedidos</a></li>
+            <li><a href=produtos.html><img src="imgs/nav/productIconNav.png" alt="Produtos" />Produtos</a></li>
+            <li><a href=materiais.html><img src="imgs/nav/inputIconNav.png" alt="Materiais" />Materiais</a></li>
+            <li><a href=clientes.html><img src="imgs/nav/customersIconNav.png" alt="Clientes" />Clientes</a></li>
+            <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
+            <li><a href=despesas.html><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
+            <li><a href=perfil.html class="active"><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a></li>
+        </ul>
+
+    </nav>
+
+    <div id="container">
+        <header>
+            <img id="logo" src="imgs/logoBranco.svg" alt="logo" />
+            <h2>Perfil</h2>
+        </header>
+        <main>
+            <div id="containerMain" class="perfil">
+                <div class="divPersonalPic">
+                    <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
+                </div>
+                <ul>
+                    <li><strong>Nome: </strong><p id="pNome">nome</p></li>
+                    <li><strong>Email: </strong><p id="pEmail">email@email.com</p></li>
+                    <li><strong>Telefone: </strong><p id="pTelefone1">(00)00000-0000</p></li>
+                    <li><strong>Telefone 2: </strong><p id="pTelefone2">(00)00000-0000</p></li>
+                    <li><strong>CNPJ/CPF: </strong><p id="pCpfCnpj">000.000.000-00</p></li>
+                    <li><strong>Razão Social: </strong><p id="pRazaoSocial">Minha Empresa</p></li>
+                    <li class="w100"><strong>Endereço: </strong><p id="pEndereco">Rua, nº, Bairro, Cidade - UF</p></li>
+                </ul>
+            </div>
+            <div id="containerFooter">
+                <span class="btn editar" onclick="overlayOn('perfilOverlay')">editar</span>
+            </div>
+        </main>
+    </div>
+    <div id="perfilOverlay">
+        <form id="formPerfil" method="POST">
+            <span class="close" onclick="overlayOff('perfilOverlay')">x</span>
+            <div class="divPersonalPic">
+                <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
+            </div>
+            <input type="text" name="nome" id="fpNome" placeholder="nome*" required/>
+            <input type="email" name="email" id="fpEmail" placeholder="email*" required/>
+            <input type="tel" name="telefone1" id="fpTelefone1" placeholder="telefone*" required/>
+            <input type="tel" name="telefone2" id="fpTelefone2" placeholder="telefone"/>
+            <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social"/>
+            <input type="text" name="cpfCnpj" id="fpcpfCnpj" placeholder="Cpf ou Cnpj"/>
+            <input type="text" name="endereco" id="fpEndereco" placeholder="Endereço" class="w100"/>
+            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required/>
+            <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required/>
+            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar"/></div>
+        </form>
+    </div>
+    <script src='js/main.js'></script>
+    <script src='js/perfil.js'></script>
+</body>
+</html>

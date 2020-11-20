@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Despesas do Negócio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/despesas.css'>
+</head>
+<body onload="carregar()">
+    <nav>
+        <div>
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
+            <span>Nome</span>
+        </div>
+
+        <ul>
+            <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
+            <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
+            <li><a href=pedidos.html><img src="imgs/nav/orderIconNav.png" alt="Pedidos" />Pedidos</a></li>
+            <li><a href=produtos.html><img src="imgs/nav/productIconNav.png" alt="Produtos" />Produtos</a></li>
+            <li><a href=materiais.html><img src="imgs/nav/inputIconNav.png" alt="Materiais" />Materiais</a></li>
+            <li><a href=clientes.html><img src="imgs/nav/customersIconNav.png" alt="Clientes" />Clientes</a></li>
+            <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
+            <li><a href=despesas.html class="active"><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
+            <li><a href=perfil.html><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a></li>
+        </ul>
+
+    </nav>
+    
+    <div id="container">
+        <header>
+            <img id="logo" src="imgs/logoBranco.svg" alt="logo" />
+            <h2>Despesas do Negócio</h2>
+        </header>
+        <main>
+            <div id="itens"> 
+                <div class="itemDespesa">
+                    <img class="icon" src="imgs/costIcon.png"/>
+                    <p class="nomeItenCost">Eletricidade </p>
+                    <p class="precoDesp">R$ 0,00</p>
+                    <img class="icon" src="imgs/editIcon.png"/>
+                    <img class="icon" src="imgs/trashIcon.png"/>
+                </div>
+
+                <div class="itemDespesa">
+                    <img class="icon" src="imgs/costIcon.png"/>
+                    <p class="nomeItenCost">Aluguel</p>
+                    <p class="precoDesp">R$ 0,00</p>
+                    <img class="icon" src="imgs/editIcon.png"/>
+                    <img class="icon" src="imgs/trashIcon.png"/>
+                </div>
+            
+                <div class="itemDespesa">
+                    <img class="icon" src="imgs/costIcon.png"/>
+                    <p class="nomeItenCost">Telefone</p>
+                    <p class="precoDesp">R$ 0,00</p>
+                    <img class="icon" src="imgs/editIcon.png"/>
+                    <img class="icon" src="imgs/trashIcon.png"/>
+                </div>
+
+                <div class="itemDespesa">
+                    <img class="icon" src="imgs/costIcon.png"/>
+                    <p class="nomeItenCost">Internet</p>
+                    <p class="precoDesp">R$ 0,00</p>
+                    <img class="icon" src="imgs/editIcon.png"/>
+                    <img class="icon" src="imgs/trashIcon.png"/>
+                </div>
+            </div>
+
+            <div id="containerFooter">
+                <span class="btn editar" onclick="overlayOn('despesasOverlay')">nova entrada</span>
+            </div>
+        </main>
+    </div>
+    <div id="despesasOverlay">
+        <form id="formDespesas" action="#" method="POST">
+            <span class="fechar" onclick="overlayOff('despesasOverlay')">x</span>
+            <input type="text" name="nome" id="fpNome" placeholder="nome da despesa:*" required/>
+            <input type="text" name="valor" id="fpValor" placeholder="valor R$:*" required/>
+            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar"/></div>
+        </form>
+    </div>
+    <script src='js/main.js'></script>
+    <script src='js/perfil.js'></script>
+</body>
+</html>
