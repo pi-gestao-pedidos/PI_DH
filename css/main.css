@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 0.25s;
+}
+
+body {
+    display: flex;
+    background-color: #F3F3F7;
+    color: #F3F3F7;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 1.2vw 
+}
+
+
+/* Estilo de textos */
+h1 { font-size: 6em; font-weight: normal}
+h2 { font-size: 3.5em; font-weight: normal }
+h3 { font-size: 2.25em; font-weight: normal; color: #2B92F6 }
+
+a { text-decoration: none}
+
+/* Botões */
+
+.btn {
+    border-radius: 7em;
+    padding: 1.5% 10%;
+    font-size: 1.25em;
+    cursor: pointer;
+    text-decoration: none;
+    color: #F3F3F7;
+    text-align: center;
+}
+
+.editar { background-color: #2B92F6 }
+.editar:hover { background-color:#2580DB }
+
+.salvar { 
+    background-color: #42B72A;
+    color: #F3F3F7;
+    width: max-content;
+    border: none;
+    outline: none; 
+}
+
+.voltar{
+    background-color: #8F959B ;
+    color: #F3F3F7;
+    width: max-content;
+    border: none;
+    outline: none; 
+}
+
+.salvar:hover { background-color:#25801C }
+
+.voltar:hover { background-color:rgb(73, 77, 73) }
+
+.close{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: relative;
+    left: 100%;
+    text-align: justify;
+}
+
+/* SIDEBAR */
+nav {
+    background-color: #1E2B36;
+    width: 20%;
+    height: 100vh;
+}
+
+nav div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#profilePic {
+    width: 40%;
+    border-radius: 50%;
+    margin-bottom: 1vw;
+}
+
+/* Nav */
+nav ul { 
+    list-style: none;
+    margin-top: 5vh; 
+}
+
+nav li :hover { background-color: #2B92F6; padding-left: 0 }
+.active { background-color: #144575; padding-left: 0 }
+
+nav a { 
+    padding-left: 25%;
+    color: #F3F3F7;
+    display: flex;
+    align-items: center;
+}
+
+nav img{ 
+    width: 15%;
+    margin: 1vh;
+}
+
+
+/* Content */
+#container { 
+    width: 100vw;
+    height: 100vh; 
+}
+
+
+/* HEADER */
+header {
+    background-color: #2B92F6;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header h2 {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#logo {
+    height: 100%;
+    position: absolute;
+    left: 5%;
+}
+
+
+/* MAIN */
+main { 
+    height: 85%;
+    padding: 2.8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#containerMain{
+    height: 75%;
+    overflow: auto;
+}
+
+#containerFooter{ 
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

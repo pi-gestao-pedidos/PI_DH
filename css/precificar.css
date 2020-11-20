@@ -1,0 +1,245 @@
+.prec{
+    width: 77vw;
+    height: 61vh;
+    align-self: center;
+    background: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#vamos_p{
+    width: 70%;
+    height: 30%;
+    text-align: center;
+    margin-top: 5%
+}
+
+#explic_p{
+    color: #8F959B;
+    width: 90%;
+    text-align: justify;
+    margin-top: 5%
+}
+.contP{
+    padding: 0% 1%;
+    position: absolute;
+    width: 78vw;
+    height: 75vh;
+    background: #FFFFFF;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.Ps{
+    background-color: #fff;
+    width: 78vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+}
+
+input {
+    width: 45%;
+    font-size: 1.25em;
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+}
+
+/* .fechar{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: relative;
+    margin-left: 90%;
+    text-align: justify;  
+} */
+
+.formMaterial {
+    background-color: #fff;
+    width: 40vw;
+    height: 75vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#overlaymat, #overlaycust, #overlaydesp{
+    background-color: #0008;
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color:#8F959B;
+}
+.itemMaterial{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8F959B;
+    background-color: white;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+.icon{
+    width: 5%;
+    margin: 2%;
+}
+
+.nomeItenCost{
+    font-size: 2em;
+    width: 50%;
+}
+
+.precoDesp{
+    font-size: 1.5em;
+    width: 15%;
+    text-align: end;
+}
+
+.textojanela{
+    color:#8F959B
+}
+
+.dropdown {
+    position: relative;
+  
+}
+
+.dropcontent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    color:#8F959B;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+.dropdown:hover .dropcontent {
+    display: block;
+  }
+
+#qt{
+    text-align: center;
+}
+#fimtopo{
+    display: flex;
+    flex-direction: row;
+}
+#prodfinal{
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+}
+#fimbaixo{
+    color:#8F959B;
+    font-weight: bold ;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+.btnForm {
+    padding: 2% 0;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.fechar{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: absolute;
+    top: 3%;
+    right: 30px;
+    z-index: 1;
+}
+
+#formMateriais {
+    position: relative;
+    background-color: #fff;
+    padding: 5%;
+    width: 30vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#materiaisOverlay {
+    background-color: #0008;
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    /* margin-bottom: 0px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 15%; */
+    align-items: center;
+    flex: 1;
+}
+
+
+.dadosDBoverlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8F959B;
+    background-color: white;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1em;
+}
+
+#despesasOverlay {
+    background-color: #0008;
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#formDespesas {
+    background-color: #fff;
+    position: relative;
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}

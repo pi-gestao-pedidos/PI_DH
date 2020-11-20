@@ -1,0 +1,203 @@
+.btn {
+    width: max-content;
+    padding: 2% 10%;
+}
+
+.itemProduto {
+    display: flex;
+    background-color: #fff;
+    color: #8F959B;
+    border: 2px solid #8F959B;
+    border-radius: 20px;
+}
+
+.icon{
+    width: 6vw;
+    align-self: center;
+    margin: 2%;
+}
+
+h4 { font-size: 2em;}
+
+.itemProduto ul {
+    list-style: none;
+    padding: 2%;
+    flex: 1;
+}
+
+.itemProduto li {
+    display: flex;
+    margin: 1%;
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0004;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* form */
+
+.containerForm {
+    background-color: #FFF;
+    border-radius: 30px;
+    padding: 2% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    width: 100%;
+    font-size: 1.25em;
+    padding: 2%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    border: solid#F3F3F7;;
+}
+
+.closeForm{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    position: relative;
+    left: 50%;
+}
+
+form span {
+    margin-bottom: 2%;
+}
+
+.resultado {
+    color: #2B92F6;
+    font-size: 1.25em;
+    margin: 5%;
+}
+
+p {
+    color: #8F959B;
+}
+
+.btnSalvar {
+    width: 40%;
+    background-color: #42B72A;
+    color: #F3F3F7;
+    border-radius: 7em;
+    border: none;
+    outline: none;
+}
+
+.btnSalvar:hover { background-color:#25801C }
+
+/* form novo produto */
+
+#novoProdutoOverlay {
+    background-color: #0008;
+}
+
+#formProduto {
+    width: 45vw;
+}
+
+#btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* lista de materiais */
+
+#listaMateriais {
+    width: 45vw;
+}
+
+.containerItens {
+    overflow: auto;
+    width: 100%;
+    height: 25vw;
+    margin: 5% 0;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8F959B;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.imgItem {
+    width: 7%;
+    margin: 2%;
+}
+
+#nomeMaterial {
+    flex: 3;
+    padding: 0 2%;
+}
+
+#precoMaterial {
+    flex: 1;
+}
+
+/* adicionar materiais */
+
+#addMateriais {
+    width: 40vw;
+    height: 45vw;
+    justify-content: space-between;
+}
+
+#selectMateriais {
+    width: 100%;
+    font-size: 1.25em;
+    color: #8F959B;
+    padding: 2%;
+    border-radius: 10px;
+    border: solid #F3F3F7;
+}
+
+#quantidadeMaterial {
+    margin-bottom: 50%;
+}
+
+/* form novo material */
+
+#novoMaterial {
+    width: 35vw;
+    height: 40vw;
+    justify-content: space-between;
+}
+
+/* custos */
+
+#listaCustos {
+    width: 40vw;
+    height: 45vw;
+    justify-content: space-between;
+}
+
+#nomeCustos {
+    flex: 1;
+    padding: 0 2%;
+}
+
+#custoVariavel {
+    width: 35vw;
+    height: 42vw;
+    justify-content: space-between;
+}
+
+#errorMaterial {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #F54D42;
+}
