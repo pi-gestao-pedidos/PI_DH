@@ -2,15 +2,6 @@ function carregar(){
     const token =  localStorage.getItem('token')
     let isTokenValid = false
     fetchApi('/', 'GET')
-    // const options = {
-    //     method: 'GET',
-    //     headers: { 
-    //         'Content-Type': 'application/json',
-    //         'Authorization': "Bearer "+token
-    //     },
-    // }
-
-    // fetch("http://localhost:8080/", options)
         .then(response => {
             if(response.ok){
                 isTokenValid = true
@@ -63,8 +54,6 @@ const fetchApi = (mapping, method, data) => {
           },
         body: JSON.stringify(data)
     })
-        // .then(response => response.json())
-        // .catch(error => { return console.log(error) })
 }
 
 /**
