@@ -1,0 +1,71 @@
+/* Perfil */
+.perfil{
+    background-color: #FFF;
+    color: #8F959B;
+    padding: 3% 7.5%;
+    font-size: 1.25em;
+}
+
+.divPersonalPic{
+    width: 100%;
+    height: 20%;
+}
+
+.personalPic {
+    height: 100%;
+    border-radius: 50%;
+}
+
+main ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-evenly;
+    height: 80%;
+}
+
+main li {
+    width: 45%;
+}
+
+#perfilOverlay {
+    background-color: #0008;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 77vw;
+    height: 80vh;
+    padding: 2% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input {
+    width: 45%;
+    font-size: 1.25em;
+    padding: 1% 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #8F959B;
+}
+
+.w100 { width: 100% }
+
+.btnForm {
+    width: 100%;
+    text-align: center;
+    padding: 2% 0;
+}
+
