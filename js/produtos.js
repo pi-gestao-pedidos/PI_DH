@@ -33,7 +33,6 @@ function filterFunction() {
         }
     }
 }
-*/
 
 
 fetchApi('/produtos', 'GET')
@@ -118,69 +117,4 @@ newMaterialForm.addEventListener('submit', (event) => {
         .catch(err => console.error(err))
     overlayOff('newMaterialOverlay')
     newMaterialForm.reset()
-})
-
-
-/*
-async function postProduto() {
-    const response = await fetchApi('/produtos', 'POST', produto)
-    const jsonProduto = await response.json();
-    return json
-}
-async function postDespesaProduto() {
-    const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
-    const jsonDespesaProduto = await response.json()
-    return json
-}
-*/
-
-/*
-produtoForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    let idProduto
-    const produto = convertFormToArray(produtoForm)
-
-    fetchApi('/produtos', 'POST', produto)
-        .then(response => {
-            if (response.ok) {
-                response.json().then(json => {
-                    idProduto = json.idProduto
-                    custos.forEach(custo => custo['idProduto'] = idProduto)
-
-                    fetchApi('/despesasDoProduto/lista', 'POST', custos)
-                    .then(response => response.json())
-                    .catch(err => console.log(err))
-
-                    fetchApi('/materialproduto', 'POST', materiais)
-                    .then(response => response.json())
-                    .catch(err => console.log(err))
-
-                })
-                    .catch(err => console.log(err))
-            }
-            return response.json()
-        })
-        .catch(err => console.log(err))
-})
-
-// produto erro = err.errors[0].defaultMessage
-// produto erros = err.errors.forEach(err => console.log(err.defaultMessage))
-
-custoProdutoForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    custos.push(convertFormToArray(custoProdutoForm))
-})
-
-materiaisForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    materiais.push(convertFormToArray(materiaisForm))
-})
-
-newMaterialForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const newMaterial = convertFormToArray(newMaterialForm)
-
-    fetchApi('/materiais', 'POST', newMaterial)
-    .then(response => response.json)
-    .catch(err => console.log(err))
 })
