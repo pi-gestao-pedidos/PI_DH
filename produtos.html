@@ -9,7 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/produtos.css'>
 </head>
 
-<body onload="carregar()">
+<body>
     <nav>
         <div>
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
@@ -41,19 +41,19 @@
         <main>
             <div id="containerMain" style="gap: 1%;">
 
-                    <div class="itemProduto">
-                        <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
-                            <h4>Produto:</h4>
-                            <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
-                                adequado</p>
-                            <span class="row"
-                                style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
-                                    style="font-weight: normal;">R$ 6,00</span></span>
-                        </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
-                    </div>
+                        <!-- <div class="itemProduto">
+                            <img class="iconProduto" src="imgs/productIcon.png" />
+                            <div style="padding-left: 15%; padding-right: 15%;">
+                                <h4>Produto:</h4>
+                                <p class="descricao">Descricao do produto a ser adicionado para oferecer ao cliente um preço
+                                    adequado</p>
+                                <span class="row"
+                                    style="justify-content: center; font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
+                                        style="font-weight: normal;">R$ 6,00</span></span>
+                            </div>
+                            <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
+                            <img class="iconLixeira" src="imgs/trashIcon.png" />
+                        </div> -->
                     
 
             </div>
@@ -70,7 +70,7 @@
             <div class="row" style="gap: 3%;">
                 <input class="column dadosDBoverlay" type="number" min="1" name="tempo" id="fptempo"
                     placeholder="min p/ produzir 1 unid" required />
-                <input class="column dadosDBoverlay" type="number" min="1" name="producao" id="fpProducao"
+                <input class="column dadosDBoverlay" type="number" min="1" name="unidadeMensal" id="fpProducao"
                     placeholder="unid prod mensal" required />
             </div>
             <div class="row" style="gap: 0%;">
@@ -80,7 +80,7 @@
                             Material</span>
                         <ul id="myDropdownFilter" class="dropdown-content-filter" style="padding-left: 2%;">
                             <input type="text" placeholder="Procurar.." id="myInput" onkeyup="filterFunction()">
-                            <li href="#carlos" class="row margem"
+                            <!-- <li href="#carlos" class="row margem" onclick="addMaterial()"
                                 style="width: 98%; padding: 1%; margin-top: 1%; margin-bottom:  1%; color: gray;">
                                 CARLOS
                             </li>
@@ -91,7 +91,7 @@
                             <li href="#fernando" class="row margem"
                                 style="width: 98%; padding: 1%; margin-top: 0%; margin-bottom:  1%; color: gray;">
                                 FERNANDO
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 <div class="column dadosDBoverlay editar"
@@ -112,8 +112,16 @@
                         <p class="column2 tabelaCabecalho">medida</p>
                         <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
                     </div>
-                    <div class="row6ConteudoTabela" style="margin-top: 0%;">
-                        <div class="rowTabela">
+                    <div id="tabelaMateriais" class="row6ConteudoTabela" style="margin-top: 0%;">
+                        <!-- <div class="rowTabela">
+                            <p class="column7">tecido</p>
+                            <input class="column2 inputInterno" style="border-style: none; font-size: 1.2vw; padding: 0%; margin-bottom: 0%; text-align: center; color: #8F959B;" type="number" min="1" name="producao" id="fpProducao"
+                    placeholder="qtd" required />
+                            <p class="column4">m2</p>
+                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                src="imgs/trashIcon.png" />
+                        </div> -->
+                        <!-- <div class="rowTabela">
                             <p class="column7">tecido</p>
                             <p class="column2">10</p>
                             <p class="column4">m2</p>
@@ -133,14 +141,7 @@
                             <p class="column4">m2</p>
                             <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
                                 src="imgs/trashIcon.png" />
-                        </div>
-                        <div class="rowTabela">
-                            <p class="column7">tecido</p>
-                            <p class="column2">10</p>
-                            <p class="column4">m2</p>
-                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
-                                src="imgs/trashIcon.png" />
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -149,34 +150,25 @@
                     <div class="row" style="text-align: center;">
                         <p class="column6 tabelaCabecalho">custo</p>
                         <p class="column3 tabelaCabecalho">valor</p>
+                        <p class="column3 tabelaCabecalho">%</p>
                         <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
                     </div>
-                    <div class="row6ConteudoTabela" style="margin-top: 0%;">
-                        <div class="rowTabela">
-                            <p class="column8">luz</p>
-                            <p class="column6">R$ 150,00</p>
+                    <div id="tabelaCustos" class="row6ConteudoTabela" style="margin-top: 0%;">
+                        <!-- <div class="rowTabela">
+                            <p class="column6">luz</p>
+                            <p class="column4">R$ 150,00</p>
+                            <p class="column4" >60</p>
                             <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
                                 src="imgs/trashIcon.png" />
-                        </div>
-                        <div class="rowTabela">
-                            <p class="column8">luz</p>
-                            <p class="column6">R$ 150,00</p>
-                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
-                                src="imgs/trashIcon.png" />
-                        </div>
-                        <div class="rowTabela">
-                            <p class="column8">luz</p>
-                            <p class="column6">R$ 150,00</p>
-                            <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
-                                src="imgs/trashIcon.png" />
-                        </div>
+                        </div> -->
                         
                 </div>
             </div>
         </div>
+            <p style="margin-top:1%; font-size: 1.2em;" class="resultadoProduto" name="precoCusto" id="fpcusto">Preço de Custo R$ 0,00</p>  
             <input style="margin-top:1%;" class="row dadosDBoverlay" type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
-            <p id="resultadoProduto" class="row resultado">Preço Sugerido R$ 0,00</p>
-            <input  class="row dadosDBoverlay" type="text" name="preco" id="fpPreco" placeholder="preço de venda">
+            <p id="resultadoProduto" name="precoSugerido" class="row resultado">Preço Sugerido R$ 0,00</p>
+            <input  class="row dadosDBoverlay" type="text" name="precoVenda" id="fpPreco" placeholder="preço de venda">
             <input class="btnSalvar" type="submit" value="salvar" />
         </form>
     </div>
@@ -215,12 +207,12 @@
     <div id="newMaterialOverlay" class="overlay">
         <form id="novoMaterial" class="containerForm">
             <span class="closeForm" onclick="overlayOff('newMaterialOverlay')">x</span>
-            <input type="text" name="fmNomeMaterial" id="fmNomeMaterial" placeholder="nome do material*" required />
-            <input type="number" min="1" name="fmQtdDeMaterial" id="fmQtdDeMaterial" placeholder="quantidade*"
+            <input type="text" name="nome" id="fmNomeMaterial" placeholder="nome do material*" required />
+            <input type="number" min="1" name="estoque" id="fmQtdDeMaterial" placeholder="quantidade*"
                 required />
-            <input type="text" name="fmUnidadeMaterial" id="fmUnidadeMaterial" placeholder="unidade de medida*"
+            <input type="text" name="unidadeMedida" id="fmUnidadeMaterial" placeholder="unidade de medida*"
                 required />
-            <input type="text" name="fmCustoMaterial" id="fmCustoMaterial" placeholder="custo do material*" required />
+            <input type="text" name="custo" id="fmCustoMaterial" placeholder="custo do material*" required />
             <input class="btnSalvar" type="submit" value="salvar" />
         </form>
     </div>
@@ -242,10 +234,10 @@
     <div id="addCustosOverlay" class="overlay">
         <form id="custoVariavel" class="containerForm">
             <span class="closeForm" onclick="overlayOff('addCustosOverlay')">x</span>
-            <input type="text" name="fcNomeCusto" id="fcNomeCusto" placeholder="nome do custo*" required />
-            <input type="text" name="fcValorCusto" id="fcValorCusto" placeholder="valor do custo" />
+            <input type="text" name="nome" id="fcNomeCusto" placeholder="nome do custo*" required />
+            <input type="number" name="valor" id="fcValorCusto" placeholder="valor do custo" />
             <p>Ou</p>
-            <input type="text" name="fcPorcentCusto" id="fcPorcentCusto" placeholder="Porcentagem %" />
+            <input type="number" name="porcentagem" id="fcPorcentCusto" placeholder="Porcentagem %" />
             <input class="btnSalvar" type="submit" value="salvar">
         </form>
     </div>
