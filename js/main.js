@@ -1,19 +1,19 @@
-function carregar(){
-    const token =  localStorage.getItem('token')
+function carregar() {
+    const token = localStorage.getItem('token')
     let isTokenValid = false
     fetchApi('/', 'GET')
         .then(response => {
-            if(response.ok){
+            if (response.ok) {
                 isTokenValid = true
             }
         })
-        .then(()=>{
-            if(!token || !isTokenValid){
+        .then(() => {
+            if (!token || !isTokenValid) {
                 window.location.href = "/login.html"
             }
         })
         .catch(() => {
-            isTokenValid=false
+            isTokenValid = false
             window.location.href = "/login.html"
         })
 }
@@ -45,16 +45,15 @@ const url = 'http://localhost:8080'
  * @param {Object} data Corpo da requisição
  */
 const fetchApi = (mapping, method, data) => {
-    const token =  localStorage.getItem('token')
+    const token = localStorage.getItem('token')
     return fetch(url + mapping, {
         method: method,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': "Bearer "+token
-          },
+            'Authorization': "Bearer " + token
+        },
         body: JSON.stringify(data)
     })
-
 }
 
 /**
