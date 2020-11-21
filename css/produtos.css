@@ -257,8 +257,9 @@
     font-size: 1em;
     text-align: justify;
     color: #8F959B;
+    height: 80px;
     overflow: auto;
-    margin: 3% 0;
+    margin-bottom: 3%;
 }
 
 .dadosDB{
@@ -568,11 +569,4 @@ p {
     width: 35vw;
     height: 42vw;
     justify-content: space-between;
-}
-
-.itemDetalhes{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 0 15%;
 }
