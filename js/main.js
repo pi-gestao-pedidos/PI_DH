@@ -1,19 +1,32 @@
-function carregar() {
-    const token = localStorage.getItem('token')
+function carregar(){
+    const token =  localStorage.getItem('token')
     let isTokenValid = false
     fetchApi('/', 'GET')
+    // const options = {
+    //     method: 'GET',
+    //     headers: { 
+    //         'Content-Type': 'application/json',
+    //         'Authorization': "Bearer "+token
+    //     },
+    // }
+
+    // fetch("http://localhost:8080/", options)
         .then(response => {
-            if (response.ok) {
+            alert(response.json())
+            if(response.ok){
                 isTokenValid = true
+                alert("fez true")
             }
         })
-        .then(() => {
-            if (!token || !isTokenValid) {
+        .then(()=>{
+            if(!token || !isTokenValid){
+                alert("primeiro falso")
                 window.location.href = "/login.html"
             }
         })
         .catch(() => {
-            isTokenValid = false
+            isTokenValid=false
+            alert("segundo falso")
             window.location.href = "/login.html"
         })
 }
@@ -45,15 +58,17 @@ const url = 'http://localhost:8080'
  * @param {Object} data Corpo da requisição
  */
 const fetchApi = (mapping, method, data) => {
-    const token = localStorage.getItem('token')
+    const token =  localStorage.getItem('token')
     return fetch(url + mapping, {
         method: method,
         headers: {
             'Content-Type': 'application/json',
             'Authorization': "Bearer " + token
-        },
+          },
         body: JSON.stringify(data)
     })
+        // .then(response => response.json())
+        // .catch(error => { return console.log(error) })
 }
 
 /**
