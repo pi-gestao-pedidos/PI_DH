@@ -78,7 +78,7 @@
     border: 2px solid #8F959B;
     border-radius: 10px;
     width: 49.5%;
-    height: 35%;
+    height: 12vw;
     margin-bottom: 1%;
     padding: 1% 0%;
 }
@@ -259,6 +259,7 @@
     color: #8F959B;
     overflow: auto;
     margin: 3% 0;
+    height: 50%;
 }
 
 .dadosDB{
