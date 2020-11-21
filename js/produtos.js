@@ -62,7 +62,7 @@ function filterFunction() {
 }
 
 
-fetchApi('/produtos', 'GET')
+fetchApi('/produto', 'GET')
     .then(response => response.json())
     .then(json => {
         const produtos = document.getElementById('containerMain')
@@ -257,7 +257,7 @@ function deletaCusto(idCusto) {
 newMaterialForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const material = convertFormToArray(newMaterialForm)
-    fetchApi('/materiais', 'POST', material)
+    fetchApi('/material', 'POST', material)
         .then(async response => {
             if (!response.ok) {
                 const error = await response.json()
