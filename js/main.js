@@ -1,3 +1,6 @@
+/**
+ * Função que verifica se o usuário está logado
+ */
 function carregar() {
     const token = localStorage.getItem('token')
     let isTokenValid = false
@@ -17,8 +20,6 @@ function carregar() {
             window.location.href = "/login.html"
         })
 }
-
-
 
 /**
  * Função que ativa o overlay effect.
