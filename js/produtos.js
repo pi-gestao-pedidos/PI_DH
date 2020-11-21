@@ -5,7 +5,7 @@ function myFunction() {
 
 
 function myFunctionFilter() {
-    fetchApi('/material', 'GET')
+    fetchApi('/materiais', 'GET')
         .then(response => response.json())
         .then(json => {
             const materiais = document.getElementById('myDropdownFilter')
@@ -71,7 +71,7 @@ fetchApi('/produtos', 'GET')
             itens.className = "itemProduto"
             itens.innerHTML = `
                         <img class="iconProduto" src="imgs/productIcon.png" />
-                        <div style="padding-left: 15%; padding-right: 15%;">
+                        <div class="itemDetalhes">
                             <h4>${item.nome}</h4>
                             <p class="descricao">${item.descricao}</p>
                             <span class="row"
@@ -87,7 +87,7 @@ fetchApi('/produtos', 'GET')
     .catch(err => console.log(err))
 
 
-// fetchApi('/material', 'GET')
+// fetchApi('/materiais', 'GET')
 //     .then(response => response.json())
 //     .then(json => {
 //         const materiais = document.getElementById('myDropdownFilter')
@@ -109,7 +109,7 @@ fetchApi('/produtos', 'GET')
 
 function addMaterial(idMaterial) {
     document.getElementById("myDropdownFilter").classList.toggle("show");
-    fetchApi('/material/' + idMaterial, 'GET')
+    fetchApi('/materiais/' + idMaterial, 'GET')
         .then(response => response.json())
         .then(json => {
             if (!document.getElementById(idMaterial)) {
@@ -209,7 +209,7 @@ custoProdutoForm.addEventListener('submit', (event) => {
             })
         }
     }
-    if (erro==false){
+    if (erro == false) {
         custos.push(convertFormToArray(custoVariavel))
         console.log(custos)
         overlayOff('addCustosOverlay')
@@ -217,13 +217,13 @@ custoProdutoForm.addEventListener('submit', (event) => {
         // json.forEach(item => {
         let itens = document.createElement("div")
         itens.className = "rowTabela"
-        itens.id = custos.length-1
+        itens.id = custos.length - 1
         itens.innerHTML = `
                             <p class="column6">${custosok.nome}</p>
                             <p class="column4">${custosok.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                             <p class="column4" >${custosok.porcentagem}</p>
                             <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
-                                src="imgs/trashIcon.png" onclick="deletaCusto(${custos.length-1})" />
+                                src="imgs/trashIcon.png" onclick="deletaCusto(${custos.length - 1})" />
                              `
         custoadd.appendChild(itens)
         custoProdutoForm.reset()
@@ -257,7 +257,7 @@ function deletaCusto(idCusto) {
 newMaterialForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const material = convertFormToArray(newMaterialForm)
-    fetchApi('/material', 'POST', material)
+    fetchApi('/materiais', 'POST', material)
         .then(async response => {
             if (!response.ok) {
                 const error = await response.json()
@@ -272,69 +272,3 @@ newMaterialForm.addEventListener('submit', (event) => {
     overlayOff('newMaterialOverlay')
     newMaterialForm.reset()
 })
-
-
-/*
-async function postProduto() {
-    const response = await fetchApi('/produtos', 'POST', produto)
-    const jsonProduto = await response.json();
-    return json
-}
-async function postDespesaProduto() {
-    const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
-    const jsonDespesaProduto = await response.json()
-    return json
-}
-*/
-
-/*
-produtoForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    let idProduto
-    const produto = convertFormToArray(produtoForm)
-
-    fetchApi('/produtos', 'POST', produto)
-        .then(response => {
-            if (response.ok) {
-                response.json().then(json => {
-                    idProduto = json.idProduto
-                    custos.forEach(custo => custo['idProduto'] = idProduto)
-
-                    fetchApi('/despesasDoProduto/lista', 'POST', custos)
-                    .then(response => response.json())
-                    .catch(err => console.log(err))
-
-                    fetchApi('/materialproduto', 'POST', materiais)
-                    .then(response => response.json())
-                    .catch(err => console.log(err))
-
-                })
-                    .catch(err => console.log(err))
-            }
-            return response.json()
-        })
-        .catch(err => console.log(err))
-})
-
-// produto erro = err.errors[0].defaultMessage
-// produto erros = err.errors.forEach(err => console.log(err.defaultMessage))
-
-custoProdutoForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    custos.push(convertFormToArray(custoProdutoForm))
-})
-
-materiaisForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    materiais.push(convertFormToArray(materiaisForm))
-})
-
-newMaterialForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const newMaterial = convertFormToArray(newMaterialForm)
-
-    fetchApi('/materiais', 'POST', newMaterial)
-    .then(response => response.json)
-    .catch(err => console.log(err))
-})
-*/
