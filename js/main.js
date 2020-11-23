@@ -1,3 +1,8 @@
+window.addEventListener('DOMContentLoaded', () => {
+    carregar()
+    showProfile()
+})
+
 /**
  * Função que verifica se o usuário está logado
  */
@@ -68,4 +73,33 @@ function convertFormToArray(form) {
         [pair[0]]: pair[1],
     }), {});
     return data
+}
+
+/**
+ * função que atualiza o perfil amarzenado
+ */
+function updateStoredProfile() {
+    fetchApi('/empreendedor','GET')
+        .then(response => response.json())
+        .then(json => localStorage.setItem('profile', JSON.stringify(json)))
+        .catch(err => console.log(err))
+ }
+
+ /**
+  * função que converte a string do perfil em json 
+  */
+function getStoredProfile() {
+    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
+    return JSON.parse(localStorage.getItem('profile'))
+}
+
+/**
+ * Função que exibe foto e nome do usuário
+ */
+function showProfile() {
+    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
+    if (getStoredProfile().foto != null) 
+    document.getElementById('profilePic').src = getStoredProfile().foto
+    if (getStoredProfile().nome != null)
+    document.getElementById('profileName').textContent = getStoredProfile().nome.split(' ')[0]
 }
