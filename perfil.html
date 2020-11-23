@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <title>Perfil</title>
@@ -7,11 +8,12 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/perfil.css'>
 </head>
-<body onload="carregar()">
+
+<body>
     <nav>
         <div>
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
-            <span>Nome</span>
+            <span id="profileName">Nome</span>
         </div>
 
         <ul>
@@ -24,7 +26,8 @@
             <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
             <li><a href=despesas.html><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
             <li><a href=perfil.html class="active"><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
-            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a>
+            </li>
         </ul>
 
     </nav>
@@ -35,19 +38,60 @@
             <h2>Perfil</h2>
         </header>
         <main>
-            <div id="containerMain" class="perfil">
-                <div class="divPersonalPic">
-                    <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
+            <div id="containerMain">
+                <!-- <div class="divPersonalPic">
+                    <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
                 </div>
-                <ul>
-                    <li><strong>Nome: </strong><p id="pNome">nome</p></li>
-                    <li><strong>Email: </strong><p id="pEmail">email@email.com</p></li>
-                    <li><strong>Telefone: </strong><p id="pTelefone1">(00)00000-0000</p></li>
-                    <li><strong>Telefone 2: </strong><p id="pTelefone2">(00)00000-0000</p></li>
-                    <li><strong>CNPJ/CPF: </strong><p id="pCpfCnpj">000.000.000-00</p></li>
-                    <li><strong>Razão Social: </strong><p id="pRazaoSocial">Minha Empresa</p></li>
-                    <li class="w100"><strong>Endereço: </strong><p id="pEndereco">Rua, nº, Bairro, Cidade - UF</p></li>
-                </ul>
+                <div class="dadosPessoais">
+                    <ul id="empreendedor">
+                        <li>
+                            <h5>Nome:</h5>
+                            <p>nome</p>
+                        </li>
+                        <li>
+                            <h5>CPF:</h5>
+                            <p>S</p>
+                        </li>
+                        <li>
+                            <h5>Email:</h5>
+                            <p>S</p>
+                        </li>
+                    </ul>
+                    <div>
+                        <h5>Telefones:</h5>
+                        <ul id="telefones">
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Endereços:</h5>
+                        <ul id="enderecos">
+                            <li></li>
+                        </ul>
+                    </div>
+                    <ul id="juridica">
+                        <li>
+                            <h5>Razão Social:</h5>
+                            <p>S</p>
+                        </li>
+                        <li>
+                            <h5>CNPJ:</h5>
+                            <p>S</p>
+                        </li>
+                    </ul>
+                </div> -->
+                <!--
+                    "idEndereco": 1,
+                    "cep": "01001-000",
+                    "logradouro": "Praça da Sé",
+                    "numero": "100",
+                    "complemento": "A",
+                    "bairro": "Sé",
+                    "localidade": "São Paulo",
+                    "uf": "SP"
+                -->
+
+
             </div>
             <div id="containerFooter">
                 <span class="btn editar" onclick="overlayOn('perfilOverlay')">editar</span>
@@ -55,24 +99,58 @@
         </main>
     </div>
     <div id="perfilOverlay">
-        <form id="formPerfil" method="POST">
+
+        <!-- Viacep 
+
+        <form method="get" action=".">
+            <label>Cep:
+            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                   onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+            <input name="rua" type="text" id="logradouro" size="60" /></label><br />
+            <label>Bairro:
+            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <label>Cidade:
+            <input name="cidade" type="text" id="localidade" size="40" /></label><br />
+            <label>Estado:
+            <input name="uf" type="text" id="uf" size="2" /></label><br />
+            <label>IBGE:
+            <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+          </form>
+
+          -->
+
+         <form id="formPerfil" method="POST">
             <span class="close" onclick="overlayOff('perfilOverlay')">x</span>
             <div class="divPersonalPic">
-                <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
+                <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
             </div>
-            <input type="text" name="nome" id="fpNome" placeholder="nome*" required/>
-            <input type="email" name="email" id="fpEmail" placeholder="email*" required/>
-            <input type="tel" name="telefone1" id="fpTelefone1" placeholder="telefone*" required/>
-            <input type="tel" name="telefone2" id="fpTelefone2" placeholder="telefone"/>
-            <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social"/>
-            <input type="text" name="cpfCnpj" id="fpcpfCnpj" placeholder="Cpf ou Cnpj"/>
-            <input type="text" name="endereco" id="fpEndereco" placeholder="Endereço" class="w100"/>
-            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required/>
-            <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required/>
-            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar"/></div>
+            <input type="text" name="nome" id="fpNome" placeholder="nome*" required />
+            <input type="email" name="email" id="fpEmail" placeholder="email*" required />
+            <input type="tel" name="telefone1" id="fpTelefone1" placeholder="telefone*" required />
+            <input type="tel" name="telefone2" id="fpTelefone2" placeholder="telefone" />
+            <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social" />
+            <input type="text" name="cpfCnpj" id="fpcpfCnpj" placeholder="Cpf ou Cnpj" />
+            
+            <input name="cep" type="text" id="cep" value="" placeholder="Cep:"
+                size="10" maxlength="9" onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+            <input name="rua" type="text" id="logradouro" size="60" /></label><br />
+            <label>Bairro:
+            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <label>Cidade:
+            <input name="cidade" type="text" id="localidade" size="40" /></label><br />
+            <label>Estado:
+            <input name="uf" type="text" id="uf" size="2" /></label><br />
+
+            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required />
+            <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required />
+            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar" /></div>
         </form>
     </div>
     <script src='js/main.js'></script>
     <script src='js/perfil.js'></script>
+    <script src='js/viacep.js'></script>
 </body>
+
 </html>

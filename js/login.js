@@ -1,9 +1,9 @@
-const submitInput = document.getElementById("submit-input")
+const submitInput = document.getElementById("formLogin")
 const loginInput = document.getElementById("flEmail")
 const passwordInput = document.getElementById("flSenha")
 const errorMessage = document.getElementById("error")
 
-submitInput.addEventListener('click', (e) => {
+submitInput.addEventListener('submit', (e) => {
     e.preventDefault()
     const data = {
         email: loginInput.value,
@@ -21,7 +21,9 @@ submitInput.addEventListener('click', (e) => {
         .then(json => {
             if(json.token) {
                 localStorage.setItem('token', json.token)
-                return window.location =  "/home.html"
+                storeProfile(json.token)
+                    .then(url => window.location = url)
+                    .catch(err => console.error(err))
             }
             errorMessage.textContent = json.message
         })
@@ -32,9 +34,9 @@ submitInput.addEventListener('click', (e) => {
 const loginCadastro = document.getElementById('fpEmail')
 const senhaCadastro = document.getElementById('fpSenha')
 const confirmaSenha = document.getElementById('fpSenha2')
-const submitCadastro = document.getElementById('submitPerfil')
+const formCadastro = document.getElementById('formPerfil')
 
-submitCadastro.addEventListener('click', (e) => {
+formCadastro.addEventListener('submit', (e) => {
     e.preventDefault()
 
     if((senhaCadastro.value.length || confirmaSenha.value.length)<5){
@@ -84,3 +86,21 @@ function overlayOn(id) {
 function overlayOff(id) {
     document.getElementById(id).style.display = "none";
 }
+
+/**
+ * Função que armazena o perfil
+ * @param {String} token 
+ */
+ async function storeProfile(token) {
+    const response = await fetch('http://localhost:8080/empreendedor', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + token
+        }
+    })
+    const json = await response.json()
+    const url = "/home.html"
+    localStorage.setItem('profile', JSON.stringify(json[0]))
+    return url
+ }

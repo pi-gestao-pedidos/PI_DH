@@ -31,13 +31,14 @@
     /* margin-bottom: 0px; */
     text-align: center;
     padding: 1% 1%;
+    max-height: 210px;
     gap: 3%;
     display: flex;
     flex-direction: row;
     flex-flow: column;
     flex-wrap: nowrap;
     width: 100%;
-    overflow-y: auto;
+    overflow: auto;
     /* height: 100%; */
     align-items: center;
     justify-content: flex-start;
@@ -54,6 +55,39 @@
     align-items: center;
     flex: 6;
     max-height: 50%;
+}
+
+.columnProduto{
+    position: relative;
+  
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    justify-content: center;
+}
+
+.itemProduto {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    color: #8F959B;
+    background-color: white;
+    border: 2px solid #8F959B;
+    border-radius: 10px;
+    width: 49.5%;
+    height: 12vw;
+    margin-bottom: 1%;
+    padding: 1% 0%;
+}
+
+
+#containerMain{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
 }
   
 .column{
@@ -150,19 +184,7 @@
     height: 70%;
 }
 
-.itemProduto {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    color: #8F959B;
-    background-color: white;
-    border: 2px solid #8F959B;
-    border-radius: 10px;
-    width: 100%;
-    margin-bottom: 1%;
-    padding: 1% 0%;
-}
+
 
 .icon{
     object-fit: contain;
@@ -235,9 +257,9 @@
     font-size: 1em;
     text-align: justify;
     color: #8F959B;
-    height: 80px;
     overflow: auto;
-    margin-bottom: 3%;
+    margin: 3% 0;
+    height: 50%;
 }
 
 .dadosDB{
@@ -311,6 +333,7 @@ input {
     border-color: #8F959B;
     margin-bottom: 1%;
 }
+
 
 .fechar{
     cursor: pointer;
@@ -546,4 +569,11 @@ p {
     width: 35vw;
     height: 42vw;
     justify-content: space-between;
+}
+
+.itemDetalhes{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 15%;
 }

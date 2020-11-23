@@ -1,33 +1,48 @@
 /* Perfil */
+h5 { font-size: 1.1em; }
+
 .perfil{
     background-color: #FFF;
     color: #8F959B;
+    height: 100%;
+    overflow: auto;
     padding: 3% 7.5%;
     font-size: 1.25em;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .divPersonalPic{
-    width: 100%;
-    height: 20%;
+    width: 8vw;
+    height: 8vw;
 }
 
 .personalPic {
-    height: 100%;
+    width: 8vw;
+    height: 8vw;
+    object-fit: cover;
     border-radius: 50%;
 }
 
+.dadosPessoais {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 main ul {
-    width: 100%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: space-evenly;
-    height: 80%;
 }
 
 main li {
     width: 45%;
+    margin-bottom: 1%;
 }
 
 #perfilOverlay {
@@ -69,3 +84,10 @@ input {
     padding: 2% 0;
 }
 
+#enderecos ul {
+    display: block;
+}
+
+#enderecos li {
+    width: 100%;
+}
