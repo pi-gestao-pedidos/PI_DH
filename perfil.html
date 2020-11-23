@@ -99,7 +99,28 @@
         </main>
     </div>
     <div id="perfilOverlay">
-        <form id="formPerfil" method="POST">
+
+        <!-- Viacep 
+
+        <form method="get" action=".">
+            <label>Cep:
+            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                   onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+            <input name="rua" type="text" id="logradouro" size="60" /></label><br />
+            <label>Bairro:
+            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <label>Cidade:
+            <input name="cidade" type="text" id="localidade" size="40" /></label><br />
+            <label>Estado:
+            <input name="uf" type="text" id="uf" size="2" /></label><br />
+            <label>IBGE:
+            <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+          </form>
+
+          -->
+
+         <form id="formPerfil" method="POST">
             <span class="close" onclick="overlayOff('perfilOverlay')">x</span>
             <div class="divPersonalPic">
                 <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
@@ -110,7 +131,18 @@
             <input type="tel" name="telefone2" id="fpTelefone2" placeholder="telefone" />
             <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social" />
             <input type="text" name="cpfCnpj" id="fpcpfCnpj" placeholder="Cpf ou Cnpj" />
-            <input type="text" name="endereco" id="fpEndereco" placeholder="Endereço" class="w100" />
+            
+            <input name="cep" type="text" id="cep" value="" placeholder="Cep:"
+                size="10" maxlength="9" onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+            <input name="rua" type="text" id="logradouro" size="60" /></label><br />
+            <label>Bairro:
+            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <label>Cidade:
+            <input name="cidade" type="text" id="localidade" size="40" /></label><br />
+            <label>Estado:
+            <input name="uf" type="text" id="uf" size="2" /></label><br />
+
             <input type="password" name="senha" id="fpSenha" placeholder="senha*" required />
             <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required />
             <div class="btnForm"><input class="btn salvar" type="submit" value="salvar" /></div>
@@ -118,6 +150,7 @@
     </div>
     <script src='js/main.js'></script>
     <script src='js/perfil.js'></script>
+    <script src='js/viacep.js'></script>
 </body>
 
 </html>
