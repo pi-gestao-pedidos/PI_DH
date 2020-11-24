@@ -157,7 +157,7 @@ function novoProduto(){
             <input style="margin-top:1%;" class="row dadosDBoverlay" type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
             <p id="resultadoProduto" name="precoSugerido" class="row resultado">Preço Sugerido R$ 0,00</p>
             <input  class="row dadosDBoverlay" type="text" name="precoVenda" id="fpPreco" placeholder="preço de venda">
-            <input class="btnSalvar" type="submit" onclick="postProduto()" value="salvar" />
+            <input class="btnSalvar" type="submit" onclick="testPostProduto()"/*"postProduto()"*/ value="salvar" />
         `
             let produtoForm = document.getElementById('formProduto')
             if (produtoForm) {
@@ -166,7 +166,7 @@ function novoProduto(){
             } else { { produtos.appendChild(itens) } }
             
             overlayOn('novoProdutoOverlay')
-            .catch(err => console.log(err))
+//            .catch(err => console.log(err))
 }
 function alteraProduto(idProduto) {
     fetchApi('/produtos/' + idProduto, 'GET')
@@ -337,11 +337,11 @@ async function postProduto() {
     console.log(produto)
     const responseProduto = await fetchApi('/produtos', 'POST', produto)
     const jsonProduto = await responseProduto.json()
-    custos.forEach(custos => custos[idProduto] = jsonProduto.idProduto)
+    custos.forEach(custos => custos.idProduto = jsonProduto.idProduto)
     const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
     const jsonDespesaProduto = await responseDespesaProduto.json()
     materiais.forEach(materiais => materiais.idProduto = jsonProduto.idProduto)
-    const responseMateriais = await fetchApi('/materialproduto', 'POST', materiais)
+    const responseMateriais = await fetchApi('/materialproduto/lista', 'POST', materiais)
     const jsonMateriais = await responseMateriais.json()
     overlayOff('novoProdutoOverlay')
     produtoForm.reset()
@@ -510,3 +510,10 @@ newMaterialForm.addEventListener('submit', (event) => {
     overlayOff('newMaterialOverlay')
     newMaterialForm.reset()
 })
+
+
+function testPostProduto() {
+    postProduto()
+        .then(res => alert(JSON.stringify(res)))
+        .catch(err => alert(err))
+}

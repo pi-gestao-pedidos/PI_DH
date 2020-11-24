@@ -418,8 +418,8 @@ form span {
 
   #myInput {
     box-sizing: border-box;
-    background-image: url('searchicon.png');
-    background-position: 2% 2%;
+    background-image: url('../imgs/search.svg');
+    background-position: 90%;
     background-repeat: no-repeat;
     font-size: 1EM;
     padding: 3%;
