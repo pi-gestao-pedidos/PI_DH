@@ -25,7 +25,7 @@ function myFunctionFilter() {
                 }
             })
             json.forEach(item => {
-                if (document.getElementById(item.idMaterial)) {
+                if (document.getElementById('material'+item.idMaterial)) {
                     var item = document.getElementById(item.idMaterial + 'filtro');
                     item.parentNode.removeChild(item);
                 }
@@ -69,6 +69,7 @@ fetchApi('/produtos', 'GET')
         json.forEach(item => {
             let itens = document.createElement("div")
             itens.className = "itemProduto"
+            itens.id = "produto" + item.idProduto
             itens.innerHTML = `
                         <img class="iconProduto" src="imgs/productIcon.png" />
                         <div class="itemDetalhes">
@@ -78,13 +79,184 @@ fetchApi('/produtos', 'GET')
                                 style="font-size: 1.3em; font-weight: bold;">Preço:&nbsp; <span
                                     style="font-weight: normal;">${item.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span></span>
                         </div>
-                        <img class="iconEditar" onclick="overlayOn('novoProdutoOverlay')" src="imgs/editIcon.png" />
-                        <img class="iconLixeira" src="imgs/trashIcon.png" />
+                        <img class="iconEditar" src="imgs/editIcon.png" onclick="alteraProduto(${item.idProduto})"/>
+                        <img class="iconLixeira" src="imgs/trashIcon.png" onclick="deletaProduto(${item.idProduto}, 'produto${item.idProduto}')"/>
                         `
             produtos.appendChild(itens)
         })
     })
     .catch(err => console.log(err))
+
+
+function deletaProduto(idProduto, idProdutoHtml) {
+    var item = document.getElementById(idProdutoHtml);
+    console.log(item)
+    item.parentNode.removeChild(item);
+    fetchApi('/produtos/' + idProduto, 'DELETE')
+}
+function novoProduto(){
+            const produtos = document.getElementById('novoProdutoOverlay')
+            let itens = document.createElement("form")
+            itens.id = "formProduto"
+            itens.className = "containerForm"
+            // itens.method = "POST"
+            itens.style.gap = "3%"
+            itens.innerHTML = `
+            <span class="closeForm" onclick="overlayOff('novoProdutoOverlay')">x</span>
+            <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" placeholder="nome*" required />
+            <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" placeholder="descrição">
+            <div class="row" style="gap: 3%;">
+                <input class="column dadosDBoverlay" type="number" min="1" name="tempo" id="fptempo"
+                    placeholder="min p/ produzir 1 unid" required />
+                <input class="column dadosDBoverlay" type="number" min="1" name="unidadeMensal" id="fpProducao"
+                    placeholder="unid prod mensal" required />
+            </div>
+            <div class="row" style="gap: 0%;">
+                
+                    <div class="column5 dropdownFilter btnFilter dadosDBoverlay" style="margin-right: 3%; justify-content: center; align-items: center;">
+                        <span onclick="myFunctionFilter()" class="">Selecionar
+                            Material</span>
+                        <ul id="myDropdownFilter" class="dropdown-content-filter" style="padding-left: 2%;">
+                            <input type="text" placeholder="Procurar.." id="myInput" onkeyup="filterFunction()">
+                        </ul>
+                    </div>
+                <div class="column dadosDBoverlay editar"
+                    style="padding: 1% 2%; cursor: pointer;  color: white; background-color: #2B92F6;"
+                    type="submit" value="editar" onclick="overlayOn('newMaterialOverlay')">cadastrar
+                </div>
+                <div class="column7 dadosDBoverlay editar"
+                    style="padding: 1% 2%; cursor: pointer; margin-left: 3%; margin-top: 0%; color: white; background-color: #2B92F6;"
+                    type="submit" value="editar" onclick="overlayOn('addCustosOverlay')">adicionar custos
+                </div>
+            </div>
+
+            <div class="row" style="align-items: baseline; margin-top: 1%; gap: 3%;">
+                <div class="column tabela">
+                    <div class="row" style="text-align: center;">
+                        <p class="column5 tabelaCabecalho">material</p>
+                        <p class="column2 tabelaCabecalho">qtd.</p>
+                        <p class="column2 tabelaCabecalho">medida</p>
+                        <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
+                    </div>
+                    <div id="tabelaMateriais" class="row6ConteudoTabela" style="margin-top: 0%;">
+                    </div>
+                </div>
+
+                <div class="column tabela">
+                    <div class="row" style="text-align: center;">
+                        <p class="column6 tabelaCabecalho">custo</p>
+                        <p class="column3 tabelaCabecalho">valor</p>
+                        <p class="column3 tabelaCabecalho">%</p>
+                        <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
+                    </div>
+                    <div id="tabelaCustos" class="row6ConteudoTabela" style="margin-top: 0%;">
+                </div>
+            </div>
+        </div>
+            <p style="margin-top:1%; font-size: 1.2em;" class="resultadoProduto" name="precoCusto" id="fpcusto">Preço de Custo R$ 0,00</p>  
+            <input style="margin-top:1%;" class="row dadosDBoverlay" type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
+            <p id="resultadoProduto" name="precoSugerido" class="row resultado">Preço Sugerido R$ 0,00</p>
+            <input  class="row dadosDBoverlay" type="text" name="precoVenda" id="fpPreco" placeholder="preço de venda">
+            <input class="btnSalvar" type="submit" onclick="postProduto()" value="salvar" />
+        `
+            let produtoForm = document.getElementById('formProduto')
+            if (produtoForm) {
+                produtoForm.parentNode.removeChild(produtoForm);
+                produtos.appendChild(itens)
+            } else { { produtos.appendChild(itens) } }
+            
+            overlayOn('novoProdutoOverlay')
+            .catch(err => console.log(err))
+}
+function alteraProduto(idProduto) {
+    fetchApi('/produtos/' + idProduto, 'GET')
+        .then(response => response.json())
+        .then(json => {
+            const produtos = document.getElementById('novoProdutoOverlay')
+            let itens = document.createElement("form")
+            itens.id = "formProduto"
+            itens.className = "containerForm"
+            // itens.method = "POST"
+            itens.style.gap = "3%"
+            itens.innerHTML = `
+                    <span class="closeForm" onclick="overlayOff('novoProdutoOverlay')">x</span>
+                    <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" value=${json.nome} required />
+                    <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" value=${json.descricao}>
+                    <div class="row" style="gap: 3%;">
+                        <input class="column dadosDBoverlay" type="number" min="1" name="tempo" id="fptempo"
+                        value=${json.tempo} required />
+                        <input class="column dadosDBoverlay" type="number" min="1" name="unidadeMensal" id="fpProducao"
+                        value=${json.unidadeMensal} required />
+                    </div>
+                    <div class="row" style="gap: 0%;">
+                        
+                            <div class="column5 dropdownFilter btnFilter dadosDBoverlay" style="margin-right: 3%; justify-content: center; align-items: center;">
+                                <span onclick="myFunctionFilter()" class="">Selecionar
+                                    Material</span>
+                                <ul id="myDropdownFilter" class="dropdown-content-filter" style="padding-left: 2%;">
+                                    <input type="text" placeholder="Procurar.." id="myInput" onkeyup="filterFunction()">
+                                </ul>
+                            </div>
+                        <div class="column dadosDBoverlay editar"
+                            style="padding: 1% 2%; cursor: pointer;  color: white; background-color: #2B92F6;"
+                            type="submit" value="editar" onclick="overlayOn('newMaterialOverlay')">cadastrar
+                        </div>
+                        <div class="column7 dadosDBoverlay editar"
+                            style="padding: 1% 2%; cursor: pointer; margin-left: 3%; margin-top: 0%; color: white; background-color: #2B92F6;"
+                            type="submit" value="editar" onclick="overlayOn('addCustosOverlay')">adicionar custos
+                        </div>
+                    </div>
+        
+                    <div class="row" style="align-items: baseline; margin-top: 1%; gap: 3%;">
+                        <div class="column tabela">
+                            <div class="row" style="text-align: center;">
+                                <p class="column5 tabelaCabecalho">material</p>
+                                <p class="column2 tabelaCabecalho">qtd.</p>
+                                <p class="column2 tabelaCabecalho">medida</p>
+                                <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
+                            </div>
+                            <div id="tabelaMateriais" class="row6ConteudoTabela" style="margin-top: 0%;">
+                            </div>
+                        </div>
+        
+                        <div class="column tabela">
+                            <div class="row" style="text-align: center;">
+                                <p class="column6 tabelaCabecalho">custo</p>
+                                <p class="column3 tabelaCabecalho">valor</p>
+                                <p class="column3 tabelaCabecalho">%</p>
+                                <p class="column2 tabelaCabecalho" style="color:transparent;">.</p>
+                            </div>
+                            <div id="tabelaCustos" class="row6ConteudoTabela" style="margin-top: 0%;">
+                        </div>
+                    </div>
+                </div>
+                    <p style="margin-top:1%; font-size: 1.2em;" class="resultadoProduto" name="precoCusto" id="fpcusto">Preço de Custo ${json.precoCusto}</p>  
+                    <input style="margin-top:1%;" class="row dadosDBoverlay" type="text" name="lucro" id="fpLucro" value=${json.lucro}>
+                    <p id="resultadoProduto" name="precoSugerido" class="row resultado">${json.precoSugerido}</p>
+                    <input  class="row dadosDBoverlay" type="text" name="precoVenda" id="fpPreco" value=${json.precoVenda}>
+                    <input class="btnSalvar" type="submit" onclick="putProduto(${json.idProduto})" value="salvar" />
+                                `
+            let produtoForm = document.getElementById('formProduto')
+            if (produtoForm) {
+                produtoForm.parentNode.removeChild(produtoForm);
+                produtos.appendChild(itens)
+            } else { { produtos.appendChild(itens) } }
+            json.materiais.forEach(materialPut => {
+                // console.log(materialPut)
+                addMaterial(materialPut.idMaterial)
+            })
+
+            custoProdutoPut(json.despesas)
+            // json.despesas.forEach(custosPut => {
+            //     // console.log(materialPut)
+            //     custoProdutoPut(json.despesas)
+            // })
+            overlayOn('novoProdutoOverlay')
+            // produtoForm.reset()
+        })
+        .catch(err => console.log(err))
+}
+
 
 
 // fetchApi('/materiais', 'GET')
@@ -108,23 +280,26 @@ fetchApi('/produtos', 'GET')
 
 
 function addMaterial(idMaterial) {
-    document.getElementById("myDropdownFilter").classList.toggle("show");
+    document.getElementById("myDropdownFilter").classList.remove("show");
     fetchApi('/materiais/' + idMaterial, 'GET')
         .then(response => response.json())
         .then(json => {
-            if (!document.getElementById(idMaterial)) {
+            if (!document.getElementById('material' + idMaterial)) {
+                json.quantidade = 1
+                materiais.push(json)
+                console.log(materiais)
                 const materialadd = document.getElementById('tabelaMateriais')
                 // json.forEach(item => {
                 let itens = document.createElement("div")
                 itens.className = "rowTabela"
-                itens.id = json.idMaterial
+                itens.id = 'material' + json.idMaterial
                 itens.innerHTML = `
                         <p class="column7">${json.nome} </p>
                         <input class="column2" style="border-style: none; font-size: 1.2vw; padding: 0%; margin-bottom: 0%; text-align: center; color: #8F959B;" type="number" min="1" name="producao" id="fpProducao"
-                    value="1" required />
+                    value="1" onchange="alterarQuantidade(${materiais.length - 1}, event)" required />
                         <p class="column4">${json.unidadeMedida} </p>
                         <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
-                            src="imgs/trashIcon.png" onclick="deletaMaterial(${json.idMaterial})" />
+                            src="imgs/trashIcon.png" onclick="deletaMaterial('material${json.idMaterial}', ${materiais.length - 1})" />
                     `
                 materialadd.appendChild(itens)
                 // })
@@ -133,41 +308,78 @@ function addMaterial(idMaterial) {
                 alert("Material já foi inserido")
         })
         .catch(err => console.log(err))
+
 }
 
-function deletaMaterial(idMaterial) {
+function deletaMaterial(idMaterial, nameMaterial) {
     var item = document.getElementById(idMaterial);
     item.parentNode.removeChild(item);
+    delete materiais[nameMaterial]
+    console.log(materiais)
 }
 
-const produtoForm = document.getElementById('formProduto')
+function alterarQuantidade(valor, event) {
+    materiais[valor].quantidade = event.target.value
+    console.log(materiais)
+}
+
+let produtoForm = document.getElementById('formProduto')
 // const materiaisForm = document.getElementById('addMateriais')
 const newMaterialForm = document.getElementById('novoMaterial')
 const custoProdutoForm = document.getElementById('custoVariavel')
 const errorMaterial = document.getElementById("errorMaterial")
-
 const custos = []
 const materiais = []
 
 async function postProduto() {
+    let produtoForm = document.getElementById('formProduto')
     const produto = convertFormToArray(produtoForm)
+    console.log(produto)
     const responseProduto = await fetchApi('/produtos', 'POST', produto)
-    const jsonProduto = responseProduto.json()
-    custos.forEach(custo => custo['idProduto'] = jsonProduto.idProduto)
+    const jsonProduto = await responseProduto.json()
+    custos.forEach(custos => custos[idProduto] = jsonProduto.idProduto)
     const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
-    const jsonDespesaProduto = responseDespesaProduto.json()
-    materiais.forEach(materiais => materiais['idProduto'] = jsonProduto.idProduto)
+    const jsonDespesaProduto = await responseDespesaProduto.json()
+    materiais.forEach(materiais => materiais.idProduto = jsonProduto.idProduto)
     const responseMateriais = await fetchApi('/materialproduto', 'POST', materiais)
-    const jsonMateriais = responseMateriais.json()
+    const jsonMateriais = await responseMateriais.json()
+    overlayOff('novoProdutoOverlay')
+    produtoForm.reset()
     return { jsonProduto, jsonDespesaProduto, jsonMateriais }
 }
 
-produtoForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    postProduto().catch(err => console.log(err))
+async function putProduto(idProduto) {
+    produtoForm = document.getElementById('formProduto')
+    const produto = convertFormToArray(produtoForm)
+    materiais.forEach(materiais => materiais.idProduto = idProduto)
+    produto.materiais = materiais
+    custos.forEach(custos => custos.idProduto = idProduto)
+    produto.despesas = custos
+    console.log(produto)
+    const responseProduto = await fetchApi('/produtos/' + idProduto, 'PUT', produto)
+    const jsonProduto = await responseProduto.json()
+
+
+
+    // custos.forEach(custo => custo.idProduto = jsonProduto.idProduto)
+    // const responseDespesaProduto = await fetchApi('/despesasDoProduto/lista', 'POST', custos)
+    // const jsonDespesaProduto = responseDespesaProduto.json()
+    // materiais.forEach(materiais => materiais.idProduto = jsonProduto.idProduto)
+    // const responseMateriais = await fetchApi('/materialproduto/lista', 'POST', materiais)
+    // const jsonMateriais = responseMateriais.json()
     overlayOff('novoProdutoOverlay')
     produtoForm.reset()
-})
+    return { jsonProduto }
+}
+
+
+// produtoForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
+//     // putProduto().catch(err => console.log(err))
+//     overlayOff('novoProdutoOverlay')
+//     produtoForm.reset()
+// })
+
 
 // custoProdutoForm.addEventListener('submit', (event) => {
 //     event.preventDefault()
@@ -183,6 +395,32 @@ produtoForm.addEventListener('submit', (event) => {
 //     overlayOff('addMateriaisOverlay')
 //     materiaisForm.reset()
 // })
+
+function custoProdutoPut(custo) {
+    // custos = JSON.stringify(custo)
+    // console.log(custo)
+    custo.forEach(fila => {
+        if (fila.valor == null) { fila.valor = "" }
+        if (fila.porcentagem == null) { fila.porcentagem = "" }
+        custos.push(fila)
+        overlayOff('addCustosOverlay')
+        const custoadd = document.getElementById('tabelaCustos')
+        // json.forEach(item => {
+        let itens = document.createElement("div")
+        itens.className = "rowTabela"
+        itens.id = custo.indexOf(fila)
+        itens.innerHTML = `
+                                <p class="column6">${fila.nome}</p>
+                                <p class="column4">${fila.valor}</p>
+                                <p class="column4" >${fila.porcentagem}</p>
+                                <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
+                                    src="imgs/trashIcon.png" onclick="deletaCusto(${custo.indexOf(fila)})" />
+                                `
+        custoadd.appendChild(itens)
+    })
+    // console.log(custos)
+    // custoProdutoForm.reset()
+}
 
 custoProdutoForm.addEventListener('submit', (event) => {
     event.preventDefault()
