@@ -86,3 +86,20 @@ function phonesHTML() {
         list += "</li>"
     }
 }
+
+const inputs = document.querySelectorAll('input, select, textarea');
+
+for(let input of inputs) {
+  input.addEventListener('invalid', (event) => {
+    input.classList.add('error');    
+  }, false);
+
+  input.addEventListener('valid', (event) => {
+    input.classList.remove('error');    
+  }, false);
+
+  input.addEventListener('blur', (event) => {
+    input.checkValidity();
+  })
+
+}

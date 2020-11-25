@@ -38,61 +38,7 @@
             <h2>Perfil</h2>
         </header>
         <main>
-            <div id="containerMain">
-                <!-- <div class="divPersonalPic">
-                    <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
-                </div>
-                <div class="dadosPessoais">
-                    <ul id="empreendedor">
-                        <li>
-                            <h5>Nome:</h5>
-                            <p>nome</p>
-                        </li>
-                        <li>
-                            <h5>CPF:</h5>
-                            <p>S</p>
-                        </li>
-                        <li>
-                            <h5>Email:</h5>
-                            <p>S</p>
-                        </li>
-                    </ul>
-                    <div>
-                        <h5>Telefones:</h5>
-                        <ul id="telefones">
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Endereços:</h5>
-                        <ul id="enderecos">
-                            <li></li>
-                        </ul>
-                    </div>
-                    <ul id="juridica">
-                        <li>
-                            <h5>Razão Social:</h5>
-                            <p>S</p>
-                        </li>
-                        <li>
-                            <h5>CNPJ:</h5>
-                            <p>S</p>
-                        </li>
-                    </ul>
-                </div> -->
-                <!--
-                    "idEndereco": 1,
-                    "cep": "01001-000",
-                    "logradouro": "Praça da Sé",
-                    "numero": "100",
-                    "complemento": "A",
-                    "bairro": "Sé",
-                    "localidade": "São Paulo",
-                    "uf": "SP"
-                -->
-
-
-            </div>
+            <div id="containerMain"></div>
             <div id="containerFooter">
                 <span class="btn editar" onclick="overlayOn('perfilOverlay')">editar</span>
             </div>
@@ -120,33 +66,70 @@
 
           -->
 
-         <form id="formPerfil" method="POST">
-            <span class="close" onclick="overlayOff('perfilOverlay')">x</span>
-            <div class="divPersonalPic">
-                <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
-            </div>
-            <input type="text" name="nome" id="fpNome" placeholder="nome*" required />
-            <input type="email" name="email" id="fpEmail" placeholder="email*" required />
-            <input type="tel" name="telefone1" id="fpTelefone1" placeholder="telefone*" required />
-            <input type="tel" name="telefone2" id="fpTelefone2" placeholder="telefone" />
-            <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social" />
-            <input type="text" name="cpfCnpj" id="fpcpfCnpj" placeholder="Cpf ou Cnpj" />
-            
-            <input name="cep" type="text" id="cep" value="" placeholder="Cep:"
-                size="10" maxlength="9" onblur="pesquisacep(this.value);" /></label><br />
-            <label>Rua:
-            <input name="rua" type="text" id="logradouro" size="60" /></label><br />
-            <label>Bairro:
-            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-            <label>Cidade:
-            <input name="cidade" type="text" id="localidade" size="40" /></label><br />
-            <label>Estado:
-            <input name="uf" type="text" id="uf" size="2" /></label><br />
+        <div id="formPerfil">
 
-            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required />
-            <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required />
-            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar" /></div>
-        </form>
+            <div id="containerRecord">
+
+                <div id="leftSide">
+                    <div class="divPersonalPic">
+                        <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
+                    </div>
+                    <span id="uploadBtn" class="btn editar">Trocar foto</span>
+                    <div id="profileRecord">
+
+                        <form id="empreendedorForm1">
+                            <input type="text" name="nome" id="nome" placeholder="nome*" required />
+                            <input type="text" name="cpf" id="fpcpf" placeholder="Cpf:" />
+                        </form>
+                        
+                        <form id="usuarioForm">
+                            <input type="email" name="email" id="fpEmail" placeholder="email*" 
+                            pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" required />
+                            <input type="password" name="senha" id="fpSenha" placeholder="senha*" required />
+                            <input type="password" name="senha2" id="fpSenha2" placeholder="Confirmar senha*" required />
+                            <input class="btn salvar" type="submit" value="salvar" />
+                        </form>
+
+                    </div>
+
+                </div>
+                <div id="rightSide">
+
+                    <span class="close" onclick="overlayOff('perfilOverlay')">x</span>
+
+                    <div id="enderecoRecord">
+
+                        <form id="empreendedorForm2">
+                            <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social" />
+                            <input type="text" name="Cnpj" id="fpCnpj" placeholder="Cnpj:" />
+                        </form>
+
+                        <form id="phoneForm">
+                            <input type="text" name="ddd" id="fpDDD" placeholder="DDD" 
+                                pattern="^(\d{2})$" size="2" title="DDD deve ter dois dígitos" />
+                            <input type="tel" name="numero" id="fpTelefone" placeholder="telefone" 
+                                size="10" pattern="^(\d?\d{4}\-\d{4})$" title="Número deve seguir o padrão 99999-9999"/>
+                        </form>
+
+                        <form id="address">
+                            <input type="text" name="cep" id="cep" value="" placeholder="Cep:" size="10" maxlength="9"
+                                onblur="pesquisacep(this.value);" />
+                            <input type="text" name="rua" id="logradouro" size="60" placeholder="Rua:" />
+                            <div id="enderecoNumero">
+                                <input type="text" name="numero" id="numero" size="60" placeholder="Número:" />
+                                <input type="text" name="complemento" id="complemento" placeholder="Complemento:" />
+                            </div>
+                            <input type="text" name="bairro" id="bairro" size="40" placeholder="Bairro:" />
+                            <input type="text" name="cidade" id="localidade" size="40" placeholder="Cidade:" />
+                            <input type="text" name="uf" id="uf" size="2" placeholder="Estado:" />
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </div>
     <script src='js/main.js'></script>
     <script src='js/perfil.js'></script>
