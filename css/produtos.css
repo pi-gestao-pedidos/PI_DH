@@ -86,9 +86,11 @@
 
 
 #containerMain{
+    gap:  0  1%;
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    height: max-content;
 }
   
 .column{

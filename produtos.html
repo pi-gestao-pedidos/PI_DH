@@ -9,7 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/produtos.css'>
 </head>
 
-<body onload="carregar()">
+<body>
     <nav>
         <div>
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
@@ -39,7 +39,7 @@
             <h2>Produtos</h2>
         </header>
         <main>
-            <div id="containerMain" style="gap: 1%;">
+            <div id="containerMain">
 
                         <!-- <div class="itemProduto">
                             <img class="iconProduto" src="imgs/productIcon.png" />
@@ -58,7 +58,7 @@
 
             </div>
             <div id="containerFooter">
-                <span class="btn salvar" onclick="novoProduto()">Novo Produto</span>
+                <span class="btn salvar" onclick="novoProduto(), buscaCusto()">Novo Produto</span>
             </div>
         </main>
     </div>
@@ -185,13 +185,14 @@
         <form id="custoVariavel" class="containerForm">
             <span class="closeForm" onclick="overlayOff('addCustosOverlay')">x</span>
             <input type="text" name="nome" id="fcNomeCusto" placeholder="nome do custo*" required />
-            <input type="number" name="valor" id="fcValorCusto" placeholder="valor do custo" />
+            <input type="number" step=".01" name="valor" id="fcValorCusto" placeholder="valor do custo" />
             <p>Ou</p>
-            <input type="number" name="porcentagem" id="fcPorcentCusto" placeholder="Porcentagem %" />
+            <input type="number" step=".01" name="porcentagem" id="fcPorcentCusto" placeholder="Porcentagem %" />
             <input class="btnSalvar" type="submit" value="salvar">
         </form>
     </div>
     <script src='js/main.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
     <script src='js/produtos.js'></script>
 </body>
 
