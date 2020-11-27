@@ -148,6 +148,10 @@ input {
     width: 55%;
 }
 
+#fpSenha2 {
+    width: 100%;
+}
+
 .w100 { width: 100% }
 
 .btnForm {
@@ -165,9 +169,18 @@ input {
 }
 
 input.error {
-    border: solid thin red;
+    border: solid red;
 }
 
 input:valid {
     border: solid thin #F3F3F7;
+}
+
+input[type='file'] {
+    display: none
+}
+
+label.btn.editar {
+    margin: 2% 0;
+    align-self: center;
 }

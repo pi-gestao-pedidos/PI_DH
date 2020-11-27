@@ -79,15 +79,15 @@ function convertFormToArray(form) {
  * função que atualiza o perfil amarzenado
  */
 function updateStoredProfile() {
-    fetchApi('/empreendedor','GET')
+    fetchApi('/empreendedor', 'GET')
         .then(response => response.json())
         .then(json => localStorage.setItem('profile', JSON.stringify(json)))
         .catch(err => console.log(err))
- }
+}
 
- /**
-  * função que converte a string do perfil em json 
-  */
+/**
+ * função que converte a string do perfil em json 
+ */
 function getStoredProfile() {
     if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
     return JSON.parse(localStorage.getItem('profile'))
@@ -98,8 +98,43 @@ function getStoredProfile() {
  */
 function showProfile() {
     if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
-    if (getStoredProfile().foto != null) 
-    document.getElementById('profilePic').src = getStoredProfile().foto
+    
+    showPic(document.getElementById('profilePic'))  
+
     if (getStoredProfile().nome != null)
-    document.getElementById('profileName').textContent = getStoredProfile().nome.split(' ')[0]
+        document.getElementById('profileName').textContent = getStoredProfile().nome.split(' ')[0]
 }
+
+function getPic() {
+    return fetch(getStoredProfile().foto, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + localStorage.getItem('token')
+        },
+    })  
+}
+
+function showPic(element){
+    (getStoredProfile().foto != null) ? 
+    getPic()
+        .then(res => res.blob())
+        .then(img => element.src = URL.createObjectURL(img))
+        .catch(err => console.log(err)) :
+    element.src =  "imgs/avatar.png";
+}
+
+// fetch(getStoredProfile().foto, {
+//     method: 'GET',
+//     headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': "Bearer " + localStorage.getItem('token')
+//     },
+// })
+
+//     .then(res => res.blob())
+//     .then(img => document.getElementById('profilePic').src = URL.createObjectURL(img))
+//     .catch(err => console.log(err))
+    
+//     .then(res => res.blob())
+//     .then(img => document.getElementById('profilePic').src = URL.createObjectURL(img))
