@@ -134,10 +134,9 @@ function novoProduto() {
             <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" placeholder="nome*" required />
             <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" placeholder="descrição">
             <div class="row" style="gap: 3%;">
-                <input class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
+                <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
                     placeholder="min p/ produzir 1 unid" required />
-                <input class="column dadosDBoverlay" type="number" min="1" name="unidadeMensal" id="fpProducao"
-                    placeholder="unid prod mensal" required />
+                <input style="margin-top:1%; text-align: center;" class="column dadosDBoverlay" onchange="calculaPrecoCustoTotal()" type="number" name="lucro" step="0.01" min="0.00" id="fpLucro" placeholder="lucro(%)">
             </div>
             <div class="row" style="gap: 0%;">
                 
@@ -182,9 +181,8 @@ function novoProduto() {
             </div>
         </div>
             <p style="margin-top:1%; font-size: 1.2em;" class="resultadoProduto" name="precoCusto" id="fpcusto">Preço de Custo R$ ${precoCustoTotal}</p>  
-            <input style="margin-top:1%;" class="row dadosDBoverlay" onchange="calculaPrecoCustoTotal()" type="text" name="lucro" id="fpLucro" placeholder="lucro(%)">
-            <p id="resultadoProduto" name="precoSugerido" class="row resultado">Preço Sugerido R$ 0,00</p>
-            <input  class="row dadosDBoverlay" type="text" name="precoVenda" id="fpPreco" placeholder="preço de venda">
+            <p style="justify-content: center;" id="resultadoProduto" name="precoSugerido" class="row resultado">Preço Sugerido R$ 0,00</p>
+            <input  style="text-align: center;" class="row dadosDBoverlay" type="number" step="0.01" min="0.00" name="precoVenda" id="fpPreco" placeholder="preço de venda">
             <input class="btnSalvar" type="button" onclick="postProduto()" value="salvar" />
         `
     let produtoForm = document.getElementById('formProduto')
@@ -213,10 +211,10 @@ function alteraProduto(idProduto) {
                     <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" value=${json.nome} required />
                     <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" value=${json.descricao}>
                     <div class="row" style="gap: 3%;">
-                        <input class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
+                        <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
                         value=${json.tempo} required />
-                        <input class="column dadosDBoverlay" type="number" min="1" name="unidadeMensal" id="fpProducao"
-                        value=${json.unidadeMensal} required />
+                        <input style="margin-top:1%; text-align: center; onchange="calculaPrecoCustoTotal()" class="column dadosDBoverlay" type="number" name="lucro" step="0.01" min="0.00" id="fpLucro" value=${json.lucro}>
+
                     </div>
                     <div class="row" style="gap: 0%;">
                         
@@ -261,9 +259,8 @@ function alteraProduto(idProduto) {
                     </div>
                 </div>
                     <p style="margin-top:1%; font-size: 1.2em;" class="resultadoProduto" name="precoCusto" id="fpcusto">Preço de Custo ${precoCustoTotal}</p>  
-                    <input style="margin-top:1%;" onchange="calculaPrecoCustoTotal()" class="row dadosDBoverlay" type="text" name="lucro" id="fpLucro" value=${json.lucro}>
-                    <p id="resultadoProduto" name="precoSugerido" class="row resultado">${json.precoSugerido}</p>
-                    <input  class="row dadosDBoverlay" type="text" name="precoVenda" id="fpPreco" value=${json.precoVenda}>
+                    <p style="justify-content: center;" id="resultadoProduto" name="precoSugerido" class="row resultado">${json.precoSugerido}</p>
+                    <input  style="text-align: center;" class="row dadosDBoverlay" type="number" step="0.01" min="0.00" name="precoVenda" id="fpPreco" value=${json.precoVenda}>
                     <input class="btnSalvar" type="button" onclick="putProduto(${json.idProduto})" value="salvar" />
                                 `
             let produtoForm = document.getElementById('formProduto')
@@ -349,6 +346,7 @@ function deletaMaterial(idMaterial, nameMaterial) {
     var item = document.getElementById(idMaterial);
     item.parentNode.removeChild(item);
     delete materiais[nameMaterial]
+    calculaPrecoCustoTotal()
     // console.log(materiais)
 }
 
@@ -380,7 +378,6 @@ async function postProduto() {
     const jsonProduto = await responseProduto.json()
     await putProduto(jsonProduto.idProduto)
     overlayOff('novoProdutoOverlay')
-    limpaListas()
     produtoForm.reset()
     //limpaTodosProdutos()
     //carregaProdutosTodos()
@@ -491,6 +488,7 @@ function deletaCusto(idCusto) {
     var item = document.getElementById(idCusto)
     item.parentNode.removeChild(item)
     delete custos[idCusto]
+    calculaPrecoCustoTotal()
     console.log(custos)
 }
 

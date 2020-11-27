@@ -48,7 +48,7 @@
                 <span class="btn editar" onclick="overlayOn('P1')">iniciar</span>
             </div>
             <div id="P1" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post1" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P1')">x</span>
                     <h3>Qual o nome do produto?</h3>
                     <input type="text" name="nome" placeholder="nome:*" required/>
@@ -62,7 +62,7 @@
                 </form>
             </div>
             <div id="P2" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post2" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P2')">x</span>
                     <h3>Quais materiais serão utilizados? </h3>
                     <span class="btn editar" onclick="overlayOn('overlaymat')">adicionar material</span>
@@ -82,7 +82,7 @@
             </div>
 
             <div id="P3" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post3" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P3')">x</span>
                     <h3>Você tem mais algum custo com o produto? </h3>
                     <span class="btn editar" onclick="overlayOn('overlaycust')">adicionar custo</span>
@@ -102,7 +102,7 @@
             </div>
 
             <div id="P4" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post4" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P4')">x</span>
                     <h3>Quantos minutos para produzir uma unidade?</h3>
                     <input type="text" name="nome" placeholder="minutos"/>
@@ -118,7 +118,7 @@
             </div>
 
             <div id="P5" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post5" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P5')">x</span>
                     <h3>Qual o custo mensal da sua mão-de-obra?</h3>
                     <input type="text" name="nome" placeholder="custo mão de obra"/>
@@ -135,7 +135,7 @@
             </div>
 
             <div id="P6" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post6" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P6')">x</span>
                     <h3>Quais são as despesas fixas do seu negócio? </h3>
                     <span class="btn editar" onclick="overlayOn('despesasOverlay')">adicionar despesa</span>
@@ -164,7 +164,7 @@
             </div>
             
             <div id="P7" class="contP">
-                <form class="Ps" action="#" method="POST">
+                <form id="post7" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P7')">x</span>
                     <h3>Qual o lucro desejado?</h3>
                     <div id="fimtopo">
@@ -266,6 +266,7 @@
     </div>
  
     <script src='js/main.js'></script>
-    <script src='js/perfil.js'></script>
+    <!-- <script src='js/perfil.js'></script> -->
+    <script src='js/precificar.js'></script>
 </body>
 </html>
