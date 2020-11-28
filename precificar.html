@@ -53,7 +53,7 @@
                     <h3>Qual o nome do produto?</h3>
                     <input type="text" name="nome" placeholder="nome:*" required/>
                     <h3>Descreva o produto:</h3>
-                    <input type="text" name="valor" placeholder="descrição..."/>
+                    <input type="text" name="descricao" placeholder="descrição..."/>
                     <div class="btnForm">
                         <input class="btn voltar" value="voltar" onclick="overlayOff('P1')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
@@ -104,11 +104,11 @@
             <div id="P4" class="contP">
                 <form id="post4" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P4')">x</span>
-                    <h3>Quantos minutos para produzir uma unidade?</h3>
-                    <input type="text" name="nome" placeholder="minutos"/>
+                    <h3>Quantas horas para produzir uma unidade?</h3>
+                    <input type="number" step="0.25" min="0.00" name="tempo" placeholder="tempo"/>
                     <h3>OU</h3>
-                    <h3>Quantas unidades são produzidas em um mês?</h3>
-                    <input type="text" name="valor" placeholder="unidades"/>
+                    <!-- <h3>Quantas unidades são produzidas em um mês?</h3>
+                    <input type="text" name="valor" placeholder="unidades"/> -->
                     <div class="btnForm">
                         <input class="btn voltar" value="voltar" onclick="overlayOff('P4');overlayOn('P3')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
@@ -121,8 +121,8 @@
                 <form id="post5" class="Ps" action="#" method="POST">
                     <span class="fechar" onclick="overlayOff('P5')">x</span>
                     <h3>Qual o custo mensal da sua mão-de-obra?</h3>
-                    <input type="text" name="nome" placeholder="custo mão de obra"/>
-                    <h3>Quantas horas mensais você dedica para a produção?</h3>
+                    <input type="number" name="salario" placeholder="custo mão de obra"/>
+                    <h3>Quantas horas diárias você dedica para a produção?</h3>
                     <input type="text" name="valor" placeholder="horas mensais"/>
                     <h3>Paga mais algum salário? Quanto?</h3>
                     <input type="text" name="valor" placeholder="outro salário"/>
@@ -149,7 +149,7 @@
                     <div class="btnForm">
                         <input class="btn voltar" value="voltar" onclick="overlayOff('P6');overlayOn('P5')"/>
                         <p>&nbsp;&nbsp;&nbsp;</p>
-                        <input class="btn salvar" onclick="overlayOn('P7');overlayOff('P6')" value="avançar"/>
+                        <input class="btn salvar" onclick="juntaArray(), overlayOn('P7'); overlayOff('P6')" value="avançar"/>
                     </div>
                 </form>
             </div>

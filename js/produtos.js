@@ -134,7 +134,7 @@ function novoProduto() {
             <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" placeholder="nome*" required />
             <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" placeholder="descrição">
             <div class="row" style="gap: 3%;">
-                <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
+                <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min="1" step="1" name="tempo" id="fptempo"
                     placeholder="min p/ produzir 1 unid" required />
                 <input style="margin-top:1%; text-align: center;" class="column dadosDBoverlay" onchange="calculaPrecoCustoTotal()" type="number" name="lucro" step="0.01" min="0.00" id="fpLucro" placeholder="lucro(%)">
             </div>
@@ -211,9 +211,9 @@ function alteraProduto(idProduto) {
                     <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" value=${json.nome} required />
                     <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" value=${json.descricao}>
                     <div class="row" style="gap: 3%;">
-                        <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
+                        <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min="1" step="1" name="tempo" id="fptempo"
                         value=${json.tempo} required />
-                        <input style="margin-top:1%; text-align: center; onchange="calculaPrecoCustoTotal()" class="column dadosDBoverlay" type="number" name="lucro" step="0.01" min="0.00" id="fpLucro" value=${json.lucro}>
+                        <input style="margin-top:1%; text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" name="lucro" step="0.01" min="0.00" id="fpLucro" value=${json.lucro}>
 
                     </div>
                     <div class="row" style="gap: 0%;">
@@ -331,6 +331,7 @@ async function calculaPrecoCustoTotal() {
     // precoCustoTotal = (((custohora * produto.tempo) + custoMateriais + custoVariaveis) * (1+(custoPercentual / 100)))
     precoCustoTotal = (((custohora * produto.tempo) + (parseFloat(custoMateriais) + custoVariaveis)) * (1 + (custoPercentual / 100)))
     const putcustoTotal = document.getElementById('fpcusto')
+    console.log(produto)
 
     precoFinalTotal = (precoCustoTotal * (1 + (produto.lucro / 100)))
 
