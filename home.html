@@ -80,17 +80,7 @@
                                     <th class="">Status</th>
                                 </tr>
                             </thead>
-                            <tbody id="pedidosData">
-                                <!--
-                                <tr onclick="overlayOn('pedidoOverlay')">
-                                    <td class="">0000</td>
-                                    <td class="">Nome</td>
-                                    <td class="">R$ 0,00</td>
-                                    <td class="">00/00/0000</td>
-                                    <td class="">Pendente</td>
-                                </tr>
-                                -->
-                            </tbody>
+                            <tbody id="pedidosData"></tbody>
                         </table>
                     </div>
                 </div>
@@ -102,47 +92,10 @@
                     <div id="pedido">
                         <div id="pedidoHeader">
                             <h4 id="pedidoTitle" class="w100">Pedido de compra</h4>
-                            <ul id="pedidoData" class="w100">
-                                <li class="w100">
-                                    <h5 class="">Pedido:</h5>
-                                    <p id="idPedido">0000</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>Cliente:</h5>
-                                    <p id="nomeCliente">Cliente</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>CPF/CNPJ:</h5>
-                                    <p id="indexCliente">00.000.000/0000-00</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>Email:</h5>
-                                    <p id="emailCliente">cliente@cliente.com</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>Telefone:</h5>
-                                    <p id="telefoneCliente">(00)00000-0000</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>CEP:</h5>
-                                    <p id="cepCliente">00000-000</p>
-                                </li>
-                                <li class="w100">
-                                    <h5>Endereço:</h5>
-                                    <p id="enderecoCliente">Rua,000 - Bairro - Cidade - UF</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>Data do pedido:</h5>
-                                    <p id="dataPedido">00/00/0000</p>
-                                </li>
-                                <li class="w50">
-                                    <h5>Data de Entrega:</h5>
-                                    <p id="dataEntrega">00/00/0000</p>
-                                </li>
-                            </ul>
+                            <ul id="pedidoData" class="w100"></ul>
                         </div>
                         <div id="produtoList">
-                            <table class="w100">
+                            <table id="detailsTable" class="w100">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
@@ -153,15 +106,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="produtoData">
-                                    <!--
-                                    <tr>
-                                        <td class="">0000</td>
-                                        <td class="">Produto</td>
-                                        <td class="">R$ 0,00</td>
-                                        <td class="">0</td>
-                                        <td class="">R$ 0,00</td>
-                                    </tr>
-                                    -->
+                                    <tr id="produtos"></tr>
                                 </tbody>
                             </table>
                         </div>
