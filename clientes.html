@@ -7,14 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/clientes.css'>
-    <script src='main.js'></script>
 </head>
 
-<body onload="carregar()">
+<body>
     <nav>
         <div>
             <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
-            <span>Nome</span>
+            <span id="profileName">Nome</span>
         </div>
 
         <ul>
@@ -272,14 +271,14 @@
                 </div>
             </div>
             <div id="containerFooter">
-                <span class="btn editar" onclick="overlayOn()">novo cliente</span>
+                <span class="btn editar" onclick="overlayOn('overlay')">novo cliente</span>
             </div>
         </main>
 
     </div>
     <div id="overlay">
         <form id="formPerfil" action="#" method="POST">
-            <span class="close" onclick="overlayOff()">x</span>
+            <span class="close" onclick="overlayOff('overlay')">x</span>
             <div class="divPersonalPic" style="width: 70%; height: 20%;">
                 <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
             </div>
@@ -292,15 +291,8 @@
             <div class="btnForm"><input class="btn salvar" type="submit" value="salvar" /></div>
         </form>
     </div>
-    <script>
-        function overlayOn() {
-            document.getElementById("overlay").style.display = "flex";
-        }
 
-        function overlayOff() {
-            document.getElementById("overlay").style.display = "none";
-        }
-    </script>
+    <script src='js/main.js'></script>
 </body>
 
 </html>
