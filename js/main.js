@@ -81,7 +81,10 @@ function convertFormToArray(form) {
 function updateStoredProfile() {
     fetchApi('/empreendedor', 'GET')
         .then(response => response.json())
-        .then(json => localStorage.setItem('profile', JSON.stringify(json)))
+        .then(json => {
+            localStorage.setItem('profile', JSON.stringify(json))
+            document.location.reload()
+        })
         .catch(err => console.log(err))
 }
 
@@ -89,7 +92,15 @@ function updateStoredProfile() {
  * função que converte a string do perfil em json 
  */
 function getStoredProfile() {
-    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
+    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') === 'undefined') {
+        updateStoredProfile()
+        return
+    }
+    
+    if (JSON.parse(localStorage.getItem('profile')).length > 1) {
+        return JSON.parse(localStorage.getItem('profile'))[0]
+    }
+    
     return JSON.parse(localStorage.getItem('profile'))
 }
 
@@ -97,31 +108,35 @@ function getStoredProfile() {
  * Função que exibe foto e nome do usuário
  */
 function showProfile() {
-    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
-    
-    showPic(document.getElementById('profilePic'))  
+    if (getStoredProfile() == null) return
 
-    if (getStoredProfile().nome != null)
+    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
+
+    showPic(document.getElementById('profilePic'))
+
+    if (getStoredProfile().length != 0|| localStorage.getItem('profile').foto != undefined)
         document.getElementById('profileName').textContent = getStoredProfile().nome.split(' ')[0]
 }
 
 function getPic() {
+    if(getStoredProfile().length == 0) return
     return fetch(getStoredProfile().foto, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': "Bearer " + localStorage.getItem('token')
         },
-    })  
+    })
 }
 
-function showPic(element){
-    (getStoredProfile().foto != null) ? 
-    getPic()
-        .then(res => res.blob())
-        .then(img => element.src = URL.createObjectURL(img))
-        .catch(err => console.log(err)) :
-    element.src =  "imgs/avatar.png";
+function showPic(element) {
+    if(getStoredProfile() == null) return
+    (getStoredProfile().length != 0 || localStorage.getItem('profile').foto != undefined) ?
+        getPic()
+            .then(res => res.blob())
+            .then(img => element.src = URL.createObjectURL(img))
+            .catch(err => console.log(err)) :
+        element.src = "imgs/avatar.png";
 }
 
 // fetch(getStoredProfile().foto, {
@@ -135,6 +150,6 @@ function showPic(element){
 //     .then(res => res.blob())
 //     .then(img => document.getElementById('profilePic').src = URL.createObjectURL(img))
 //     .catch(err => console.log(err))
-    
+
 //     .then(res => res.blob())
 //     .then(img => document.getElementById('profilePic').src = URL.createObjectURL(img))

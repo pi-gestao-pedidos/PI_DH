@@ -1,5 +1,5 @@
 const container = document.getElementById('containerMain')
-const storedProfile = getStoredProfile()
+const storedProfile = (getStoredProfile() != null) ? getStoredProfile() : []
 
 const perfil = document.createElement('div')
 perfil.className = 'perfil'
@@ -48,6 +48,7 @@ perfil.innerHTML = `
 container.appendChild(perfil)
 
 function adressesHTML() {
+    if (storedProfile.enderecos === undefined) return
     const adresses = storedProfile.enderecos
     if (adresses.length == 0) return ''
 
@@ -66,6 +67,7 @@ function adressesHTML() {
 }
 
 function phonesHTML() {
+    if (storedProfile.telefones === undefined) return
     const phones = storedProfile.telefones
     if (phones.length == 0) return ''
 
@@ -130,10 +132,13 @@ const addressForm = document.getElementById('addressForm')
 
 const submitPerfil = document.getElementById('submitPerfil')
 
+const storedTelefones = (storedProfile.telefones === undefined)? [] : storedProfile.telefones[0];
+const storedEnderecos = (storedProfile.enderecos === undefined)? [] : storedProfile.enderecos[0];
+
 imputingValue(form1, storedProfile)
 imputingValue(form2, storedProfile)
-imputingValue(phoneForm, storedProfile.telefones[0])
-imputingValue(addressForm, storedProfile.enderecos[0])
+imputingValue(phoneForm, storedTelefones)
+imputingValue(addressForm, storedEnderecos)
 
 function imputingValue(form, array) {
     if (array == null) return
@@ -160,7 +165,7 @@ submitPerfil.addEventListener('click', () => {
         input.checkValidity();
         if (input.checkValidity()) validated--
     }
-
+/*
     if (validated == 0) {
 
         const empreendedorForm = Object.assign({},
@@ -182,7 +187,7 @@ submitPerfil.addEventListener('click', () => {
         if (phoneForm.ddd.value.length > 1 && phoneForm.numero.value.length > 1) {
             const telefoneForm = convertFormToArray(phoneForm)
             telefoneForm.idPessoa = storedProfile.idPessoa
-            if (storedProfile.telefones[0] != null) {
+            if (!storedTelefones.length == 0) {
                 telefoneForm.idTelefone = storedProfile.telefones[0].idTelefone
                 fetchApi(`/telefone/${storedProfile.telefones[0].idTelefone}`, 'PUT', telefoneForm)
                     .then(() => telefoneChange = true)
@@ -201,7 +206,7 @@ submitPerfil.addEventListener('click', () => {
         if (addressForm.cep.value.length > 1) {
             const enderecoForm = convertFormToArray(addressForm)
             enderecoForm.idPessoa = storedProfile.idPessoa
-            if (storedProfile.enderecos[0] != null) {
+            if (!storedEnderecos.length == 0) {
                 enderecoForm.idEndereco = storedProfile.enderecos[0].idEndereco
                 fetchApi(`/enderecos/${storedProfile.enderecos[0].idEndereco}`, 'PUT', enderecoForm)
                     .then(enderecoChange = true)
@@ -236,9 +241,9 @@ submitPerfil.addEventListener('click', () => {
             storeProfile(localStorage.getItem('token'))
             .then(() => document.location.reload())
         }
-   
-    }
 
+    }*/
+       
 })
 
 async function storeProfile(token) {
