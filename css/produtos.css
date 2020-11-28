@@ -1,3 +1,4 @@
+
 .row{
     /* margin-bottom: 0px; */
     display: flex;
@@ -85,9 +86,11 @@
 
 
 #containerMain{
+    gap:  0  1%;
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    height: max-content;
 }
   
 .column{
@@ -316,6 +319,7 @@ h4 { font-size: 1.5em;}
 /* form */
 
 .containerForm {
+    position: relative;
     background-color: #FFF;
     border-radius: 30px;
     padding: 2% 5%;
@@ -416,8 +420,8 @@ form span {
 
   #myInput {
     box-sizing: border-box;
-    background-image: url('searchicon.png');
-    background-position: 2% 2%;
+    background-image: url('../imgs/search.svg');
+    background-position: 90%;
     background-repeat: no-repeat;
     font-size: 1EM;
     padding: 3%;
