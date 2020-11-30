@@ -62,14 +62,14 @@
 
                         <form id="empreendedorForm1">
 
-                            <input type="text" name="nome" id="nome" placeholder="nome*" minlength="3" required />
-
                             <input type="text" name="cpf" id="fpcpf" placeholder="Cpf:"
-                                pattern="^(\d{3}.\d{3}.\d{3}-\d{2})$" title="CPF deve seguir o padrão NNN.NNN.NNN-NN"  required/>
-
+                                pattern="^(\d{3}.\d{3}.\d{3}-\d{2})$" title="CPF deve seguir o padrão NNN.NNN.NNN-NN" />
+                            
                         </form>
-
+                        
                         <form id="usuarioForm">
+                            
+                            <input type="text" name="nome" id="nome" placeholder="nome*" minlength="3" required />
 
                             <input type="email" name="email" id="fpEmail" placeholder="email*"
                                 pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" required />
@@ -115,7 +115,7 @@
                         <form id="addressForm">
 
                             <input type="text" name="cep" id="cep" value="" placeholder="Cep:" size="10" maxlength="9"
-                                onblur="pesquisacep(this.value)" />
+                                pattern="^\d{5}-\d{3}$" onblur="pesquisacep(this.value)" />
 
                             <input type="text" name="logradouro" id="logradouro" placeholder="Rua:" size="60" />
 

@@ -75,12 +75,21 @@ function phonesHTML() {
     for (let phone in phones) {
         list += "<li>"
         for (let key in phones[phone]) {
-            list += phones[phone][key]
+            if (key.includes('ddd')) {
+                list += '(' + phones[phone][key] + ') '
+            }
+            if (key.includes('numero')) {
+                list += phones[phone][key]
+            }
+            
         }
         list += "</li>"
     }
     return list
 }
+
+let senha = document.getElementById('fpSenha')
+let senha2 = document.getElementById('fpSenha2')
 
 const inputs = document.querySelectorAll('input, select, textarea');
 
@@ -132,9 +141,10 @@ const addressForm = document.getElementById('addressForm')
 
 const submitPerfil = document.getElementById('submitPerfil')
 
-const storedTelefones = (storedProfile.telefones === undefined)? [] : storedProfile.telefones[0];
-const storedEnderecos = (storedProfile.enderecos === undefined)? [] : storedProfile.enderecos[0];
+const storedTelefones = (storedProfile.telefones === undefined) ? [] : storedProfile.telefones[0];
+const storedEnderecos = (storedProfile.enderecos === undefined) ? [] : storedProfile.enderecos[0];
 
+imputingValue(userForm, storedProfile)
 imputingValue(form1, storedProfile)
 imputingValue(form2, storedProfile)
 imputingValue(phoneForm, storedTelefones)
@@ -153,98 +163,124 @@ function imputingValue(form, array) {
 }
 
 
+let message
 submitPerfil.addEventListener('click', () => {
 
+    let userChange = false
     let empreendedorChange = false
     let telefoneChange = false
     let enderecoChange = false
     let picChange = false
+
+    let senhas = (senha.value != senha2.value) ? senha2.setCustomValidity("As senhas devem ser iguais") : senha2.setCustomValidity("");
 
     let validated = inputs.length
     for (let input of inputs) {
         input.checkValidity();
         if (input.checkValidity()) validated--
     }
-/*
+
     if (validated == 0) {
 
-        const empreendedorForm = Object.assign({},
-            convertFormToArray(form1),
-            convertFormToArray(form2),
-        )
-        empreendedorForm.idPessoa = storedProfile.idPessoa
-        empreendedorForm.foto = storedProfile.foto
-        phoneForm.idPessoa = storedProfile.idPessoa
-        addressForm.idPessoa = storedProfile.idPessoa
+        const usuarioForm = convertFormToArray(userForm)
 
+        fetchApi(('/api/usuarios/' + usuarioForm.email), 'PUT', usuarioForm)
+            .then(res => res.json())
+            .then(json => {
+                if (json.message) {
+                    console.log(json.status, json.message)
+                    return alert(json.message.split("'")[1])
+                }
+                userChange = true
+                usuarioForm.idPessoa = json.idPessoa
+                if (usuarioForm.idPessoa) {
+                    const empreendedorForm = Object.assign({},
+                        convertFormToArray(form1),
+                        convertFormToArray(form2),
+                    )
+                    empreendedorForm.idPessoa = usuarioForm.idPessoa
+                    empreendedorForm.nome = usuarioForm.nome
+                    empreendedorForm.email = usuarioForm.email
+                    empreendedorForm.foto = storedProfile.foto
+                    // phoneForm.idPessoa = await usuarioForm.idPessoa
+                    // addressForm.idPessoa = await usuarioForm.idPessoa
+                    
 
-        let urlPic = 'http://localhost:8080/download/'
+                    if(empreendedorForm.cpf == "") empreendedorForm.cpf = null
 
-        fetchApi(`/empreendedor/${empreendedorForm.idPessoa}`, 'PUT', empreendedorForm)
-            .then(empreendedorChange = true)
+                    let urlPic = 'http://localhost:8080/download/'
+
+                    fetchApi(('/empreendedor/'+ empreendedorForm.idPessoa), 'PUT', empreendedorForm)
+                        .then(res => res.json())
+                        .then(empreendedorChange = true)
+                        .catch(err => console.log(err))
+
+                    if (phoneForm.ddd.value.length > 1 && phoneForm.numero.value.length > 1) {
+                        const telefoneForm = convertFormToArray(phoneForm)
+                        telefoneForm.idPessoa = json.idPessoa
+                        if (storedProfile.telefones[0]) {
+                            telefoneForm.idTelefone = storedProfile.telefones[0].idTelefone
+                            fetchApi(('/telefones/' + storedProfile.telefones[0].idTelefone), 'PUT', telefoneForm)
+                                .then(telefoneChange = true)
+                                .catch(err => console.log(err))
+
+                        } else {
+                            console.log(telefoneForm)
+                            fetchApi('/telefones', 'POST', telefoneForm)
+                                .then(telefoneChange = true)
+                                .catch(err => console.log(err))
+
+                        }
+                    } else {
+                        telefoneChange = true
+                    }
+
+                    if (addressForm.cep.value.length > 1) {
+                        const enderecoForm = convertFormToArray(addressForm)
+                        enderecoForm.idPessoa = json.idPessoa
+                        if (storedProfile.enderecos[0]) {
+                            enderecoForm.idEndereco = storedProfile.enderecos[0].idEndereco
+                            fetchApi(('/enderecos/' + storedProfile.enderecos[0].idEndereco), 'PUT', enderecoForm)
+                                .then(enderecoChange = true)
+                                .catch(err => console.log(err))
+
+                        } else {
+                            console.log(enderecoForm)
+                            fetchApi('/enderecos', 'POST', enderecoForm)
+                                .then(enderecoChange = true)
+                                .catch(err => console.log(err))
+
+                        }
+                    } else {
+                        enderecoChange = true
+                    }
+
+                    if (uploadedPic) {
+                        postPic(uploadedPic)
+                            .then(res => console.log(res))
+                            .catch(err => console.log(err))
+                        empreendedorForm.foto = urlPic += uploadedPic.get('image').name
+                        if (empreendedorForm.foto) {
+                            fetchApi(`/empreendedor/${empreendedorForm.idPessoa}`, 'PUT', empreendedorForm)
+                                .then(picChange = true)
+                                .catch(err => alert('ERRO' + err))
+                        }
+                    } else {
+                        picChange = true
+                    }
+
+                    if (userChange && empreendedorChange && telefoneChange && enderecoChange && picChange) {
+                        alert('Alterado com sucesso!')
+                        storeProfile(localStorage.getItem('token'))
+                            .then(() => document.location.reload())
+                    }
+                }
+            })
             .catch(err => console.log(err))
+    }
 
-        if (phoneForm.ddd.value.length > 1 && phoneForm.numero.value.length > 1) {
-            const telefoneForm = convertFormToArray(phoneForm)
-            telefoneForm.idPessoa = storedProfile.idPessoa
-            if (!storedTelefones.length == 0) {
-                telefoneForm.idTelefone = storedProfile.telefones[0].idTelefone
-                fetchApi(`/telefone/${storedProfile.telefones[0].idTelefone}`, 'PUT', telefoneForm)
-                    .then(() => telefoneChange = true)
-                    .catch(err => console.log(err))
-
-            } else {
-                fetch('/telefone', 'POST', telefoneForm)
-                    .then(telefoneChange = true)
-                    .catch(err => console.log(err))
-
-            }
-        } else {
-            telefoneChange = true
-        }
-
-        if (addressForm.cep.value.length > 1) {
-            const enderecoForm = convertFormToArray(addressForm)
-            enderecoForm.idPessoa = storedProfile.idPessoa
-            if (!storedEnderecos.length == 0) {
-                enderecoForm.idEndereco = storedProfile.enderecos[0].idEndereco
-                fetchApi(`/enderecos/${storedProfile.enderecos[0].idEndereco}`, 'PUT', enderecoForm)
-                    .then(enderecoChange = true)
-                    .catch(err => console.log(err))
-
-            } else {
-                fetch('/enderecos', 'POST', enderecoForm)
-                    .then(enderecoChange = true)
-                    .catch(err => console.log(err))
-
-            }
-        } else {
-            enderecoChange = true
-        }
-
-        if (uploadedPic) {
-            postPic(uploadedPic)
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
-            empreendedorForm.foto = urlPic += uploadedPic.get('image').name
-            if (empreendedorForm.foto) {
-                fetchApi(`/empreendedor/${empreendedorForm.idPessoa}`, 'PUT', empreendedorForm)
-                    .then(picChange = true)
-                    .catch(err => alert('ERRO' + err))
-            }
-        } else {
-            picChange = true
-        }
-
-        if (empreendedorChange && telefoneChange && enderecoChange && picChange) {
-            alert('Alterado com sucesso!')
-            storeProfile(localStorage.getItem('token'))
-            .then(() => document.location.reload())
-        }
-
-    }*/
-       
 })
+
 
 async function storeProfile(token) {
     const response = await fetch('http://localhost:8080/empreendedor', {
@@ -258,4 +294,3 @@ async function storeProfile(token) {
     localStorage.setItem('profile', JSON.stringify(json[0]))
 
 }
-

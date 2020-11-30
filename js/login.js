@@ -16,20 +16,25 @@ submitInput.addEventListener('submit', (e) => {
         body: JSON.stringify(data)
     }
 
-    fetch("http://localhost:8080/api/usuarios/auth", options)
-        .then(response => response.json())
-        .then(json => {
-            if(json.token) {
-                localStorage.setItem('token', json.token)
-                storeProfile(json.token)
-                    .then(url => window.location = url)
-                    .catch(err => console.error(err))
-            }
-            errorMessage.textContent = json.message
-        })
-        .catch(err => console.log(err))
-
+    login(options)
 })
+
+async function login(options) {
+    try {
+        const response = await fetch("http://localhost:8080/api/usuarios/auth", options)
+        const json = await response.json()
+        if (json.token) {
+            const url = await storeProfile(json.token, json.email)
+            localStorage.setItem('token', json.token)
+            if (localStorage.getItem('token')) {
+                window.location = url
+            }
+        }
+        errorMessage.textContent = json.message
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 const loginCadastro = document.getElementById('fpEmail')
 const senhaCadastro = document.getElementById('fpSenha')
@@ -39,10 +44,10 @@ const formCadastro = document.getElementById('formPerfil')
 formCadastro.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    if((senhaCadastro.value.length || confirmaSenha.value.length)<5){
+    if ((senhaCadastro.value.length || confirmaSenha.value.length) < 5) {
         alert('Senha deve ter mais que 5 caracteres')
     }
-    else if(senhaCadastro.value != confirmaSenha.value) {
+    else if (senhaCadastro.value != confirmaSenha.value) {
         alert('Senhas devem ser iguais')
     }
     else {
@@ -56,18 +61,18 @@ formCadastro.addEventListener('submit', (e) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         }
-    
+
         fetch("http://localhost:8080/api/usuarios", options)
             .then(response => response.json())
             .then(json => {
                 //Tratar no backend
-                if(json.message.includes("Email deve ser um endereço de e-mail bem formado")){
+                if (json.message.includes("Email deve ser um endereço de e-mail bem formado")) {
                     alert('Email deve ser um endereço de e-mail bem formado')
                 }
                 return overlayOff('overlay')
             })
             .catch(err => console.log(err))
-    } 
+    }
 
 })
 
@@ -91,8 +96,8 @@ function overlayOff(id) {
  * Função que armazena o perfil
  * @param {String} token 
  */
- async function storeProfile(token) {
-    const response = await fetch('http://localhost:8080/empreendedor', {
+async function storeProfile(token, email) {
+    const response = await fetch(('http://localhost:8080/empreendedor/' + email), {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -101,6 +106,6 @@ function overlayOff(id) {
     })
     const json = await response.json()
     const url = "/home.html"
-    localStorage.setItem('profile', JSON.stringify(json[0]))
+    localStorage.setItem('profile', JSON.stringify(json))
     return url
- }
+}

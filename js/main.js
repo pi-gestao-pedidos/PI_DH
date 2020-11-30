@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showProfile()
 })
 
+
 /**
  * Função que verifica se o usuário está logado
  */
@@ -26,6 +27,7 @@ function carregar() {
         })
 }
 
+
 /**
  * Função que ativa o overlay effect.
  * @param {String} id Id do elemento.
@@ -33,6 +35,7 @@ function carregar() {
 function overlayOn(id) {
     document.getElementById(id).style.display = "flex";
 }
+
 
 /**
  * Função que desativa o overlay effect.
@@ -43,6 +46,7 @@ function overlayOff(id) {
 }
 
 const url = 'http://localhost:8080'
+
 
 /**
  * Função que busca recursos da API e retorna uma "promise"
@@ -62,6 +66,7 @@ const fetchApi = (mapping, method, data) => {
     })
 }
 
+
 /**
  * Converte um formulário em um array
  * @param {HTMLFormElement} form 
@@ -74,6 +79,7 @@ function convertFormToArray(form) {
     }), {});
     return data
 }
+
 
 /**
  * função que atualiza o perfil amarzenado
@@ -88,38 +94,34 @@ function updateStoredProfile() {
         .catch(err => console.log(err))
 }
 
-/**
- * função que converte a string do perfil em json 
- */
-function getStoredProfile() {
-    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') === 'undefined') {
-        updateStoredProfile()
-        return
-    }
-    
-    if (JSON.parse(localStorage.getItem('profile')).length > 1) {
-        return JSON.parse(localStorage.getItem('profile'))[0]
-    }
-    
-    return JSON.parse(localStorage.getItem('profile'))
-}
 
 /**
  * Função que exibe foto e nome do usuário
  */
 function showProfile() {
     if (getStoredProfile() == null) return
-
-    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == null) return
-
+    
     showPic(document.getElementById('profilePic'))
-
-    if (getStoredProfile().length != 0|| localStorage.getItem('profile').foto != undefined)
+    
+    if (getStoredProfile().length == null && localStorage.getItem('profile').nome == null)
         document.getElementById('profileName').textContent = getStoredProfile().nome.split(' ')[0]
 }
 
+
+/**
+ * função que converte a string armazenada em json 
+ */
+function getStoredProfile() {
+    if (!(localStorage.getItem('profile')) || localStorage.getItem('profile') == 'undefined') return
+    return JSON.parse(localStorage.getItem('profile'))
+}
+
+
+/**
+ * função que busca a foto
+ */
 function getPic() {
-    if(getStoredProfile().length == 0) return
+    if (getStoredProfile() == null && getStoredProfile().foto == null) return
     return fetch(getStoredProfile().foto, {
         method: 'GET',
         headers: {
@@ -129,27 +131,19 @@ function getPic() {
     })
 }
 
-function showPic(element) {
-    if(getStoredProfile() == null) return
-    (getStoredProfile().length != 0 || localStorage.getItem('profile').foto != undefined) ?
-        getPic()
-            .then(res => res.blob())
-            .then(img => element.src = URL.createObjectURL(img))
-            .catch(err => console.log(err)) :
-        element.src = "imgs/avatar.png";
+/**
+ * Função que exibe foto e nome do usuário
+ */
+async function showPic(element) {
+    if (getStoredProfile() == null) return
+    if (getStoredProfile().foto != null) {
+        try {
+            const res = await getPic()
+            const img = await res.blob()
+            return element.src = URL.createObjectURL(img)
+        } catch (err) {
+            return console.log(err)
+        }
+    }
+    return element.src = "imgs/avatar.png";
 }
-
-// fetch(getStoredProfile().foto, {
-//     method: 'GET',
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': "Bearer " + localStorage.getItem('token')
-//     },
-// })
-
-//     .then(res => res.blob())
-//     .then(img => document.getElementById('profilePic').src = URL.createObjectURL(img))
-//     .catch(err => console.log(err))
-
-//     .then(res => res.blob())
-//     .then(img => document.getElementById('profilePic').src = URL.createObjectURL(img))

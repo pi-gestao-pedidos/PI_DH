@@ -12,15 +12,15 @@
         <nav>
             <ul class="menuInicial">
                 <li><div id="logoHeader"></div></li>
-                <li><a href="#apresentacao">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#equipe">Equipe</a></li>
+                <li><a  class="anchor" href="#apresentacao">Home</a></li>
+                <li><a  class="anchor" href="#sobre">Sobre</a></li>
+                <li><a  class="anchor" href="#servicos">Serviços</a></li>
+                <li><a  class="anchor" href="#equipe">Equipe</a></li>
                 <a id="btnLogin" href="login.html">Login</a>
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="main">
         <section id="apresentacao">
             <h1>PRIS</h1>
             <p>A maneira mais prática de calcular o preço dos produtos!</p>
@@ -138,5 +138,15 @@
             <p>Copyright©2020, Digital House. Todos os direitos  reservados</p>
         </footer>
     </main>
+    <script>
+        // const anchors = document.getElementsByClassName('anchor')
+        // for (const anchor of anchors) {
+        //     anchor.addEventListener('click', () => {
+        //         let active = document.getElementsByClassName('active')
+        //         active[0].classList.remove('active')
+        //         anchor.classList.add('active')
+        //     })
+        // }
+    </script>
 </body>
 </html>
