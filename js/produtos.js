@@ -301,7 +301,7 @@ function addMaterial(idMaterial) {
                 itens.id = 'material' + json.idMaterial
                 itens.innerHTML = `
                         <p class="column7">${json.nome} </p>
-                        <input class="column2" style="border-style: none; font-size: 1.2vw; padding: 0%; margin-bottom: 0%; text-align: center; color: #8F959B;" type="number" min="1" name="producao" id="fpProducao"
+                        <input class="column2" style="border-style: none; font-size: 1.2vw; padding: 0%; margin-bottom: 0%; text-align: center; color: #8F959B;" type="number" min="1" name="quantidade" id="fpProducao"
                     value="1" onchange="alterarQuantidade(${materiais.length - 1}, event)" required />
                         <p class="column4">${json.unidadeMedida} </p>
                         <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
@@ -374,7 +374,7 @@ async function postProduto() {
     produto.precoCusto = precoCustoTotal
     produto.precoSugerido = precoFinalTotal
     produto.despesas = []
-    precoCustoTotal.materiais = []
+    produto.materiais = []
     const responseProduto = await fetchApi('/produtos', 'POST', produto)
     const jsonProduto = await responseProduto.json()
     await putProduto(jsonProduto.idProduto)

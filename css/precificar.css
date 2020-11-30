@@ -17,7 +17,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    height: 25%;
+    height: 45px;
+    max-height: 45px;
     align-items: center;
     justify-content: flex-start;
     color: #8F959B;
@@ -25,7 +26,7 @@
     border: 2px solid #8F959B;
     border-radius: 10px;
     flex: 1;
-    max-height: 40%;
+    
 }
 
 
@@ -214,17 +215,44 @@
 }
 
 .iconLixeira{
-    position: absolute;
+    object-fit: contain;
+    /* position: absolute; */
     top: 35%;
+    height: 100%;
     right: 2%;
     object-fit: contain;
-    padding: 1%;
-    width: 8%;
+    padding: 5px;
+    width: 15%;
     /* z-index: 1; */
 }
 
 .iconLixeira:hover{
     cursor: pointer;
+}
+
+.btnSalvar {
+    width: 40%;
+    background-color: #42B72A;
+    color: #F3F3F7;
+    border-radius: 7em;
+    border: none;
+    outline: none;
+}
+
+.editarInicial{
+    /* width: 10%; */
+    height: 10%;
+    padding-bottom: 3.5%;
+    /* padding: 5% 10%; */
+}
+
+.btnSalvar:hover { 
+    cursor: pointer;
+    background-color:#25801C 
+}
+
+.campos{
+    width: 100%;
 }
 
 .btnFilter {
@@ -332,10 +360,17 @@ input {
 
 #novoMaterial {
     position: relative;
-    padding: 7% 5%;
-    width: 35vw;
-    height: 40vw;
+    padding: 6% 3%;
+    padding-bottom: 4%;
+    width: 35%;
+    height: 65%;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: space-between;
+}
+
+#containerFooter{
+    width: 100%;
 }
 
 .containerForm {
@@ -349,13 +384,31 @@ input {
 }
 
 .overlayNewMat {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
+    position: relative;
+    width: 100%;
+    height: 100%;
     background-color: #0004;
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.overlayNewCusto {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #0004;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#custoVariavel {
+    padding: 6% 5%;
+    position: relative;
+    width: 35%;
+    height: 70%;
+    justify-content: space-between;
 }
 
 .closeForm{
@@ -437,7 +490,7 @@ input {
 }
 .btnForm {
     padding: 2% 0;
-    margin-top: 5%;
+    margin-top: 2%;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -487,13 +540,20 @@ input {
     flex: 1;
 }
 
+#myInput{
+    width: 100%;
+}
+
 .dropdownFilter {
     position: relative;
     display: flex;
     /* cursor: pointer; */
   }
 
+
 .dropdown-content-filter {
+    max-height: 200px;
+    overflow: auto;
     display: none;
     width: 98%;
     flex-direction: row;
