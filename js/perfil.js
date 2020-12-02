@@ -186,25 +186,26 @@ submitPerfil.addEventListener('click', () => {
 
         fetchApi(('/api/usuarios/' + usuarioForm.email), 'PUT', usuarioForm)
             .then(res => res.json())
-            .then(json => {
+            .then(async json => {
                 if (json.message) {
                     console.log(json.status, json.message)
                     return alert(json.message.split("'")[1])
                 }
                 userChange = true
-                usuarioForm.idPessoa = json.idPessoa
+                usuarioForm.idPessoa = await json.idPessoa
+                
                 if (usuarioForm.idPessoa) {
                     const empreendedorForm = Object.assign({},
                         convertFormToArray(form1),
                         convertFormToArray(form2),
                     )
-                    empreendedorForm.idPessoa = usuarioForm.idPessoa
+                    empreendedorForm.idPessoa = await usuarioForm.idPessoa
                     empreendedorForm.nome = usuarioForm.nome
                     empreendedorForm.email = usuarioForm.email
                     empreendedorForm.foto = storedProfile.foto
                     // phoneForm.idPessoa = await usuarioForm.idPessoa
                     // addressForm.idPessoa = await usuarioForm.idPessoa
-                    
+                    console.log('207')
 
                     if(empreendedorForm.cpf == "") empreendedorForm.cpf = null
 
@@ -217,7 +218,7 @@ submitPerfil.addEventListener('click', () => {
 
                     if (phoneForm.ddd.value.length > 1 && phoneForm.numero.value.length > 1) {
                         const telefoneForm = convertFormToArray(phoneForm)
-                        telefoneForm.idPessoa = json.idPessoa
+                        telefoneForm.idPessoa = await json.idPessoa
                         if (storedProfile.telefones[0]) {
                             telefoneForm.idTelefone = storedProfile.telefones[0].idTelefone
                             fetchApi(('/telefones/' + storedProfile.telefones[0].idTelefone), 'PUT', telefoneForm)
@@ -237,7 +238,7 @@ submitPerfil.addEventListener('click', () => {
 
                     if (addressForm.cep.value.length > 1) {
                         const enderecoForm = convertFormToArray(addressForm)
-                        enderecoForm.idPessoa = json.idPessoa
+                        enderecoForm.idPessoa = await json.idPessoa
                         if (storedProfile.enderecos[0]) {
                             enderecoForm.idEndereco = storedProfile.enderecos[0].idEndereco
                             fetchApi(('/enderecos/' + storedProfile.enderecos[0].idEndereco), 'PUT', enderecoForm)
@@ -255,7 +256,7 @@ submitPerfil.addEventListener('click', () => {
                         enderecoChange = true
                     }
 
-                    if (uploadedPic) {
+                    if (uploadPic.files.length > 0) {
                         postPic(uploadedPic)
                             .then(res => console.log(res))
                             .catch(err => console.log(err))

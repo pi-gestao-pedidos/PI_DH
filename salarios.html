@@ -35,51 +35,57 @@
             <h2>Salários</h2>
         </header>
         <main>
-            <div class="salarios">
-                <div id="card1" class="card" onclick="overlayOn('salariosOverlay')">
-                    <div class="divPersonalPic">
-                        <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
-                    </div>
-                    <ul>
-                        <li><strong><p id="sNome">Nome</p></strong></li>
-                        <li><strong>Salário: </strong><p id="sSalario">R$0,00</p></li>
-                        <li><strong>Carga Horária: </strong><p id="sCargaHoraria">0hrs</p></li>
-                        <li><strong>Dias de trabalho: </strong><p id="sDiasDeTrabalho">Dom Seg Ter Qua Qui Sex Sab</p></li>
-                    </ul>
-                </div>
-                <div id="card2" class="card" onclick="overlayOn('salariosOverlay')">
-                    <img id="add" src="./imgs/add.png" alt="Adicionar"/>
-                </div>
+            <div id="salarios">
+
+
+                
             </div>
         </main>
     </div>
     <div id="salariosOverlay" class="overlay">
-        <form id="formSalarios" action="#" method="POST">
-            <span class="close" onclick="overlayOff('salariosOverlay')">x</span>
+        <form id="formSalarios">
+            <span id="resetBtn" class="btnClose">x</span>
             <div class="divPersonalPic">
-                <img class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil"/>
+                <img class="personalPic" id="fsImg" src="imgs/avatar.png" alt="Imagem do Perfil"/>
             </div>
-            <input type="text" name="nome" id="fsNome" placeholder="nome*" required/>
-            <input type="number" name="salario" id="fsSalario" placeholder="salário R$*" required/>
-            <input type="number" name="horas" id="fsHoras" placeholder="carga horária diária hrs*" required/>
+
+            <input type="file" accept=".jpg,.jpeg,.png" id="uploadBtn" />
+            <label for="uploadBtn" class="btn editar">Trocar foto</label>
+
+            <div id="inputsSalario">
+                <input type="hidden" name="idSemana" id="fsidSemana"/>
+                <input type="hidden" name="idPessoa" id="fsIdPessoa"/>
+                
+                <label for="fsNome" class="labelCard">nome*:</label>
+                <input type="text" name="nome" id="fsNome" placeholder="nome*" required/>
+                
+                <label for="fsSalario" class="labelCard">salário R$*:</label>
+                <input type="number" name="salario" id="fsSalario" placeholder="salário R$*" required/>
+                
+                <label for="fsHoras" class="labelCard">carga horária diária hrs*:</label>
+                <input type="number" name="cargahoraria" id="fsHoras" placeholder="carga horária diária hrs*" required/>
+            </div>
             <p><strong>dias de trabalho</strong></p>
             <div id="divCheckbox">
-                <input type="checkbox" name="fsDias" id="fsDom" value="Dom"/>
+                <input type="checkbox" name="domingo" id="fsDom" value=""/>
                 <label for="fsDom">Dom</label>
-                <input type="checkbox" name="fsDias" id="fsSeg" value="Seg" checked/>
+                <input type="checkbox" name="segunda" id="fsSeg" value="" checked/>
                 <label for="fsSeg">Seg</label>
-                <input type="checkbox" name="fsDias" id="fsTer" value="Ter" checked/>
+                <input type="checkbox" name="terca" id="fsTer" value="" checked/>
                 <label for="fsTer">Ter</label>
-                <input type="checkbox" name="fsDias" id="fsQua" value="Qua" checked/>
+                <input type="checkbox" name="quarta" id="fsQua" value="" checked/>
                 <label for="fsQua">Qua</label>
-                <input type="checkbox" name="fsDias" id="fsQui" value="Qui" checked/>
+                <input type="checkbox" name="quinta" id="fsQui" value="" checked/>
                 <label for="fsQui">Qui</label>
-                <input type="checkbox" name="fsDias" id="fsSex" value="Sex" checked/>
+                <input type="checkbox" name="sexta" id="fsSex" value="" checked/>
                 <label for="fsSex">Sex</label>
-                <input type="checkbox" name="fsDias" id="fsSab" value="DSab"/>
+                <input type="checkbox" name="sabado" id="fsSab" value=""/>
                 <label for="fsSab">Sab</label>
             </div>
-            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar"/></div>
+            <div class="btnForm">
+                <input id="btnSalvar" class="btn salvar" value="salvar"/>
+                <input id="btnExcluir" class="btn excluir" value="excluir"/>
+            </div>
         </form>
     </div>
     <script src='js/main.js'></script>

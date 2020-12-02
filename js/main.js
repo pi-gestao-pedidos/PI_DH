@@ -50,7 +50,7 @@ const url = 'http://localhost:8080'
 
 /**
  * Função que busca recursos da API e retorna uma "promise"
- * @param {String} mapping Valor que será mapeado
+ * @param {String} mapping Endpoint
  * @param {String} method 'POST', 'GET', 'PUT', 'DELETE'
  * @param {Object} data Corpo da requisição
  */
@@ -85,7 +85,7 @@ function convertFormToArray(form) {
  * função que atualiza o perfil amarzenado
  */
 function updateStoredProfile() {
-    fetchApi('/empreendedor', 'GET')
+    fetchApi(('/empreendedor/'+ getStoredProfile().email), 'GET')
         .then(response => response.json())
         .then(json => {
             localStorage.setItem('profile', JSON.stringify(json))
@@ -96,7 +96,7 @@ function updateStoredProfile() {
 
 
 /**
- * Função que exibe foto e nome do usuário
+ * Função que exibe foto e nome do usuário no stored
  */
 function showProfile() {
     if (getStoredProfile() == null) return
@@ -118,7 +118,7 @@ function getStoredProfile() {
 
 
 /**
- * função que busca a foto
+ * função que busca a foto no stored
  */
 function getPic() {
     if (getStoredProfile() == null && getStoredProfile().foto == null) return
@@ -132,7 +132,7 @@ function getPic() {
 }
 
 /**
- * Função que exibe foto e nome do usuário
+ * Função que exibe foto do usuário do stored
  */
 async function showPic(element) {
     if (getStoredProfile() == null) return

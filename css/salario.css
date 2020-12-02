@@ -1,23 +1,36 @@
-main { justify-content: center }
+main {
+    display: block;
+    overflow: auto;
+}
 
-.salarios { 
-    padding: 3% 7.5%;
+#salarios {
     display: flex;
-    justify-content: space-evenly; 
+    flex-wrap: wrap;
 }
 
 .card {
-    background-image: url('../imgs/card1.png');
+    background-image: url(../imgs/card1.png);
     background-size: 100% 100%;
-    width: 33%;
+    width: 30%;
     text-align: center;
     padding: 3%;
+    margin: 1%;
     color: #8F959B;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divPersonalPic{
+    width: 8vw;
+    height: 8vw;
 }
 
 .personalPic {
-    width: 40%;
+    width: 8vw;
+    height: 8vw;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -50,25 +63,89 @@ main li { padding: 2% 0 }
     background-color: #FFF;
     color: #8F959B;
     width: 40%;
-    height: 70%;
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 2% 5%;
     text-align: center;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 input {
     font-size: 1.25em;
     padding: 1% 2%;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #8F959B;
+    border: solid thin #F3F3F7;
 }
 
-#divCheckbox{
+#divCheckbox {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.btnClose{
+    cursor: pointer;
+    font-size: 2em;
+    color: #8F959B;
+    align-self: flex-end;
+}
+
+label {
+    margin: 0 2%;
+}
+
+.displayCheck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5em;
+}
+
+.btnForm {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.excluir {
+    background-color:#F56058;
+}
+
+.excluir:hover {
+    background-color: #F00000;
+}
+
+.btn {
+    width: 40%;
+    border: none;
+    outline: none;
+}
+
+#inputsSalario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.labelCard {
+    margin-top: 10%;
+    align-self: baseline;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+#uploadBtn {
+    margin: 2% 0;
+}
+
+label.btn.editar {
+    margin: 2% 0;
+    align-self: center;
+    width: 50%;
 }

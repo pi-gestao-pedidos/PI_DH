@@ -36,6 +36,7 @@ async function login(options) {
     }
 }
 
+const nomeInput = document.getElementById('fpNome')
 const loginCadastro = document.getElementById('fpEmail')
 const senhaCadastro = document.getElementById('fpSenha')
 const confirmaSenha = document.getElementById('fpSenha2')
@@ -52,6 +53,7 @@ formCadastro.addEventListener('submit', (e) => {
     }
     else {
         const data = {
+            nome: nomeInput.value,
             email: loginCadastro.value,
             senha: confirmaSenha.value
         }
@@ -66,8 +68,15 @@ formCadastro.addEventListener('submit', (e) => {
             .then(response => response.json())
             .then(json => {
                 //Tratar no backend
-                if (json.message.includes("Email deve ser um endereço de e-mail bem formado")) {
-                    alert('Email deve ser um endereço de e-mail bem formado')
+                // if (json.message.includes("Email deve ser um endereço de e-mail bem formado")) {
+                //     alert('Email deve ser um endereço de e-mail bem formado')
+                // }
+                if (json.message) {
+                    console.log(json.status, json.message)
+                    if(json.message.includes("UNIQUE")){
+                        return alert('Usuário já cadastrado!')
+                    }
+                    return alert(json.message.split("'")[1])
                 }
                 return overlayOff('overlay')
             })
