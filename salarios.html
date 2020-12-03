@@ -53,17 +53,16 @@
             <label for="uploadBtn" class="btn editar">Trocar foto</label>
 
             <div id="inputsSalario">
-                <input type="hidden" name="idSemana" id="fsidSemana"/>
                 <input type="hidden" name="idPessoa" id="fsIdPessoa"/>
                 
                 <label for="fsNome" class="labelCard">nome*:</label>
                 <input type="text" name="nome" id="fsNome" placeholder="nome*" required/>
                 
                 <label for="fsSalario" class="labelCard">salário R$*:</label>
-                <input type="number" name="salario" id="fsSalario" placeholder="salário R$*" required/>
+                <input type="number" name="salario" id="fsSalario" placeholder="salário R$*" min="1" required/>
                 
                 <label for="fsHoras" class="labelCard">carga horária diária hrs*:</label>
-                <input type="number" name="cargahoraria" id="fsHoras" placeholder="carga horária diária hrs*" required/>
+                <input type="number" name="cargaHoraria" id="fsHoras" placeholder="carga horária diária hrs*" min="1" required/>
             </div>
             <p><strong>dias de trabalho</strong></p>
             <div id="divCheckbox">

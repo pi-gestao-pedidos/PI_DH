@@ -112,6 +112,7 @@ label {
 
 .excluir {
     background-color:#F56058;
+    display: none;
 }
 
 .excluir:hover {
@@ -148,4 +149,12 @@ label.btn.editar {
     margin: 2% 0;
     align-self: center;
     width: 50%;
+}
+
+input.error {
+    border: solid red;
+}
+
+input:valid {
+    border: solid thin #F3F3F7;
 }

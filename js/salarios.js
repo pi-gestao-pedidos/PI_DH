@@ -1,62 +1,60 @@
-//const detailsCard = document.querySelectorAll("#detailsCard li")
-
+let test
+let funcionarios = {}
+let cards = []
 const salarios = document.getElementById('salarios')
 
-let ul
-let cards = []
-let semana
-const semanas = fetchApi('/semana', 'GET')
+fetchApi('/funcionarios', 'GET')
     .then(res => {
         if (res.ok) {
             return res.json()
         }
-        return res.message
+        res.message
     })
     .then(json => {
-        semana = json
-        semana.forEach(element => {
+        funcionarios = json
+        funcionarios.forEach(element => {
+
+            if (element.semana == null && element.idPessoa == getStoredProfile().idPessoa) element = getStoredProfile()
+            if (element.semana == null) element.semana = {}
+
 
             const card = document.createElement('div')
             card.className = 'card'
             card.setAttribute('onclick', `getSalarios(${element.idPessoa})`)
             card.innerHTML = `
                 <div class="divPersonalPic">
-                    <img id=
-                    ${element.pessoa.idPessoa}
-                     class="personalPic" 
-                    src='imgs/avatar.png'
-                    alt="Imagem do Perfil"/>
+                    <img id="${element.idPessoa}" class="personalPic" src='imgs/avatar.png'alt="Imagem do Perfil"/>
                 </div>
                 <ul>
-                    <li><strong><p id="sNome">${element.pessoa.nome}</p></strong></li>
-                    <li><strong>Salário: </strong><p id="sSalario">${(element.pessoa.salario).toFixed(2)}</p></li>
-                    <li><strong>Carga Horária: </strong><p id="sCargaHoraria">${element.pessoa.cargaHoraria}hrs</p></li>
+                    <li><strong><p id="sNome">${element.nome}</p></strong></li>
+                    <li><strong>Salário: </strong><p id="sSalario">${(element.salario).toFixed(2)}</p></li>
+                    <li><strong>Carga Horária: </strong><p id="sCargaHoraria">${element.cargaHoraria}hrs</p></li>
                     <li><strong>Dias de trabalho: </strong><p id="sDiasDeTrabalho"></p></li>
                     <li>
                         <div id="divCheckbox" class="displayCheck">
-                           <input type="checkbox" name="fsDias"  value=${element.domingo} ${(element.domingo == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsDom">Dom</label>
-                           <input type="checkbox" name="fsDias"  value=${element.segunda} ${(element.segunda == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsSeg">Seg</label>
-                           <input type="checkbox" name="fsDias"  value=${element.terca} ${(element.terca == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsTer">Ter</label>
-                           <input type="checkbox" name="fsDias"  value=${element.quarta} ${(element.quarta == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsQua">Qua</label>
-                           <input type="checkbox" name="fsDias"  value=${element.quinta} ${(element.quinta == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsQui">Qui</label>
-                           <input type="checkbox" name="fsDias"  value=${element.sexta} ${(element.sexta == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsSex">Sex</label>
-                           <input type="checkbox" name="fsDias"  value=${element.sabado} ${(element.sabado == true)? 'checked' : '' } onclick="return false;"/>
-                           <label for="fsSab">Sab</label>
-                       </li>
-                    </div>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.domingo} ${(element.semana.domingo == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsDom">Dom</label>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.segunda} ${(element.semana.segunda == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsSeg">Seg</label>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.terca} ${(element.semana.terca == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsTer">Ter</label>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.quarta} ${(element.semana.quarta == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsQua">Qua</label>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.quinta} ${(element.semana.quinta == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsQui">Qui</label>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.sexta} ${(element.semana.sexta == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsSex">Sex</label>
+                        <input type="checkbox" name="fsDias"  value=${element.semana.sabado} ${(element.semana.sabado == true) ? 'checked' : ''} onclick="return false;"/>
+                        <label for="fsSab">Sab</label>
+                    </li>
                 </ul>
-                    `
+            `
 
-            card.foto = element.pessoa.foto
-            card.idPessoa = element.pessoa.idPessoa
+            card.foto = element.foto
+            card.idPessoa = element.idPessoa
             cards.push(card)
             salarios.appendChild(card)
+
         });
 
         exibeFoto()
@@ -69,6 +67,7 @@ const semanas = fetchApi('/semana', 'GET')
         salarios.appendChild(addCard)
     })
     .catch(err => console.error(err))
+
 
 function exibeFoto() {
     cards.forEach(async card => {
@@ -101,22 +100,25 @@ const funcionarioForm = document.getElementById('formSalarios')
 
 function getSalarios(id) {
     overlayOn('salariosOverlay')
-    const funcionario = semana.filter(item => item.idPessoa == id)
+    let funcionario = funcionarios.filter(item => item.idPessoa == id)[0];
+
+    (funcionario.idPessoa == getStoredProfile().idPessoa) ?
+        deleteBtn.style.display = "none" :
+        deleteBtn.style.display = "flex";
 
     funcionarioForm['fsImg'].src = document.getElementById(id).src
-    funcionarioForm['idSemana'].value = funcionario[0].idSemana
-    funcionarioForm['idPessoa'].value = funcionario[0].idPessoa
-    funcionarioForm['fsNome'].value = funcionario[0].pessoa.nome
-    funcionarioForm['fsSalario'].value = (funcionario[0].pessoa.salario).toFixed(2)
-    funcionarioForm['fsHoras'].value = funcionario[0].pessoa.cargaHoraria
+    funcionarioForm['idPessoa'].value = funcionario.idPessoa
+    funcionarioForm['fsNome'].value = funcionario.nome
+    funcionarioForm['fsSalario'].value = (funcionario.salario).toFixed(2)
+    funcionarioForm['fsHoras'].value = funcionario.cargaHoraria
 
-    funcionarioForm['fsDom'].checked = funcionario[0].domingo
-    funcionarioForm['fsSeg'].checked = funcionario[0].segunda
-    funcionarioForm['fsTer'].checked = funcionario[0].terca
-    funcionarioForm['fsQua'].checked = funcionario[0].quarta
-    funcionarioForm['fsQui'].checked = funcionario[0].quinta
-    funcionarioForm['fsSex'].checked = funcionario[0].sexta
-    funcionarioForm['fsSab'].checked = funcionario[0].sabado
+    funcionarioForm['fsDom'].checked = funcionario.semana.domingo
+    funcionarioForm['fsSeg'].checked = funcionario.semana.segunda
+    funcionarioForm['fsTer'].checked = funcionario.semana.terca
+    funcionarioForm['fsQua'].checked = funcionario.semana.quarta
+    funcionarioForm['fsQui'].checked = funcionario.semana.quinta
+    funcionarioForm['fsSex'].checked = funcionario.semana.sexta
+    funcionarioForm['fsSab'].checked = funcionario.semana.sabado
 }
 
 const btnSalvar = document.getElementById('btnSalvar')
@@ -126,19 +128,115 @@ const inputs = document.querySelectorAll('input[id^="fs"]')
 resetBtn.addEventListener('click', () => {
     overlayOff('salariosOverlay')
     funcionarioForm.reset()
+    deleteBtn.style.display = "none"
+    funcionarioForm['fsIdPessoa'].value = null
     funcionarioForm['fsImg'].src = "imgs/avatar.png"
 })
 
+
 btnSalvar.addEventListener('click', () => {
 
-    const data = {}
-    inputs.forEach(input => {
-        if (input.type == 'checkbox') data[input.name] = input.checked 
-        if (input.type == 'number') data[input.name] = input.valueAsNumber
-        if (input.type == 'hidden') data[input.name] = parseFloat(input.value)
-    })
-    console.log(data)
+    let validated = inputs.length
+    for (let input of inputs) {
+        input.checkValidity();
+        if (input.checkValidity()) validated--
+    }
+
+    if (validated == 0) {
+
+        const semanaData = {}
+        const funcionarioData = {}
+
+        inputs.forEach(input => {
+            if (input.type == 'checkbox') semanaData[input.name] = input.checked
+            if (input.type == 'number') funcionarioData[input.name] = input.valueAsNumber
+            if (input.type == 'text') funcionarioData[input.name] = input.value
+        })
+
+
+        funcionarioData.semana = semanaData
+        funcionarioData.idPessoa = funcionarioForm.idPessoa.value
+
+
+
+        if (funcionarioForm.idPessoa.value < 1) {
+            funcionarioData.foto = null
+            deleteBtn.style.display = "none"
+        } else {
+            funcionarioData.foto = cards.filter(element => element.idPessoa == funcionarioForm.idPessoa.value)[0].foto
+            deleteBtn.style.display = "block"
+        }
+
+
+        const urlPic = 'http://localhost:8080/download/'
+        if (uploadPic.files.length > 0) {
+            postPic(uploadedPic)
+                .then(async res => { (res.ok) ? await res.json() : await res.message })
+                .then(json => console.log(json))
+                .catch(err => console.error(err))
+            funcionarioData.foto = urlPic + uploadedPic.get('image').name
+        }
+
+        if (funcionarioForm.idPessoa.value == getStoredProfile().idPessoa) {
+            const empreendedor = { ...getStoredProfile(), ...funcionarioData }
+            empreendedor.usuario.nome = empreendedor.nome
+            console.log(empreendedor)
+            /***** ERROR  MAPEAMENTO ERRADO NO BACKEND ******/
+            // return fetchApi(('/empreendedor/' + empreendedor.idPessoa), 'PUT', empreendedor)
+            //     .then(async res => {
+            //         if (res.ok) {
+            //             await res.json()
+            //             alert('Cadastrado alterado!')
+            //             return document.location.reload()
+            //         }
+            //         alert('Erro ao alterar cadastro! ', res.statusText)
+            //     })
+            //     .catch(err => console.error(err))
+
+            return document.location.reload()
+        }
+
+
+        if (funcionarioData.idPessoa < 1) {
+            fetchApi('/funcionarios', 'POST', funcionarioData)
+                .then(async res => {
+                    if (res.ok) {
+                        await res.json()
+                        alert('Funcionário cadastrado!')
+                        return document.location.reload()
+                    }
+                    alert('Erro ao cadastrar! ', res.statusText)
+                    console.log(JSON.stringify(funcionarioData))
+                })
+                .catch(err => console.error(err))
+
+        } else {
+            fetchApi(('/funcionarios/' + funcionarioData.idPessoa), 'PUT', funcionarioData)
+                .then(async res => {
+                    if (res.ok) {
+                        await res.json()
+                        alert('Cadastrado alterado!')
+                        return document.location.reload()
+                    }
+                    alert('Erro ao alterar cadastro! ', res.statusText)
+                })
+                .catch(err => console.error(err))
+        }
+    }
 })
+
+const deleteBtn = document.getElementById('btnExcluir')
+
+deleteBtn.addEventListener('click', () => {
+    if (confirm('Esta operação não poderá ser desfeita. Deseja continuar?')) {
+        fetchApi(('/funcionarios/' + parseInt(funcionarioForm['idPessoa'].value)), 'DELETE')
+            .then(() => { alert('Cadastrado excluido!'); return document.location.reload() })
+    }
+})
+
+/* 
+*/
+
 
 for (let input of inputs) {
 
@@ -150,4 +248,28 @@ for (let input of inputs) {
         input.checkValidity();
     })
 
+}
+
+
+const pic = document.getElementById('fsImg')
+const uploadPic = document.getElementById('uploadBtn')
+let uploadedPic;
+
+uploadPic.addEventListener("change", (event) => {
+    const img = event.target.files[0]
+    pic.src = URL.createObjectURL(img)
+    const formData = new FormData()
+    formData.append("image", img)
+    uploadedPic = formData
+})
+
+async function postPic(formData) {
+    const res = await fetch('http://localhost:8080/upload', {
+        method: 'POST',
+        headers: {
+            'Authorization': "Bearer " + localStorage.getItem('token')
+        },
+        body: formData
+    })
+    return await res.json()
 }
