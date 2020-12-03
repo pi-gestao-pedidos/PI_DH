@@ -36,37 +36,7 @@
         </header>
         <main>
             <div id="itens"> 
-                <div class="itemDespesa">
-                    <img class="icon" src="imgs/costIcon.png"/>
-                    <p class="nomeItenCost">Eletricidade </p>
-                    <p class="precoDesp">R$ 0,00</p>
-                    <img class="icon" src="imgs/editIcon.png"/>
-                    <img class="icon" src="imgs/trashIcon.png"/>
-                </div>
-
-                <div class="itemDespesa">
-                    <img class="icon" src="imgs/costIcon.png"/>
-                    <p class="nomeItenCost">Aluguel</p>
-                    <p class="precoDesp">R$ 0,00</p>
-                    <img class="icon" src="imgs/editIcon.png"/>
-                    <img class="icon" src="imgs/trashIcon.png"/>
-                </div>
-            
-                <div class="itemDespesa">
-                    <img class="icon" src="imgs/costIcon.png"/>
-                    <p class="nomeItenCost">Telefone</p>
-                    <p class="precoDesp">R$ 0,00</p>
-                    <img class="icon" src="imgs/editIcon.png"/>
-                    <img class="icon" src="imgs/trashIcon.png"/>
-                </div>
-
-                <div class="itemDespesa">
-                    <img class="icon" src="imgs/costIcon.png"/>
-                    <p class="nomeItenCost">Internet</p>
-                    <p class="precoDesp">R$ 0,00</p>
-                    <img class="icon" src="imgs/editIcon.png"/>
-                    <img class="icon" src="imgs/trashIcon.png"/>
-                </div>
+                
             </div>
 
             <div id="containerFooter">
@@ -75,13 +45,23 @@
         </main>
     </div>
     <div id="despesasOverlay">
-        <form id="formDespesas" action="#" method="POST">
-            <span class="fechar" onclick="overlayOff('despesasOverlay')">x</span>
+        <form id="formDespesas">
+            <span id="resetBtn" class="fechar" >x</span>
+
+            <input type="hidden" name="idDespesa" value="" />
+            
+            <label for="fsNome" class="labelCard">nome da despesa*:</label>
             <input type="text" name="nome" id="fpNome" placeholder="nome da despesa:*" required/>
-            <input type="text" name="valor" id="fpValor" placeholder="valor R$:*" required/>
-            <div class="btnForm"><input class="btn salvar" type="submit" value="salvar"/></div>
+            
+            <label for="fpValor" class="labelCard">valor R$*:</label>
+            <input type="number" name="valor" id="fpValor" placeholder="valor R$:*" min="1" step="0.01" required/>
+           
+            <div class="btnForm">
+                <span id="salvarBtn" class="btn salvar">salvar</span>
+            </div>
         </form>
     </div>
     <script src='js/main.js'></script>
+    <script src='js/despesas.js'></script>
 </body>
 </html>

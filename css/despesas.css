@@ -1,7 +1,8 @@
-.itens{
-     height: 75%;
-     overflow: auto;
- }
+#itens {
+    display: block;
+    overflow: auto;
+    height: 75%;
+}
 
 .itemDespesa{
     display: flex;
@@ -47,32 +48,35 @@
 
 #formDespesas {
     background-color: #fff;
-    width: 40vw;
-    height: 50vh;
+    color: #8F959B;
+    width: 40%;
+    height: 50%;
+    padding: 2% 5%;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    justify-content: space-evenly;
-    align-items: center;
+    border-radius: 30px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.labelCard {
+    margin-top: 10%;
+    align-self: baseline;
 }
 
 input {
-    width: 45%;
+    width: 100%;
     font-size: 1.25em;
     padding: 1% 2%;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #8F959B;
+    border: solid thin #F3F3F3;
 }
 
 .fechar{
     cursor: pointer;
     font-size: 2em;
     color: #8F959B;
-    position: relative;
-    margin-left: 90%;
-    margin-top: 2%;
-    text-align: justify;  
+    align-self: flex-end;  
 }
 
 .btnForm {
@@ -82,3 +86,14 @@ input {
     margin-top: 5%
 }
 
+input.error {
+    border: solid red;
+}
+
+input:valid {
+    border: solid thin #F3F3F7;
+}
+
+.iconbtn {
+    cursor: pointer;
+}

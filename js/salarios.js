@@ -14,7 +14,7 @@ fetchApi('/funcionarios', 'GET')
         funcionarios = json
         funcionarios.forEach(element => {
 
-            if (element.semana == null && element.idPessoa == getStoredProfile().idPessoa) element = getStoredProfile()
+            if (element.idPessoa == getStoredProfile().idPessoa) return
             if (element.semana == null) element.semana = {}
 
 
