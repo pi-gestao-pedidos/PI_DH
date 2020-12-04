@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Clientes</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/clientes2.css'>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <img id="profilePic" src="imgs/avatar.png" alt="Imagem do Perfil">
+            <span id="profileName">Nome</span>
+        </div>
+
+        <ul>
+            <li><a href=home.html><img src="imgs/nav/homeIconNav.png" alt="Home" />Home</a></li>
+            <li><a href=precificar.html><img src="imgs/nav/pricingIconNav.png" alt="Precificar" />Precificar</a></li>
+            <li><a href=pedidos.html><img src="imgs/nav/orderIconNav.png" alt="Pedidos" />Pedidos</a></li>
+            <li><a href=produtos.html><img src="imgs/nav/productIconNav.png" alt="Produtos" />Produtos</a></li>
+            <li><a href=materiais.html><img src="imgs/nav/inputIconNav.png" alt="Materiais" />Materiais</a></li>
+            <li><a href=clientes.html class="active"><img src="imgs/nav/customersIconNav.png"alt="Clientes" />Clientes</a></li>
+            <li><a href=salarios.html><img src="imgs/nav/salaryIconNav.png" alt="Salários" />Salários</a></li>
+            <li><a href=despesas.html><img src="imgs/nav/costIconNav.png" alt="Despesas" />Despesas</a></li>
+            <li><a href=perfil.html><img src="imgs/nav/profileIconNav.png" alt="Perfil" />Perfil</a></li>
+            <li><a href=estatisticas.html><img src="imgs/nav/financesIconNav.png" alt="Estatísticas" />Estatísticas</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div id="container">
+
+        <header>
+            <img id="logo" src="imgs/logoBranco.svg" alt="logo" />
+            <h2>Clientes</h2>
+        </header>
+
+        <main>
+            <div id="containerMain">
+                <ul id="contactList">
+                    
+                </ul>
+            </div>
+
+            <div id="containerFooter">
+                <span class="btn editar" onclick="overlayOn('clienteOverlay')">novo cliente</span>
+            </div>
+        </main>
+
+    </div>
+    <div id="clienteOverlay">
+        <div id="containerForm">
+            <div id="containerRecord">
+                <div id="leftSide">
+                    <div class="divPersonalPic">
+                        <img id="pic" class="personalPic" src="imgs/avatar.png" alt="Imagem do Perfil" />
+                    </div>
+
+                    <input type="file" accept=".jpg,.jpeg,.png" id="uploadBtn" />
+                    <label for="uploadBtn" class="btn editar">Trocar foto</label>
+
+                    <div id="profileRecord">
+                        <form id="clienteForm">
+                            <input type="hidden" name="idPessoa" />
+
+                            <input type="text" name="nome" id="nome" placeholder="nome*" minlength="3" required />
+
+                            <input type="text" name="cpf" id="fpcpf" placeholder="Cpf:"
+                                pattern="^(\d{3}.\d{3}.\d{3}-\d{2})$" title="CPF deve seguir o padrão NNN.NNN.NNN-NN" />
+
+                            <input type="text" name="razaoSocial" id="fpRazaoSocial" placeholder="Razão Social" />
+
+                            <input type="text" name="cnpj" id="fpCnpj" placeholder="Cnpj:"
+                                pattern="^(\d{2}.\d{3}.\d{3}/\d{4}-\d{2})$"
+                                title="CNPJ deve seguir o padrão NN.NNN.NNN.NNNN-NN" />
+
+                            <input type="email" name="email" id="fpEmail" placeholder="email"
+                                pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" />
+
+                        </form>
+                        <span id="submit" class="btn salvar">salvar</span>
+                    </div>
+                </div>
+
+                <div id="rightSide">
+                    <span id="resetBtn" class="close">x</span>
+                    <div id="enderecoRecord">
+                        <form id="phoneForm">
+                            <input type="hidden" name="idTelefone" />
+
+                            <input type="text" name="ddd" id="fpDDD" placeholder="DDD" size="2" pattern="^(\d{2})$"
+                                title="DDD deve ter dois dígitos" />
+
+                            <input type="tel" name="numero" id="fpTelefone" placeholder="telefone" size="10"
+                                pattern="^(\d?\d{4}-\d{4})$"
+                                title="Número deve seguir o padrão NNNNN-NNNN OU NNNN-NNNN" />
+
+                        </form>
+
+                        <form id="addressForm">
+
+                            <input type="hidden" name="idEndereco" />
+
+                            <input type="text" name="cep" id="cep" value="" placeholder="Cep:" size="10" maxlength="9"
+                                pattern="^\d{5}-\d{3}$" onblur="pesquisacep(this.value)" />
+
+                            <input type="text" name="logradouro" id="logradouro" placeholder="Rua:" size="60" />
+
+                            <div id="enderecoNumero">
+
+                                <input type="text" name="numero" id="numero" placeholder="Número:" size="60" />
+
+                                <input type="text" name="complemento" id="complemento" placeholder="Complemento:" />
+
+                            </div>
+
+                            <input type="text" name="bairro" id="bairro" placeholder="Bairro:" size="40" />
+
+                            <input type="text" name="localidade" id="localidade" placeholder="Cidade:" size="40" />
+
+                            <input type="text" name="uf" id="uf" placeholder="Estado:" size="2" />
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src='js/main.js'></script>
+    <script src='js/clientes.js'></script>
+    <script src='js/viacep.js'></script>
+</body>
+
+</html>
