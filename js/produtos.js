@@ -107,6 +107,7 @@ function carregaTodosProdutos() {
                         <img class="iconLixeira" src="imgs/trashIcon.png" onclick="deletaProduto(${item.idProduto}, 'produto${item.idProduto}')"/>
                         `
                 produtos.appendChild(itens)
+                console.log(json)
             })
         })
         .catch(err => console.log(err))
@@ -134,7 +135,7 @@ function novoProduto() {
             <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" placeholder="nome*" required />
             <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" placeholder="descrição">
             <div class="row" style="gap: 3%;">
-                <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
+                <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min="1" step="1" name="tempo" id="fptempo"
                     placeholder="min p/ produzir 1 unid" required />
                 <input style="margin-top:1%; text-align: center;" class="column dadosDBoverlay" onchange="calculaPrecoCustoTotal()" type="number" name="lucro" step="0.01" min="0.00" id="fpLucro" placeholder="lucro(%)">
             </div>
@@ -211,9 +212,9 @@ function alteraProduto(idProduto) {
                     <input class="row dadosDBoverlay" type="text" name="nome" id="fpNome" value=${json.nome} required />
                     <input class="row dadosDBoverlay" type="text" name="descricao" id="fpDescricao" value=${json.descricao}>
                     <div class="row" style="gap: 3%;">
-                        <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min=".25" step="0.25" name="tempo" id="fptempo"
+                        <input style="text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" min="1" step="1" name="tempo" id="fptempo"
                         value=${json.tempo} required />
-                        <input style="margin-top:1%; text-align: center; onchange="calculaPrecoCustoTotal()" class="column dadosDBoverlay" type="number" name="lucro" step="0.01" min="0.00" id="fpLucro" value=${json.lucro}>
+                        <input style="margin-top:1%; text-align: center;" class="column dadosDBoverlay" type="number" onchange="calculaPrecoCustoTotal()" name="lucro" step="0.01" min="0.00" id="fpLucro" value=${json.lucro}>
 
                     </div>
                     <div class="row" style="gap: 0%;">
@@ -301,7 +302,7 @@ function addMaterial(idMaterial) {
                 itens.id = 'material' + json.idMaterial
                 itens.innerHTML = `
                         <p class="column7">${json.nome} </p>
-                        <input class="column2" style="border-style: none; font-size: 1.2vw; padding: 0%; margin-bottom: 0%; text-align: center; color: #8F959B;" type="number" min="1" name="producao" id="fpProducao"
+                        <input class="column2" style="border-style: none; font-size: 1.2vw; padding: 0%; margin-bottom: 0%; text-align: center; color: #8F959B;" type="number" min="1" name="quantidade" id="fpProducao"
                     value="1" onchange="alterarQuantidade(${materiais.length - 1}, event)" required />
                         <p class="column4">${json.unidadeMedida} </p>
                         <img class="column icon" style="cursor: pointer; height: 70%; padding: 1%; margin-right: 1%;"
@@ -331,6 +332,7 @@ async function calculaPrecoCustoTotal() {
     // precoCustoTotal = (((custohora * produto.tempo) + custoMateriais + custoVariaveis) * (1+(custoPercentual / 100)))
     precoCustoTotal = (((custohora * produto.tempo) + (parseFloat(custoMateriais) + custoVariaveis)) * (1 + (custoPercentual / 100)))
     const putcustoTotal = document.getElementById('fpcusto')
+    console.log(produto)
 
     precoFinalTotal = (precoCustoTotal * (1 + (produto.lucro / 100)))
 
@@ -373,7 +375,7 @@ async function postProduto() {
     produto.precoCusto = precoCustoTotal
     produto.precoSugerido = precoFinalTotal
     produto.despesas = []
-    precoCustoTotal.materiais = []
+    produto.materiais = []
     const responseProduto = await fetchApi('/produtos', 'POST', produto)
     const jsonProduto = await responseProduto.json()
     await putProduto(jsonProduto.idProduto)
