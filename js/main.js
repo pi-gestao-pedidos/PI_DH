@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     carregar()
-    showProfile()
+    // showProfile()
 })
 
 /**

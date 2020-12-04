@@ -25,6 +25,7 @@
     border: 2px solid #8F959B;
     border-radius: 10px;
     flex: 1;
+    max-height: 30%;
 }
 
 .row6ConteudoTabela{
@@ -155,12 +156,16 @@
     color: #8F959B
 }
 
+.pedidosOverlay{
+    display:none;
+}
+
 #pedidosOverlay {
     background-color: #0008;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    display: none;
+    /* display: none; */
     justify-content: center;
     align-items: center;
 }
@@ -284,6 +289,8 @@ input {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    max-height: 310px;
+    overflow: auto;
 }
 
 .dropbtnFilter {
@@ -312,6 +319,19 @@ input {
 
 .show {
     display: flex;
+}
+
+.btnFilter {
+    /* border-radius: 7em; */
+    /* padding: 1% 2%; */
+    font-size: 1.25em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cliente{
+    height: 40px;
+    padding: 1px 10px;
 }
 
 
@@ -364,14 +384,15 @@ input {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-
+.editarValorOverlay{
+    display: none;
+}
 
 #editarValorOverlay {
     background-color: #0008;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    display: none;
     justify-content: center;
     align-items: center;
 }

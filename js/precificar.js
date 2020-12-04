@@ -10,6 +10,7 @@ let materiais = []
 let custohora
 let precoCustoTotal
 let precoFinalTotal
+let projecaoCusto
 
 
 function juntaArray(){
@@ -165,8 +166,16 @@ async function calculaPrecoCustoTotal() {
     console.log(precoFinalTotal)
     putcustoTotal.innerText = 'Custo Total = ' + precoCustoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
+    const tituloProdFinal = document.getElementById('tituloProdFinal')
+    tituloProdFinal.innerText = produto.nome
+
     const putfinalTotal = document.getElementById('resultadoProduto')
     putfinalTotal.innerText = 'Preco Sugerido = ' + precoFinalTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
+    precoProjecao = precoFinalTotal - precoCustoTotal
+    const putfinalProjecao = document.getElementById('fpprojecao')
+    putfinalProjecao.innerText = 'Projeção de lucro = ' + precoProjecao.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
     //console.log(precoC.precoCustoTotal)
 }
 
@@ -190,6 +199,7 @@ function limpaListas(){
     despesas = []
     putcustoTotal = 0.00
     precoFinalTotal = 0.00
+    precoProjecao = 0.00
     custohora = undefined
     var item = document.getElementById('formProduto');
     item.parentNode.removeChild(item);

@@ -107,6 +107,7 @@ function carregaTodosProdutos() {
                         <img class="iconLixeira" src="imgs/trashIcon.png" onclick="deletaProduto(${item.idProduto}, 'produto${item.idProduto}')"/>
                         `
                 produtos.appendChild(itens)
+                console.log(json)
             })
         })
         .catch(err => console.log(err))
